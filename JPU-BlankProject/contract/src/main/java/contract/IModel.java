@@ -21,8 +21,7 @@ public interface IModel {
 	/**
 	 * Load the message.
 	 *
-	 * @param code
-	 *          the code
+	 * @param code the code
 	 */
 	void loadHelloWorld(String code);
 
