@@ -12,19 +12,19 @@ import java.util.Properties;
 class DBProperties extends Properties {
 
 	/** The Constant serialVersionUID. */
-	private static final long		serialVersionUID			= 5289057445894568927L;
+	private static final long serialVersionUID = 5289057445894568927L;
 
 	/** The Constant PROPERTIES_FILE_NAME. */
-	private final static String	PROPERTIES_FILE_NAME	= "model.properties";
+	private final static String PROPERTIES_FILE_NAME = "model.properties";
 
 	/** The url. */
-	private String							url										= "";
+	private String url = "";
 
 	/** The login. */
-	private String							login									= "";
+	private String login = "";
 
 	/** The password. */
-	private String							password							= "";
+	private String password = "";
 
 	/**
 	 * Instantiates a new DB properties.
@@ -58,8 +58,7 @@ class DBProperties extends Properties {
 	/**
 	 * Sets the url.
 	 *
-	 * @param url
-	 *          the new url
+	 * @param url the new url
 	 */
 	private void setUrl(final String url) {
 		this.url = url;
@@ -77,8 +76,7 @@ class DBProperties extends Properties {
 	/**
 	 * Sets the login.
 	 *
-	 * @param login
-	 *          the new login
+	 * @param login the new login
 	 */
 	private void setLogin(final String login) {
 		this.login = login;
@@ -96,8 +94,7 @@ class DBProperties extends Properties {
 	/**
 	 * Sets the password.
 	 *
-	 * @param password
-	 *          the new password
+	 * @param password the new password
 	 */
 	private void setPassword(final String password) {
 		this.password = password;

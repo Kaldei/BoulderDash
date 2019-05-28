@@ -11,10 +11,10 @@ import java.sql.SQLException;
  */
 final class DBConnection {
 	/** The instance. */
-	private static DBConnection	INSTANCE	= null;
+	private static DBConnection INSTANCE = null;
 
 	/** The connection. */
-	private Connection					connection;
+	private Connection connection;
 
 	/**
 	 * Instantiates a new DB connection.
@@ -44,7 +44,8 @@ final class DBConnection {
 		final DBProperties dbProperties = new DBProperties();
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			this.connection = DriverManager.getConnection(dbProperties.getUrl(), dbProperties.getLogin(), dbProperties.getPassword());
+			this.connection = DriverManager.getConnection(dbProperties.getUrl(), dbProperties.getLogin(),
+					dbProperties.getPassword());
 		} catch (final ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (final SQLException e) {

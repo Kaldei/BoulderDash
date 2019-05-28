@@ -10,8 +10,7 @@ import entity.Entity;
  *
  * @author Jean-Aymeric Diet
  *
- * @param <E>
- *          the element type
+ * @param <E> the element type
  */
 abstract class DAOEntity<E extends Entity> {
 
@@ -21,10 +20,8 @@ abstract class DAOEntity<E extends Entity> {
 	/**
 	 * Instantiates a new DAO entity.
 	 *
-	 * @param connection
-	 *          the connection
-	 * @throws SQLException
-	 *           the SQL exception
+	 * @param connection the connection
+	 * @throws SQLException the SQL exception
 	 */
 	public DAOEntity(final Connection connection) throws SQLException {
 		this.connection = connection;
@@ -42,8 +39,7 @@ abstract class DAOEntity<E extends Entity> {
 	/**
 	 * Creates the.
 	 *
-	 * @param entity
-	 *          the entity
+	 * @param entity the entity
 	 * @return true, if successful
 	 */
 	public abstract boolean create(E entity);
@@ -51,8 +47,7 @@ abstract class DAOEntity<E extends Entity> {
 	/**
 	 * Delete.
 	 *
-	 * @param entity
-	 *          the entity
+	 * @param entity the entity
 	 * @return true, if successful
 	 */
 	public abstract boolean delete(E entity);
@@ -60,8 +55,7 @@ abstract class DAOEntity<E extends Entity> {
 	/**
 	 * Update.
 	 *
-	 * @param entity
-	 *          the entity
+	 * @param entity the entity
 	 * @return true, if successful
 	 */
 	public abstract boolean update(E entity);
@@ -69,8 +63,7 @@ abstract class DAOEntity<E extends Entity> {
 	/**
 	 * Find.
 	 *
-	 * @param id
-	 *          the id
+	 * @param id the id
 	 * @return the e
 	 */
 	public abstract E find(int id);
@@ -78,8 +71,7 @@ abstract class DAOEntity<E extends Entity> {
 	/**
 	 * Find.
 	 *
-	 * @param code
-	 *          the code
+	 * @param code the code
 	 * @return the e
 	 */
 	public abstract E find(String code);
