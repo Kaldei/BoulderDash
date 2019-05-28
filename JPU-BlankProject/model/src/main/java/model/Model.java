@@ -24,10 +24,10 @@ public final class Model extends Observable implements IModel {
 	}
 
 	/**
-     * Gets the hello world.
-     *
-     * @return the hello world
-     */
+	 * Gets the hello world.
+	 *
+	 * @return the hello world
+	 */
 	/*
 	 * (non-Javadoc)
 	 *
@@ -38,11 +38,10 @@ public final class Model extends Observable implements IModel {
 	}
 
 	/**
-     * Sets the hello world.
-     *
-     * @param helloWorld
-     *            the new hello world
-     */
+	 * Sets the hello world.
+	 *
+	 * @param helloWorld the new hello world
+	 */
 	private void setHelloWorld(final HelloWorld helloWorld) {
 		this.helloWorld = helloWorld;
 		this.setChanged();
@@ -50,11 +49,10 @@ public final class Model extends Observable implements IModel {
 	}
 
 	/**
-     * Load hello world.
-     *
-     * @param code
-     *            the code
-     */
+	 * Load hello world.
+	 *
+	 * @param code the code
+	 */
 	/*
 	 * (non-Javadoc)
 	 *
@@ -70,10 +68,10 @@ public final class Model extends Observable implements IModel {
 	}
 
 	/**
-     * Gets the observable.
-     *
-     * @return the observable
-     */
+	 * Gets the observable.
+	 *
+	 * @return the observable
+	 */
 	/*
 	 * (non-Javadoc)
 	 *

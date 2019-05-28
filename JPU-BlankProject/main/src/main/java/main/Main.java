@@ -16,20 +16,19 @@ import view.View;
  */
 public abstract class Main {
 
-    /**
-     * The main method.
-     *
-     * @param args
-     *            the arguments
-     */
-    public static void main(final String[] args) {
-        final Model model = new Model();
-        final View view = new View(model);
-        final Controller controller = new Controller(view, model);
-        view.setController(controller);
-        //coucou
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 */
+	public static void main(final String[] args) {
+		final Model model = new Model();
+		final View view = new View(model);
+		final Controller controller = new Controller(view, model);
+		view.setController(controller);
+		// coucou
 
-        controller.control();
-        controller.orderPerform(ControllerOrder.English);
-    }
+		controller.control();
+		controller.orderPerform(ControllerOrder.English);
+	}
 }

@@ -8,23 +8,20 @@ package entity;
 public class HelloWorld extends Entity {
 
 	/** The id. */
-	private int			id;
+	private int id;
 
 	/** The key. */
-	private String	key;
+	private String key;
 
 	/** The message. */
-	private String	message;
+	private String message;
 
 	/**
 	 * Instantiates a new hello world.
 	 *
-	 * @param id
-	 *          the id
-	 * @param key
-	 *          the key
-	 * @param message
-	 *          the message
+	 * @param id      the id
+	 * @param key     the key
+	 * @param message the message
 	 */
 	public HelloWorld(final int id, final String key, final String message) {
 		this.setId(id);
@@ -51,8 +48,7 @@ public class HelloWorld extends Entity {
 	/**
 	 * Sets the id.
 	 *
-	 * @param id
-	 *          the new id
+	 * @param id the new id
 	 */
 	public void setId(final int id) {
 		this.id = id;
@@ -70,8 +66,7 @@ public class HelloWorld extends Entity {
 	/**
 	 * Sets the key.
 	 *
-	 * @param key
-	 *          the new key
+	 * @param key the new key
 	 */
 	public void setKey(final String key) {
 		this.key = key;
@@ -89,8 +84,7 @@ public class HelloWorld extends Entity {
 	/**
 	 * Sets the message.
 	 *
-	 * @param message
-	 *          the new message
+	 * @param message the new message
 	 */
 	public void setMessage(final String message) {
 		this.message = message;

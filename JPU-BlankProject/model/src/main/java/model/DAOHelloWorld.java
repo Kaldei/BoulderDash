@@ -17,10 +17,8 @@ class DAOHelloWorld extends DAOEntity<HelloWorld> {
 	/**
 	 * Instantiates a new DAO hello world.
 	 *
-	 * @param connection
-	 *          the connection
-	 * @throws SQLException
-	 *           the SQL exception
+	 * @param connection the connection
+	 * @throws SQLException the SQL exception
 	 */
 	public DAOHelloWorld(final Connection connection) throws SQLException {
 		super(connection);
