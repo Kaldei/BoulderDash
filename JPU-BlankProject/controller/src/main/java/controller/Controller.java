@@ -1,61 +1,41 @@
 package controller;
 
-import contract.ControllerOrder;
-import contract.IController;
+import java.io.IOException;
+
+import contract.IOrderPerformer;
+import contract.IBoulderDashController;
 import contract.IModel;
 import contract.IView;
+import contract.UserOrder;
 
 /**
  * The Class Controller.
  */
-public final class Controller implements IController {
+public final class Controller implements IBoulderDashController, IOrderPerformer{
 
+	/** The Constant speed */
+	private static final int speed = 500;
+	
 	/** The view. */
 	private IView view;
 
 	/** The model. */
 	private IModel model;
 
+	/** The stack order */
+	private UserOrder stackOrder;
+	
 	/**
 	 * Instantiates a new controller.
 	 *
 	 * @param view  the view
 	 * @param model the model
 	 */
+	
 	public Controller(final IView view, final IModel model) {
 		this.setView(view);
 		this.setModel(model);
-	}
-
-	/**
-	 * Control.
-	 */
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see contract.IController#control()
-	 */
-	public void control() {
-		this.view.printMessage(
-				"Appuyer sur les touches 'E', 'F', 'D' ou 'I', pour afficher Hello world dans la langue d votre choix.");
-	}
-
-	/**
-	 * Sets the view.
-	 *
-	 * @param pview the new view
-	 */
-	private void setView(final IView pview) {
-		this.view = pview;
-	}
-
-	/**
-	 * Sets the model.
-	 *
-	 * @param model the new model
-	 */
-	private void setModel(final IModel model) {
-		this.model = model;
+		this.clearStackOrder();
 	}
 
 	/**
@@ -68,23 +48,71 @@ public final class Controller implements IController {
 	 *
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
-	public void orderPerform(final ControllerOrder controllerOrder) {
-		switch (controllerOrder) {
-		case English:
-			this.model.loadHelloWorld("GB");
-			break;
-		case Francais:
-			this.model.loadHelloWorld("FR");
-			break;
-		case Deutsch:
-			this.model.loadHelloWorld("DE");
-			break;
-		case Indonesia:
-			this.model.loadHelloWorld("ID");
-			break;
-		default:
-			break;
+	@Override
+	public final void play() throws InterruptedException{
+		while (this.getModel().Player.die() != true) {
+			Thread.sleep(speed);	 
+			switch (this.getStackOrder()) {
+				case UP:
+					this.getModel().Player.moveUp();
+					break;
+				case DOWN:
+					this.getModel().Player.moveDown();
+					break;
+				case RIGHT:
+					this.getModel().Player.moveRight();
+					break;
+				case LEFT:
+					this.getModel().Player.moveLeft();
+					break;
+				case NOP: 
+				default: 
+					this.getModel().Player.doNothing();
+					break;
+				}
+				this.clearStackOrder();
+			} 
 		}
+
+	@Override
+	public final void orderPerform(final UserOrder userOrder) throws IOException {
+		this.setStackOrder(userOrder);
+	}
+   	 
+	private IView getView() {
+		return this.view;
+	}
+	
+	
+	private void setView(final IView view) {
+		this.view = view;
 	}
 
+	private IModel getModel() {
+		return this.model;
+	}
+	
+	private void setModel(final IModel model) {
+		this.model = model;
+	}
+	
+
+	private UserOrder getStackOrder() {
+		return this.stackOrder;
+	}
+	
+	private void setStackOrder(final UserOrder stackOrder) {
+		this.stackOrder = stackOrder;
+	}
+	
+	private void clearStackOrder() {
+		this.stackOrder = UserOrder.NOP;
+	}
+
+	@Override
+	public IOrderPerformer getOrderPerformer() {
+		return this;
+	}
+	
+	
 }
