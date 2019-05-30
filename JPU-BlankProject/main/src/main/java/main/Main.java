@@ -6,7 +6,8 @@ package main;
 
 import java.io.IOException;
 
-import contract.ControllerOrder;
+
+import contract.UserOrder;
 import controller.Controller;
 import model.BoulderDashModel;
 import view.View;
@@ -36,6 +37,6 @@ public abstract class Main {
 		// coucou
 
 		controller.control();
-		controller.orderPerform(ControllerOrder.English);
+		controller.orderPerform(UserOrder.UP);
 	}
 }
