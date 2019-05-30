@@ -12,6 +12,6 @@ public class Rock extends Mobile {
      * Instantiates a new obstacle.
      */
     Rock() {
-        super(SPRITE, Permeability.BLOCKING);
+        super(SPRITE, Permeability.PUSHING);
     }
 }

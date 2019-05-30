@@ -13,6 +13,6 @@ public class Diamond extends Mobile{
 	     * Instantiates a new obstacle.
 	     */
 	    Diamond() {
-	        super(SPRITE, Permeability.BLOCKING);
+	        super(SPRITE, Permeability.DISAPPEAR);
 	    }
 	}
