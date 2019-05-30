@@ -11,7 +11,7 @@ public class Ground extends MotionlessElement{
      * Instantiates a new obstacle.
      */
     Ground() {
-        super(SPRITE, Permeability.PENETRABLE);
+        super(SPRITE, Permeability.DISAPPEAR);
     }
 
 }

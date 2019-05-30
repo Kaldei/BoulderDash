@@ -12,6 +12,6 @@ public class Door extends MotionlessElement {
 	     * Instantiates a new obstacle.
 	     */
 	    Door() {
-	        super(SPRITE, Permeability.BLOCKING);
+	        super(SPRITE, Permeability.WIN);
 	    }
 	}
