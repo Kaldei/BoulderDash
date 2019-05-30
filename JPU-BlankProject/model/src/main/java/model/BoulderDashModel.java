@@ -61,6 +61,7 @@ public class BoulderDashModel implements IModel {
      * @see fr.exia.insanevehicles.model.IInsaneVehiclesModel#getMyVehicle()
      */
     
+    @Override
     public final  IMobile getMyPlayer() {
         return this.myPlayer;
     }

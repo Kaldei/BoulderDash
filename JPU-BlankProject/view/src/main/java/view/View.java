@@ -296,4 +296,10 @@ public class View implements Runnable, KeyListener, IView {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void followMyVehicle() {
+		// TODO Auto-generated method stub
+		
+	}
 }
