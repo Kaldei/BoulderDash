@@ -1,34 +1,172 @@
 package view;
 
+import java.awt.Dimension;
+import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
-
-import javax.swing.SwingUtilities;
+import java.awt.event.KeyListener;
+import java.io.IOException;
+import java.util.Observable;
 
 import contract.ControllerOrder;
 import contract.IController;
 import contract.IModel;
 import contract.IView;
 
+import javax.swing.SwingUtilities;
+import fr.exia.showboard.BoardFrame;
+
+
+
 /**
  * The Class View.
  *
- * @author Jean-Aymeric Diet
+ * @author Arthur Caldeireiro based on the work of Jean-Aymeric Diet
  */
-public final class View implements IView, Runnable {
+public final class View extends Observable implements IView, Runnable, KeyListener {
+	
+	
+	/**************************************************Interface********************************************/
+	private IModel model;
+	private IController controller;
+	
+	/**************************************************VarFrame********************************************/
+	public static final int width = 10;
 
-	/** The frame. */
-	private final ViewFrame viewFrame;
+	public static final int height = 10;
 
+	private static final int timeLoop = 100;
+
+	private static final int sizeFrame = 400;
+
+	private static final int widthBetweenFrame = 20;
+
+	private static final Rectangle fullView = new Rectangle(0, 0, width, height);
+
+	private final BoardFrame frameGameView;
+	//private final ViewFrame viewFrame;
+
+	
+	
+	/**************************************************Constructor*******************************************/
 	/**
 	 * Instantiates a new view.
 	 *
 	 * @param model the model
 	 */
 	public View(final IModel model) {
-		this.viewFrame = new ViewFrame(model);
+		this.frameGameView = new BoardFrame("Game View");
+		
 		SwingUtilities.invokeLater(this);
 	}
 
+
+	
+	/**************************************************Message********************************************/
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see contract.IView#printMessage(java.lang.String)
+	 */
+	public void printMessage(final String message) {
+		//this.viewFrame.printMessage(message);
+	}
+
+	
+	
+	/**************************************************Frame********************************************/
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see java.lang.Runnable#run()
+	 */
+	@Override
+	public void run() {
+		this.setModel(model); 									// !!! A verif set le modele !!!
+
+		frameGameView.setDimension(new Dimension(width, height));
+		frameGameView.setDisplayFrame(fullView);
+		frameGameView.setLocation(frameGameView.getX() + frameGameView.getWidth() + widthBetweenFrame,
+				frameGameView.getY());
+		frameGameView.setSize(sizeFrame, sizeFrame);
+		frameGameView.setLocationRelativeTo(null); 				// Centre la fenetre
+		
+		frameGameView.addKeyListener(this);
+
+		//this.frameConfigure(frameGameView);
+		//this.frameGameView.setVisible(false);
+	}
+
+	
+	/**************************************************Display********************************************/
+	public final void frameConfigure(final BoardFrame frame) {
+		for (int x = 0; x < width; x++) {
+			for (int y = 0; y < height; y++) {
+				//frame.addSquare(null, x, y); 		Motionless
+				//frame.addPawn(null);				Mobile
+
+				this.addObserver(frame.getObserver());
+				frame.setVisible(true);
+			}
+		}
+	}
+
+	
+	/**************************************************Observer********************************************/
+	public final void move() throws InterruptedException {
+		for (;;) {
+
+			this.setChanged();
+			this.notifyObservers();
+
+			Thread.sleep(timeLoop);
+		}
+	}
+
+	
+	
+	/**************************************************Model********************************************/
+	/**
+	 * Gets the model.
+	 *
+	 * @return the model
+	 */
+	protected IModel getModel() {
+		return this.model;
+	}
+
+	/**
+	 * Sets the model.
+	 *
+	 * @param model the new model
+	 */
+	private void setModel(final IModel model) {
+		this.model = model;
+	}
+	
+	
+	
+	/**************************************************Controller********************************************/
+	/**
+	 * Sets the controller.
+	 *
+	 * @param controller the new controller
+	 */
+	public void setController(final IController controller) {
+		this.setController(controller);
+	}
+	
+	/**
+	 * Gets the controller.
+	 *
+	 * @return the controller
+	 */
+	private IController getController() {
+		return this.controller;
+	}
+	
+	
+	
+	/**************************************************KeyListener********************************************/
 	/**
 	 * Key code to controller order.
 	 *
@@ -37,43 +175,44 @@ public final class View implements IView, Runnable {
 	 */
 	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode) {
 		switch (keyCode) {
-		case KeyEvent.VK_G:
-			return ControllerOrder.English;
-		case KeyEvent.VK_F:
-			return ControllerOrder.Francais;
-		case KeyEvent.VK_D:
-			return ControllerOrder.Deutsch;
-		case KeyEvent.VK_I:
-			return ControllerOrder.Indonesia;
+		case KeyEvent.VK_UP:
+			return ControllerOrder.UP;
+		case KeyEvent.VK_DOWN:
+			return ControllerOrder.DOWN;
+		case KeyEvent.VK_LEFT:
+			return ControllerOrder.LEFT;
+		case KeyEvent.VK_RIGHT:
+			return ControllerOrder.RIGHT;
 		default:
-			return ControllerOrder.English;
+			return ControllerOrder.NOP;
 		}
 	}
+	
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see java.awt.event.KeyListener#keyTyped(java.awt.event.KeyEvent)
+	 */
+	public void keyTyped(final KeyEvent e) {
+
+	}
 
 	/*
 	 * (non-Javadoc)
 	 *
-	 * @see contract.IView#printMessage(java.lang.String)
+	 * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
 	 */
-	public void printMessage(final String message) {
-		this.viewFrame.printMessage(message);
+	public void keyPressed(final KeyEvent e) {
+		this.getController().orderPerform(View.keyCodeToControllerOrder(e.getKeyCode()));
 	}
 
 	/*
 	 * (non-Javadoc)
 	 *
-	 * @see java.lang.Runnable#run()
+	 * @see java.awt.event.KeyListener#keyReleased(java.awt.event.KeyEvent)
 	 */
-	public void run() {
-		this.viewFrame.setVisible(true);
+	public void keyReleased(final KeyEvent e) {
+
 	}
 
-	/**
-	 * Sets the controller.
-	 *
-	 * @param controller the new controller
-	 */
-	public void setController(final IController controller) {
-		this.viewFrame.setController(controller);
-	}
 }
