@@ -14,7 +14,7 @@ import contract.UserOrder;
 public final class Controller implements IBoulderDashController, IOrderPerformer{
 
 	/** The Constant speed */
-	private static final int speed = 500;
+	private static final int speed = 200;
 	
 	/** The view. */
 	private IView view;
