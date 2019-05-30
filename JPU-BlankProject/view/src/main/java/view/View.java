@@ -5,219 +5,295 @@ import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.IOException;
-import java.util.Observable;
+
+import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 
 import contract.IOrderPerformer;
-import contract.IModel;
 import contract.IView;
 import contract.UserOrder;
-
-import javax.swing.SwingUtilities;
+import entity.IMap;
+import entity.mobile.IMobile;
 import fr.exia.showboard.BoardFrame;
 
-
-
 /**
- * The Class View.
+ * <h1>The InsaneVehiclesView Class.</h1>
  *
- * @author Arthur Caldeireiro based on the work of Jean-Aymeric Diet
+ * @author Jade
+ * @version 0.4
  */
-public final class View extends Observable implements IView, Runnable, KeyListener {
-	
-	
-	/**************************************************Interface********************************************/
-	private IModel model;
-	private IOrderPerformer controller;
-	
-	/**************************************************VarFrame********************************************/
-	public static final int width = 10;
+public class View implements Runnable, KeyListener, IView {
 
-	public static final int height = 10;
+    /** The Constant roadView. */
+    private static final int roadView   = 10;
 
-	private static final int timeLoop = 100;
+    /** The Constant squareSize. */
+    private static final int squareSize = 50;
 
-	private static final int sizeFrame = 400;
+    /** The Constant closeView. */
+    private Rectangle        closeView;
 
-	private static final int widthBetweenFrame = 20;
+    /** The road. */
+    private IMap            map;
 
-	private static final Rectangle fullView = new Rectangle(0, 0, width, height);
+    /** My vehicle. */
+    private IMobile          myPlayer;
 
-	private final BoardFrame frameGameView;
-	//private final ViewFrame viewFrame;
+    /** The view. */
+    private int              view;
 
-	
-	
-	/**************************************************Constructor*******************************************/
-	/**
-	 * Instantiates a new view.
-	 *
-	 * @param model the model
-	 */
-	public View(final IModel model) {
-		this.frameGameView = new BoardFrame("Game View");
-		
-		SwingUtilities.invokeLater(this);
-	}
+    /** The order performer. */
+    private IOrderPerformer  orderPerformer;
 
+    /**
+     * Instantiates a new insane vehicles View.
+     *
+     * @param road
+     *            the road
+     * @param myVehicle
+     *            the my vehicle
+     * @throws IOException
+     *             Signals that an I/O exception has occurred.
+     */
+    public View(final IMap map, final IMobile myPlayer) throws IOException {
+        this.setView(roadView);
+        this.setMap(map);
+        this.setMyPlayer(myPlayer);
+        this.getMyPlayer().getSprite().loadImage();
+        this.setCloseView(new Rectangle(0, this.getMyPlayer().getY(), this.getMap().getWidth(), roadView));
+        SwingUtilities.invokeLater(this);
+    }
 
-	
-	/**************************************************Message********************************************/
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see contract.IView#printMessage(java.lang.String)
-	 */
-	public void printMessage(final String message) {
-		//this.viewFrame.printMessage(message);
-	}
+    /*
+     * (non-Javadoc)
+     * @see fr.exia.insanevehicles.view.IInsaneVehiclesView#displayMessage(java.lang.String)
+     */
+    public final void displayMessage(final String message) {
+        JOptionPane.showMessageDialog(null, message);
+    }
 
-	
-	
-	/**************************************************Frame********************************************/
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see java.lang.Runnable#run()
-	 */
+    /*
+     * (non-Javadoc)
+     * @see java.lang.Runnable#run()
+     */
+    @Override
+    public final void run() {
+        final BoardFrame boardFrame = new BoardFrame("Close view");
+        boardFrame.setDimension(new Dimension(this.getMap().getWidth(), this.getMap().getHeight()));
+        boardFrame.setDisplayFrame(this.closeView);
+        boardFrame.setSize(this.closeView.width * squareSize, this.closeView.height * squareSize);
+        boardFrame.setHeightLooped(false);
+        boardFrame.addKeyListener(this);
+        boardFrame.setFocusable(true);
+        boardFrame.setFocusTraversalKeysEnabled(false);
+
+        for (int x = 0; x < this.getMap().getWidth(); x++) {
+            for (int y = 0; y < this.getMap().getHeight(); y++) {
+                boardFrame.addSquare(this.map.getOnTheMapXY(x, y), x, y);
+            }
+        }
+        boardFrame.addPawn(this.getMyPlayer());
+
+        this.getMap().getObservable().addObserver(boardFrame.getObserver());
+        this.followMyPlayer();
+
+        boardFrame.setVisible(true);
+    }
+
+    /**
+     * Prints the road and the player's vehicle in the console.
+     *
+     * @param yStart
+     *            the y start
+     */
+    public final void show(final int yStart) {
+        int y = yStart % this.getMap().getHeight();
+        for (int view = 0; view < this.getView(); view++) {
+            for (int x = 0; x < this.getMap().getWidth(); x++) {
+                if ((x == this.getMyPlayer().getX()) && (y == yStart)) {
+                    System.out.print(this.getMyPlayer().getSprite().getConsoleImage());
+                } else {
+                    System.out.print(this.getMap().getOnTheMapXY(x, y).getSprite().getConsoleImage());
+                }
+            }
+            y = (y + 1) % this.getMap().getHeight();
+            System.out.print("\n");
+        }
+    }
+
+    /**
+     * Key code to user order.
+     *
+     * @param keyCode
+     *            the key code
+     * @return the user order
+     */
+    private static UserOrder keyCodeToUserOrder(final int keyCode) {
+        UserOrder userOrder;
+        switch (keyCode) {
+            case KeyEvent.VK_RIGHT:
+                userOrder = UserOrder.RIGHT;
+                break;
+            case KeyEvent.VK_LEFT:
+                userOrder = UserOrder.LEFT;
+                break;
+            case KeyEvent.VK_UP:
+                userOrder = UserOrder.UP;
+                break;
+            case KeyEvent.VK_DOWN:
+                userOrder = UserOrder.DOWN;
+                break;
+            default:
+                userOrder = UserOrder.NOP;
+                break;
+        }
+        return userOrder;
+    }
+
+    /*
+     * (non-Javadoc)
+     * @see java.awt.event.KeyListener#keyTyped(java.awt.event.KeyEvent)
+     */
+    @Override
+    public void keyTyped(final KeyEvent keyEvent) {
+        // Nop
+    }
+
+    /*
+     * (non-Javadoc)
+     * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
+     */
+    @Override
+    public final void keyPressed(final KeyEvent keyEvent) {
+        try {
+            this.getOrderPerformer().orderPerform(keyCodeToUserOrder(keyEvent.getKeyCode()));
+        } catch (final IOException exception) {
+            exception.printStackTrace();
+        }
+    }
+
+    /*
+     * (non-Javadoc)
+     * @see java.awt.event.KeyListener#keyReleased(java.awt.event.KeyEvent)
+     */
+    @Override
+    public void keyReleased(final KeyEvent keyEvent) {
+        // Nop
+    }
+
+    /*
+     * (non-Javadoc)
+     * @see fr.exia.insanevehicles.view.IInsaneVehiclesView#followMyvehicle()
+     */
+    public final void followMyPlayer() {
+        this.getCloseView().y = this.getMyPlayer().getY() - 1;
+    }
+
+    /**
+     * Gets the road.
+     *
+     * @return the road
+     */
+    private IMap getMap() {
+        return this.map;
+    }
+
+    /**
+     * Sets the road.
+     *
+     * @param road
+     *            the new road
+     * @throws IOException
+     *             Signals that an I/O exception has occurred.
+     */
+    private void setMap(final IMap map) throws IOException {
+        this.map = map;
+        for (int x = 0; x < this.getMap().getWidth(); x++) {
+            for (int y = 0; y < this.getMap().getHeight(); y++) {
+              this.getMap().getOnTheMapXY(x, y).getSprite().loadImage();
+        }
+        }
+    }
+
+    /**
+     * Gets my vehicle.
+     *
+     * @return my vehicle
+     */
+    private IMobile getMyPlayer() {
+        return this.myPlayer;
+    }
+
+    /**
+     * Sets my vehicle.
+     *
+     * @param myVehicle
+     *            my new vehicle
+     */
+    private void setMyPlayer(final IMobile myPlayer) {
+        this.myPlayer = myPlayer;
+    }
+
+    /**
+     * Gets the view.
+     *
+     * @return the view
+     */
+    private int getView() {
+        return this.view;
+    }
+
+    /**
+     * Sets the view.
+     *
+     * @param view
+     *            the new view
+     */
+    private void setView(final int view) {
+        this.view = view;
+    }
+
+    /**
+     * Gets the close view.
+     *
+     * @return the close view
+     */
+    private Rectangle getCloseView() {
+        return this.closeView;
+    }
+
+    /**
+     * Sets the close view.
+     *
+     * @param closeView
+     *            the new close view
+     */
+    private void setCloseView(final Rectangle closeView) {
+        this.closeView = closeView;
+    }
+
+    /**
+     * Gets the order performer.
+     *
+     * @return the order performer
+     */
+    private IOrderPerformer getOrderPerformer() {
+        return this.orderPerformer;
+    }
+
+    /**
+     * Sets the order performer.
+     *
+     * @param orderPerformer
+     *            the new order performer
+     */
+    public final void setOrderPerformer(final IOrderPerformer orderPerformer) {
+        this.orderPerformer = orderPerformer;
+    }
+
 	@Override
-	public void run() {
-		this.setModel(model); 									// !!! A verif set le modele !!!
-
-		frameGameView.setDimension(new Dimension(width, height));
-		frameGameView.setDisplayFrame(fullView);
-		frameGameView.setLocation(frameGameView.getX() + frameGameView.getWidth() + widthBetweenFrame,
-				frameGameView.getY());
-		frameGameView.setSize(sizeFrame, sizeFrame);
-		frameGameView.setLocationRelativeTo(null); 				// Centre la fenetre
+	public void printMessage(String message) {
+		// TODO Auto-generated method stub
 		
-		frameGameView.addKeyListener(this);
-
-		//this.frameConfigure(frameGameView);
-		//this.frameGameView.setVisible(false);
 	}
-
-	
-	/**************************************************Display********************************************/
-	public final void frameConfigure(final BoardFrame frame) {
-		for (int x = 0; x < width; x++) {
-			for (int y = 0; y < height; y++) {
-				//frame.addSquare(null, x, y); 		Motionless
-				//frame.addPawn(null);				Mobile
-
-				this.addObserver(frame.getObserver());
-				frame.setVisible(true);
-			}
-		}
-	}
-
-	
-	/**************************************************Observer********************************************/
-	public final void move() throws InterruptedException {
-		for (;;) {
-
-			this.setChanged();
-			this.notifyObservers();
-
-			Thread.sleep(timeLoop);
-		}
-	}
-
-	
-	
-	/**************************************************Model********************************************/
-	/**
-	 * Gets the model.
-	 *
-	 * @return the model
-	 */
-	protected IModel getModel() {
-		return this.model;
-	}
-
-	/**
-	 * Sets the model.
-	 *
-	 * @param model the new model
-	 */
-	private void setModel(final IModel model) {
-		this.model = model;
-	}
-	
-	
-	
-	/**************************************************Controller********************************************/
-	/**
-	 * Sets the controller.
-	 *
-	 * @param controller the new controller
-	 */
-	public void setController(final IOrderPerformer controller) {
-		this.setController(controller);
-	}
-	
-	/**
-	 * Gets the controller.
-	 *
-	 * @return the controller
-	 */
-	private IOrderPerformer getController() {
-		return this.controller;
-	}
-	
-	
-	
-	/**************************************************KeyListener********************************************/
-	/**
-	 * Key code to controller order.
-	 *
-	 * @param keyCode the key code
-	 * @return the controller order
-	 */
-	protected static UserOrder keyCodeToControllerOrder(final int keyCode) {
-		switch (keyCode) {
-		case KeyEvent.VK_UP:
-			return UserOrder.UP;
-		case KeyEvent.VK_DOWN:
-			return UserOrder.DOWN;
-		case KeyEvent.VK_LEFT:
-			return UserOrder.LEFT;
-		case KeyEvent.VK_RIGHT:
-			return UserOrder.RIGHT;
-		default:
-			return UserOrder.NOP;
-		}
-	}
-	
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see java.awt.event.KeyListener#keyTyped(java.awt.event.KeyEvent)
-	 */
-	public void keyTyped(final KeyEvent e) {
-
-	}
-
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
-	 */
-	public void keyPressed(final KeyEvent e) {
-		try {
-			this.getController().orderPerform(View.keyCodeToControllerOrder(e.getKeyCode()));
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-	}
-
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see java.awt.event.KeyListener#keyReleased(java.awt.event.KeyEvent)
-	 */
-	public void keyReleased(final KeyEvent e) {
-
-	}
-
 }
