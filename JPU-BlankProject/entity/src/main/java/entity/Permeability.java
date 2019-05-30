@@ -8,8 +8,17 @@ package entity;
  */
 public enum Permeability {
 
-    /** The blocking. */
-    BLOCKING,
-    /** The penetrable. */
-    PENETRABLE;
+	/** The blocking. */
+	BLOCKING,
+	/** The penetrable. */
+	PENETRABLE,
+
+	KILLING, 
+	
+	PUSHING, 
+	
+	WIN, 
+	
+	DISAPPEAR;
+
 }
