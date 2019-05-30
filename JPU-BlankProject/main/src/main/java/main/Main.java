@@ -29,14 +29,14 @@ public abstract class Main {
 	
 	private static String txt = "C:\\Users\\calde\\git\\Project-5\\JPU-BlankProject\\model\\src\\main\\resources\\map.txt";
 	
-	public static void main(final String[] args) throws IOException {
+	public static void main(final String[] args) throws IOException, InterruptedException {
 		final BoulderDashModel model = new BoulderDashModel(txt,1,1);
 		final View view = new View(model);
 		final Controller controller = new Controller(view, model);
 		view.setController(controller);
 		// coucou
 
-		controller.control();
-		controller.orderPerform(UserOrder.UP);
+		controller.play();
+		controller.orderPerform(UserOrder.NOP);
 	}
 }
