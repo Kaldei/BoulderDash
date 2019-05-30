@@ -7,10 +7,10 @@ import java.awt.event.KeyListener;
 import java.io.IOException;
 import java.util.Observable;
 
-import contract.ControllerOrder;
-import contract.IController;
+import contract.IOrderPerformer;
 import contract.IModel;
 import contract.IView;
+import contract.UserOrder;
 
 import javax.swing.SwingUtilities;
 import fr.exia.showboard.BoardFrame;
@@ -27,7 +27,7 @@ public final class View extends Observable implements IView, Runnable, KeyListen
 	
 	/**************************************************Interface********************************************/
 	private IModel model;
-	private IController controller;
+	private IOrderPerformer controller;
 	
 	/**************************************************VarFrame********************************************/
 	public static final int width = 10;
@@ -151,7 +151,7 @@ public final class View extends Observable implements IView, Runnable, KeyListen
 	 *
 	 * @param controller the new controller
 	 */
-	public void setController(final IController controller) {
+	public void setController(final IOrderPerformer controller) {
 		this.setController(controller);
 	}
 	
@@ -160,7 +160,7 @@ public final class View extends Observable implements IView, Runnable, KeyListen
 	 *
 	 * @return the controller
 	 */
-	private IController getController() {
+	private IOrderPerformer getController() {
 		return this.controller;
 	}
 	
@@ -173,18 +173,18 @@ public final class View extends Observable implements IView, Runnable, KeyListen
 	 * @param keyCode the key code
 	 * @return the controller order
 	 */
-	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode) {
+	protected static UserOrder keyCodeToControllerOrder(final int keyCode) {
 		switch (keyCode) {
 		case KeyEvent.VK_UP:
-			return ControllerOrder.UP;
+			return UserOrder.UP;
 		case KeyEvent.VK_DOWN:
-			return ControllerOrder.DOWN;
+			return UserOrder.DOWN;
 		case KeyEvent.VK_LEFT:
-			return ControllerOrder.LEFT;
+			return UserOrder.LEFT;
 		case KeyEvent.VK_RIGHT:
-			return ControllerOrder.RIGHT;
+			return UserOrder.RIGHT;
 		default:
-			return ControllerOrder.NOP;
+			return UserOrder.NOP;
 		}
 	}
 	
@@ -203,7 +203,12 @@ public final class View extends Observable implements IView, Runnable, KeyListen
 	 * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
 	 */
 	public void keyPressed(final KeyEvent e) {
-		this.getController().orderPerform(View.keyCodeToControllerOrder(e.getKeyCode()));
+		try {
+			this.getController().orderPerform(View.keyCodeToControllerOrder(e.getKeyCode()));
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 
 	/*
