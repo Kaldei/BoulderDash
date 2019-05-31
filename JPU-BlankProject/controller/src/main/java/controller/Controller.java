@@ -71,6 +71,7 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 					break;
 				}
 				this.clearStackOrder();
+				this.getView().followMyPlayer();
 			} 
 		}
 
