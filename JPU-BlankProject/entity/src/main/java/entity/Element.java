@@ -73,5 +73,5 @@ public abstract class Element implements IElement {
 	 */
 	public final Image getImage() {
 		return this.getSprite().getImage();
-	}
+	}	
 }
