@@ -26,7 +26,7 @@ public abstract class MotionlessElementsFactory {
 		return DOOR;
 	}
 
-	public static MotionlessElement createMacadam() {
+	public static MotionlessElement createBackground() {
 		return BACKGROUND;
 	}
 	
