@@ -34,6 +34,8 @@ public interface IMap {
      * @return the on the road XY
      */
     IElement getOnTheMapXY(int x, int y);
+    
+    void setOnTheMapXY(IElement element, final int x, final int y);
 
     /**
      * Sets the mobile has changed.

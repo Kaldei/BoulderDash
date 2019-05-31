@@ -5,6 +5,7 @@ import java.io.IOException;
 import entity.IMap;
 import entity.Permeability;
 import entity.Sprite;
+import entity.motionless.MotionlessElementsFactory;
 
 
 /**
@@ -58,6 +59,9 @@ public class MyPlayer extends Mobile {
 	public final void moveLeft() {
 		super.moveLeft();
 		this.setSprite(spriteTurnLeft);
+		removeGround();
+		getDiamond();
+		this.setHasMoved();
 	}
 
 	/*
@@ -69,14 +73,25 @@ public class MyPlayer extends Mobile {
 	public final void moveRight() {
 		super.moveRight();
 		this.setSprite(spriteTurnRight);
+		removeGround();
+		getDiamond();
+		this.setHasMoved();
 	}
+	
 	public final void moveDown() {
 		super.moveDown();
 		this.setSprite(spriteTurnDown);
+		removeGround();
+		getDiamond();
+		this.setHasMoved();
 	}
+	
 	public final void moveUp() {
 		super.moveUp();
 		this.setSprite(spriteTurnUp);
+		removeGround();
+		getDiamond();
+		this.setHasMoved();
 	}
 
 	/*
@@ -100,4 +115,24 @@ public class MyPlayer extends Mobile {
 		super.doNothing();
 		this.setSprite(sprite);
 	}
+	
+	public void removeGround() {
+		if (this.getMap().getOnTheMapXY(this.getX(), this.getY()).getPermeability() == Permeability.DISAPPEAR) {
+			this.getMap().setOnTheMapXY(MotionlessElementsFactory.getFromFileSymbol('.'), this.getX(), this.getY());
+			this.setHasMoved();
+		}
+	}
+	
+	int nb_diamonds;
+	
+	public void getDiamond() {
+		if (this.getMap().getOnTheMapXY(this.getX(), this.getY()).getPermeability() == Permeability.DIAMOND) {
+			this.getMap().setOnTheMapXY(MotionlessElementsFactory.getFromFileSymbol('*'), this.getX(), this.getY());
+			nb_diamonds ++;
+			System.out.println("You have " + nb_diamonds + " Diamonds !");
+			this.setHasMoved();
+		}
+	}
+	
+	
 }

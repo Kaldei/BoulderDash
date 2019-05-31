@@ -85,9 +85,11 @@ public final class View extends Observable implements IView, Runnable, KeyListen
 	 * 
 	 * @see java.lang.Runnable#run()
 	 */
+	
+	
 	@Override
 	public final void run() {
-		final BoardFrame boardFrame = new BoardFrame("Game View");
+		
 		boardFrame.setDimension(new Dimension(this.getmap().getWidth(), this.getmap().getHeight()));
 
 		boardFrame.setDisplayFrame(this.gameView);
@@ -115,7 +117,8 @@ public final class View extends Observable implements IView, Runnable, KeyListen
 		this.followMyPlayer();
 		boardFrame.setVisible(true);
 	}
-
+	
+	final BoardFrame boardFrame = new BoardFrame("Game View");
 	/**************************************************
 	 * Sprite Getting
 	 ********************************************/
@@ -317,4 +320,18 @@ public final class View extends Observable implements IView, Runnable, KeyListen
 	public final void setOrderPerformer(final IOrderPerformer orderPerformer) {
 		this.orderPerformer = orderPerformer;
 	}
+	
+	// VERY IMPORTANT ANTHO OUBLIE PAS TA RACE IVIEW
+	public void test1() {
+		for (int x = 0; x < this.getmap().getWidth(); x++) {
+			for (int y = 0; y < this.getmap().getHeight(); y++) {
+				boardFrame.addSquare(this.map.getOnTheMapXY(x, y), x, y);
+			}
+		}
+		boardFrame.addPawn(this.getmyPlayer());
+
+		this.getmap().getObservable().addObserver(boardFrame.getObserver()); 
+	}
+	
+	
 }

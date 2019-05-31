@@ -136,7 +136,7 @@ class Map extends Observable implements IMap {
 	 * @param x       the x
 	 * @param y       the y
 	 */
-	private void setOnTheMapXY(final IElement element, final int x, final int y) {
+	public void setOnTheMapXY(final IElement element, final int x, final int y) {
 		this.onTheMap[x][y] = element;
 	}
 
