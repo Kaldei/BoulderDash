@@ -85,6 +85,9 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 			this.clearStackOrder();
 			this.getView().followMyPlayer();
 			
+			// ALED SA MARCHE BG
+			getView().test1();
+			
 			if ((getModel().getMap().getOnTheMapXY((getModel().getMyPlayer().getX()), ((getModel().getMyPlayer().getY())))
 					.getPermeability() == Permeability.WIN)) {
 				getView().displayMessage("You win, Congratulations !");
