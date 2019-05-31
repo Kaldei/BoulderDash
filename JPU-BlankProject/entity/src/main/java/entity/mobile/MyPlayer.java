@@ -85,7 +85,7 @@ public class MyPlayer extends Mobile {
 	 * @see fr.exia.insanevehicles.model.element.mobile.Mobile#die()
 	 */
 	@Override
-	protected final void die() {
+	public final void die() {
 		super.die();
 		this.setSprite(spriteExplode);
 	}
