@@ -7,7 +7,6 @@ package main;
 import java.io.IOException;
 
 import contract.IBoulderDashController;
-import contract.IController;
 import contract.IModel;
 import contract.IView;
 import contract.UserOrder;
@@ -30,7 +29,7 @@ public abstract class Main {
 	 *
 	 */
 	
-	private static String txt = "C:\\Users\\User\\Documents\\GitHub\\Project-5\\JPU-BlankProject\\model\\src\\main\\resources\\map.txt";
+	private static String txt = "C:\\Users\\calde\\git\\Project-5\\JPU-BlankProject\\model\\src\\main\\resources\\map.txt";
 	
 	public static void main(final String[] args) throws IOException, InterruptedException {
 		final IModel model = new BoulderDashModel(txt,1,1);

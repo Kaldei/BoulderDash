@@ -5,36 +5,39 @@ import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.IOException;
-
-import javax.swing.JOptionPane;
-import javax.swing.SwingUtilities;
+import java.util.Observable;
 
 import contract.IOrderPerformer;
 import contract.IView;
 import contract.UserOrder;
-import entity.IMap;
 import entity.mobile.IMobile;
+
+import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 import fr.exia.showboard.BoardFrame;
 
-/**
- * <h1>The InsaneVehiclesView Class.</h1>
- *
- * @author Jade
- * @version 0.4
- */
-public class View implements Runnable, KeyListener, IView {
+import entity.IMap;
 
-    /** The Constant roadView. */
-    private static final int roadView   = 10;
+
+/**
+ * The Class View.
+ *
+ * @author Arthur Caldeireiro based on the work of Jean-Aymeric Diet
+ */
+public final class View extends Observable implements IView, Runnable, KeyListener {
+	
+	
+	 /** The Constant mapView. */
+    private static final int mapView   = 10;
 
     /** The Constant squareSize. */
     private static final int squareSize = 50;
 
-    /** The Constant closeView. */
-    private Rectangle        closeView;
+    /** The Constant gameView. */
+    private Rectangle        gameView;
 
-    /** The road. */
-    private IMap            map;
+    /** The map. */
+    private IMap             map;
 
     /** My vehicle. */
     private IMobile          myPlayer;
@@ -48,79 +51,100 @@ public class View implements Runnable, KeyListener, IView {
     /**
      * Instantiates a new insane vehicles View.
      *
-     * @param road
-     *            the road
-     * @param myVehicle
+     * @param map
+     *            the map
+     * @param myPlayer
      *            the my vehicle
      * @throws IOException
      *             Signals that an I/O exception has occurred.
      */
     public View(final IMap map, final IMobile myPlayer) throws IOException {
-        this.setView(roadView);
-        this.setMap(map);
-        this.setMyPlayer(myPlayer);
-        this.getMyPlayer().getSprite().loadImage();
-        this.setCloseView(new Rectangle(0, this.getMyPlayer().getY(), this.getMap().getWidth(), roadView));
-        SwingUtilities.invokeLater(this);
+        this.setView(mapView);
+        this.setmap(map);
+        this.setmyPlayer(myPlayer);
+        this.getmyPlayer().getSprite().loadImage();
+        this.setgameView(new Rectangle(0, 0, 10, 10));
+        SwingUtilities.invokeLater(this);//Display the view
     }
 
+    
+    /**************************************************Message Pane********************************************/
     /*
      * (non-Javadoc)
      * @see fr.exia.insanevehicles.view.IInsaneVehiclesView#displayMessage(java.lang.String)
      */
+    @Override
     public final void displayMessage(final String message) {
         JOptionPane.showMessageDialog(null, message);
     }
 
+    /**************************************************Board Settings********************************************/
     /*
      * (non-Javadoc)
      * @see java.lang.Runnable#run()
      */
     @Override
     public final void run() {
-        final BoardFrame boardFrame = new BoardFrame("Close view");
-        boardFrame.setDimension(new Dimension(this.getMap().getWidth(), this.getMap().getHeight()));
-        boardFrame.setDisplayFrame(this.closeView);
-        boardFrame.setSize(this.closeView.width * squareSize, this.closeView.height * squareSize);
+        final BoardFrame boardFrame = new BoardFrame("Game View");
+        boardFrame.setDimension(new Dimension(this.getmap().getWidth(), this.getmap().getHeight()));
+        
+        boardFrame.setDisplayFrame(this.gameView);
+        
+        
+        boardFrame.setSize(this.gameView.width * squareSize, this.gameView.height * squareSize);     
         boardFrame.setHeightLooped(false);
+        
+        
+       
+        
+        //KeyListener
         boardFrame.addKeyListener(this);
-        boardFrame.setFocusable(true);
-        boardFrame.setFocusTraversalKeysEnabled(false);
+        //Focusable allows you to focus the keyboard inputs 
+        boardFrame.setFocusable(true); 
+        //boardFrame.setFocusTraversalKeysEnabled(true); /???\
 
-        for (int x = 0; x < this.getMap().getWidth(); x++) {
-            for (int y = 0; y < this.getMap().getHeight(); y++) {
+        
+        //Get elements on the map
+        for (int x = 0; x < this.getmap().getWidth(); x++) {
+            for (int y = 0; y < this.getmap().getHeight(); y++) {
                 boardFrame.addSquare(this.map.getOnTheMapXY(x, y), x, y);
             }
         }
-        boardFrame.addPawn(this.getMyPlayer());
+        boardFrame.addPawn(this.getmyPlayer());
 
-        this.getMap().getObservable().addObserver(boardFrame.getObserver());
+        
+        
+        this.getmap().getObservable().addObserver(boardFrame.getObserver());
+        
+        //FOLLOW PLAYER
         this.followMyPlayer();
-
         boardFrame.setVisible(true);
     }
 
+    
+    /**************************************************Sprite Getting********************************************/
     /**
-     * Prints the road and the player's vehicle in the console.
+     * Prints the map and the player's vehicle in the console.
      *
      * @param yStart
      *            the y start
      */
     public final void show(final int yStart) {
-        int y = yStart % this.getMap().getHeight();
+        int y = yStart % this.getmap().getHeight();
         for (int view = 0; view < this.getView(); view++) {
-            for (int x = 0; x < this.getMap().getWidth(); x++) {
-                if ((x == this.getMyPlayer().getX()) && (y == yStart)) {
-                    System.out.print(this.getMyPlayer().getSprite().getConsoleImage());
+            for (int x = 0; x < this.getmap().getWidth(); x++) {
+                if ((x == this.getmyPlayer().getX()) && (y == yStart)) {
+                    System.out.print(this.getmyPlayer().getSprite().getConsoleImage());
                 } else {
-                    System.out.print(this.getMap().getOnTheMapXY(x, y).getSprite().getConsoleImage());
+                    System.out.print(this.getmap().getOnTheMapXY(x, y).getSprite().getConsoleImage());
                 }
             }
-            y = (y + 1) % this.getMap().getHeight();
+            y = (y + 1) % this.getmap().getHeight();
             System.out.print("\n");
         }
     }
 
+	/**************************************************KeyListener********************************************/
     /**
      * Key code to user order.
      *
@@ -180,38 +204,45 @@ public class View implements Runnable, KeyListener, IView {
     public void keyReleased(final KeyEvent keyEvent) {
         // Nop
     }
+    
+    
 
+    /********************************************FOLLOW PLAYER**************************************************/
     /*
      * (non-Javadoc)
-     * @see fr.exia.insanevehicles.view.IInsaneVehiclesView#followMyvehicle()
+     * @see fr.exia.insanevehicles.view.IInsaneVehiclesView#followmyPlayer()
      */
+    @Override
     public final void followMyPlayer() {
-        this.getCloseView().y = this.getMyPlayer().getY() - 1;
+        this.getgameView().x = this.getmyPlayer().getX() - this.gameView.height/2;
+        this.getgameView().y = this.getmyPlayer().getY() - this.gameView.width/2;
     }
 
     /**
-     * Gets the road.
+     * Gets the map.
      *
-     * @return the road
+     * @return the map
      */
-    private IMap getMap() {
+    private IMap getmap() {
         return this.map;
     }
 
+    
+    
     /**
-     * Sets the road.
+     * Sets the map.
      *
-     * @param road
-     *            the new road
+     * @param map
+     *            the new map
      * @throws IOException
      *             Signals that an I/O exception has occurred.
      */
-    private void setMap(final IMap map) throws IOException {
+    private void setmap(final IMap map) throws IOException {
         this.map = map;
-        for (int x = 0; x < this.getMap().getWidth(); x++) {
-            for (int y = 0; y < this.getMap().getHeight(); y++) {
-              this.getMap().getOnTheMapXY(x, y).getSprite().loadImage();
-        }
+        for (int x = 0; x < this.getmap().getWidth(); x++) {
+            for (int y = 0; y < this.getmap().getHeight(); y++) {
+                this.getmap().getOnTheMapXY(x, y).getSprite().loadImage();
+            }
         }
     }
 
@@ -220,17 +251,17 @@ public class View implements Runnable, KeyListener, IView {
      *
      * @return my vehicle
      */
-    private IMobile getMyPlayer() {
+    private IMobile getmyPlayer() {
         return this.myPlayer;
     }
 
     /**
      * Sets my vehicle.
      *
-     * @param myVehicle
+     * @param myPlayer
      *            my new vehicle
      */
-    private void setMyPlayer(final IMobile myPlayer) {
+    private void setmyPlayer(final IMobile myPlayer) {
         this.myPlayer = myPlayer;
     }
 
@@ -258,18 +289,18 @@ public class View implements Runnable, KeyListener, IView {
      *
      * @return the close view
      */
-    private Rectangle getCloseView() {
-        return this.closeView;
+    private Rectangle getgameView() {
+        return this.gameView;
     }
 
     /**
      * Sets the close view.
      *
-     * @param closeView
+     * @param gameView
      *            the new close view
      */
-    private void setCloseView(final Rectangle closeView) {
-        this.closeView = closeView;
+    private void setgameView(final Rectangle gameView) {
+        this.gameView = gameView;
     }
 
     /**
@@ -290,16 +321,4 @@ public class View implements Runnable, KeyListener, IView {
     public final void setOrderPerformer(final IOrderPerformer orderPerformer) {
         this.orderPerformer = orderPerformer;
     }
-
-	@Override
-	public void printMessage(String message) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void followMyVehicle() {
-		// TODO Auto-generated method stub
-		
-	}
 }
