@@ -121,7 +121,7 @@ abstract class Mobile extends Element implements IMobile {
 	/**
 	 * Sets the has moved.
 	 */
-	private void setHasMoved() {
+	protected void setHasMoved() {
 		this.getMap().setMobileHasChanged();
 	}
 

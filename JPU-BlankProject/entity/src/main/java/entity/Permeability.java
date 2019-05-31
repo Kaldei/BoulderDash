@@ -19,6 +19,8 @@ public enum Permeability {
 	
 	WIN, 
 	
-	DISAPPEAR;
+	DISAPPEAR,
+	
+	DIAMOND;
 
 }
