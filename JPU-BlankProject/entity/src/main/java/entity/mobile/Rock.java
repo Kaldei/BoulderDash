@@ -14,4 +14,14 @@ public class Rock extends Mobile {
     Rock() {
         super(SPRITE, Permeability.PUSHING);
     }
+    
+    @Override
+    public void moveRight() {
+    	super.moveRight();
+    }
+    
+    @Override
+    public void moveLeft() {
+    	super.moveLeft();
+    }
 }
