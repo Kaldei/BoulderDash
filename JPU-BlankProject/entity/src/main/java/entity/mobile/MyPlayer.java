@@ -165,18 +165,7 @@ public class MyPlayer extends Mobile {
 		}
 	}
 	
-	 int nbc = 0;
-	public void coordCailloux() {
-		for(int x=0; x < this.getMap().getWidth(); x++)  {
-			for(int y=0; y < this.getMap().getHeight(); y++) {
-				if(getMap().getOnTheMapXY(x, y).getPermeability() == Permeability.PUSHING) {
-					if(nbc <= 4) {
-						nbc++;
-					System.out.println("CAILLOUX n°" + nbc + " Coord = " + "x : " + x + " y : " + y);
-				}}
-			}
-		}
-	}
+
 	
 	
 

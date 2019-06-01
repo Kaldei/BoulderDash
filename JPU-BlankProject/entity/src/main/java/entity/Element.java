@@ -2,8 +2,6 @@ package entity;
 
 import java.awt.Image;
 
-import fr.exia.showboard.ISquare;
-
 public abstract class Element implements IElement {
 
 	/**

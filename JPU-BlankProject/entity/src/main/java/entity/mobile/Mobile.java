@@ -201,16 +201,7 @@ abstract class Mobile extends Element implements IMobile {
 		this.setHasMoved();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see fr.exia.insanevehicles.model.element.mobile.IMobile#isCrashed()
-	 */
-	// @Override
-	// public Boolean isCrashed() {
-	// return this.getRoad().getOnTheRoadXY(this.getX(),
-	// this.getY()).getPermeability() == Permeability.BLOCKING;
-	// }
+	
 
 	/*
 	 * (non-Javadoc)
@@ -244,4 +235,8 @@ abstract class Mobile extends Element implements IMobile {
 	protected IBoard getBoard() {
 		return this.board;
 	}
+	
+	
+
+	
 	}

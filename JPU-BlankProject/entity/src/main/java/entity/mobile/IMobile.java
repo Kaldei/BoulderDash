@@ -82,5 +82,4 @@ public interface IMobile extends IPawn, IElement {
 	
 	public int getDiamonds();
 
-	public void coordCailloux();
 }
