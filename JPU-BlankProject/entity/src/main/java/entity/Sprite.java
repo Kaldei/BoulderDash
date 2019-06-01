@@ -65,7 +65,7 @@ public class Sprite {
      *             Signals that an I/O exception has occurred.
      */
     public final void loadImage() throws IOException {
-        this.setImage(ImageIO.read(new File("C:\\Users\\Antho\\git\\Project-5\\JPU-BlankProject\\model\\src\\main\\resources\\sprite\\" + this.getImageName())));
+        this.setImage(ImageIO.read(new File("C:\\\\Users\\\\User\\\\Documents\\\\GitHub\\\\Project-5\\\\JPU-BlankProject\\\\entity\\\\src\\\\main\\\\resources\\\\sprites\\\\\\" + this.getImageName())));
     }
 
     /**
