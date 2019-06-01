@@ -90,7 +90,7 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 			this.clearStackOrder();
 			this.getView().followMyPlayer();
 			getView().updateView();
-			gravity();
+			this.getModel().getMap().gravity();
 
 			if ((getModel().getMap()
 					.getOnTheMapXY((getModel().getMyPlayer().getX()), ((getModel().getMyPlayer().getY())))
@@ -135,8 +135,8 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 			for (int x = this.getModel().getMap().getWidth() - 1; x > 0; x--) {
 				if (this.getModel().getMap().getOnTheMapXY(x, y).getPermeability() == Permeability.KILLING && this
 						.getModel().getMap().getOnTheMapXY(x + 1, y).getPermeability() == Permeability.PENETRABLE) {
-					this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.getFromFileSymbol('.'), x, y);
-					this.getModel().getMap().setOnTheMapXY(MobileElementsFactory.getFromFileSymbol('X'), x + 1, y);
+					this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.createBackground(), x, y);
+					this.getModel().getMap().setOnTheMapXY(MobileElementsFactory.createMonster(), x + 1, y);
 					System.out.println("bouge");
 				}
 			}
@@ -148,8 +148,8 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 			for (int y = 0; y < this.getModel().getMap().getHeight(); y++) {
 				if (this.getModel().getMap().getOnTheMapXY(x, y).getPermeability() == Permeability.KILLING && this
 						.getModel().getMap().getOnTheMapXY(x - 1, y).getPermeability() == Permeability.PENETRABLE) {
-					this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.getFromFileSymbol('.'), x, y);
-					this.getModel().getMap().setOnTheMapXY(MobileElementsFactory.getFromFileSymbol('X'), x - 1, y);
+					this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.createBackground(), x, y);
+					this.getModel().getMap().setOnTheMapXY(MobileElementsFactory.createMonster(), x - 1, y);
 					System.out.println("bouge");
 				}
 			}
@@ -161,8 +161,8 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 			for (int y = 0; y < this.getModel().getMap().getHeight(); y++) {
 				if (this.getModel().getMap().getOnTheMapXY(x, y).getPermeability() == Permeability.KILLING && this
 						.getModel().getMap().getOnTheMapXY(x, y - 1).getPermeability() == Permeability.PENETRABLE) {
-					this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.getFromFileSymbol('.'), x, y);
-					this.getModel().getMap().setOnTheMapXY(MobileElementsFactory.getFromFileSymbol('X'), x, y - 1);
+					this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.createBackground(), x, y);
+					this.getModel().getMap().setOnTheMapXY(MobileElementsFactory.createMonster(), x, y - 1);
 					System.out.println("bouge");
 				}
 			}
@@ -174,8 +174,8 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 			for (int x = this.getModel().getMap().getWidth() - 1; x > 0; x--) {
 				if (this.getModel().getMap().getOnTheMapXY(x, y).getPermeability() == Permeability.KILLING && this
 						.getModel().getMap().getOnTheMapXY(x, y + 1).getPermeability() == Permeability.PENETRABLE) {
-					this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.getFromFileSymbol('.'), x, y);
-					this.getModel().getMap().setOnTheMapXY(MobileElementsFactory.getFromFileSymbol('X'), x, y + 1);
+					this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.createBackground(), x, y);
+					this.getModel().getMap().setOnTheMapXY(MobileElementsFactory.createMonster(), x, y + 1);
 					System.out.println("bouge");
 				}
 			}
@@ -220,19 +220,7 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 		return this;
 	}
 
-	public void gravity() throws InterruptedException {
-		for (int y = this.getModel().getMap().getHeight() - 1; y > 0; y--) {
-			for (int x = this.getModel().getMap().getWidth() - 1; x > 0; x--) {
-				if (this.getModel().getMap().getOnTheMapXY(x, y).getPermeability() == Permeability.PUSHING && this
-						.getModel().getMap().getOnTheMapXY(x, y + 1).getPermeability() == Permeability.PENETRABLE) {
-					Thread.sleep(speed);
-					this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.getFromFileSymbol('.'), x, y);
-					this.getModel().getMap().setOnTheMapXY(MobileElementsFactory.getFromFileSymbol('O'), x, y + 1);
-					System.out.println("tombe");
-				}
-			}
-		}
-	}
+	
 
 	// Monster
 	public void killPlayer() {
