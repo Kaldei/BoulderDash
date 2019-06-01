@@ -12,7 +12,6 @@ import contract.IView;
 import contract.UserOrder;
 import entity.mobile.IMobile;
 
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import fr.exia.showboard.BoardFrame;
@@ -104,15 +103,7 @@ public final class View extends Observable implements IView, Runnable, KeyListen
 		// boardFrame.setFocusTraversalKeysEnabled(true); /???\
 
 		// Get elements on the map
-		for (int x = 0; x < this.getmap().getWidth(); x++) {
-			for (int y = 0; y < this.getmap().getHeight(); y++) {
-				boardFrame.addSquare(this.map.getOnTheMapXY(x, y), x, y);
-			}
-		}
-		boardFrame.addPawn(this.getmyPlayer());
-
-		this.getmap().getObservable().addObserver(boardFrame.getObserver());
-
+	this.updateView();
 		// FOLLOW PLAYER
 		this.followMyPlayer();
 		boardFrame.setVisible(true);
@@ -120,28 +111,7 @@ public final class View extends Observable implements IView, Runnable, KeyListen
 	
 	final BoardFrame boardFrame = new BoardFrame("Game View");
 	
-	/**************************************************
-	 * Sprite Getting
-	 ********************************************/
-	/**
-	 * Prints the map and the player's vehicle in the console.
-	 *
-	 * @param yStart the y start
-	 */
-	public final void show(final int yStart) {
-		int y = yStart % this.getmap().getHeight();
-		for (int view = 0; view < this.getView(); view++) {
-			for (int x = 0; x < this.getmap().getWidth(); x++) {
-				if ((x == this.getmyPlayer().getX()) && (y == yStart)) {
-					System.out.print(this.getmyPlayer().getSprite().getConsoleImage());
-				} else {
-					System.out.print(this.getmap().getOnTheMapXY(x, y).getSprite().getConsoleImage());
-				}
-			}
-			y = (y + 1) % this.getmap().getHeight();
-			System.out.print("\n");
-		}
-	}
+		
 
 	/**************************************************
 	 * KeyListener
@@ -273,6 +243,7 @@ public final class View extends Observable implements IView, Runnable, KeyListen
 	 *
 	 * @return the view
 	 */
+	@SuppressWarnings("unused")
 	private int getView() {
 		return this.view;
 	}

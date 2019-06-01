@@ -1,7 +1,6 @@
 package model ;
 
 import java.io.IOException;
-import java.util.Observable;
 
 
 import contract.IModel;

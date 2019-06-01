@@ -50,7 +50,6 @@ class Map extends Observable implements IMap {
 
 	 
 	
-
 	/**
 	 * Loads file.
 	 *

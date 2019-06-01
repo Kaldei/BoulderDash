@@ -1,7 +1,6 @@
 package entity.motionless;
 
 import entity.Element;
-import entity.IElement;
 import entity.Permeability;
 import entity.Sprite;
 

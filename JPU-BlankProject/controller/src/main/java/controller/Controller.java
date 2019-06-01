@@ -8,6 +8,8 @@ import contract.IModel;
 import contract.IView;
 import contract.UserOrder;
 import entity.Permeability;
+import entity.mobile.MobileElementsFactory;
+import entity.motionless.MotionlessElementsFactory;
 
 
 /**
@@ -84,9 +86,9 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 			}
 			this.clearStackOrder();
 			this.getView().followMyPlayer();
-			
 			getView().updateView();
-			getModel().getMyPlayer().coordCailloux();
+			gravity();
+
 			
 			if ((getModel().getMap().getOnTheMapXY((getModel().getMyPlayer().getX()), ((getModel().getMyPlayer().getY())))
 					.getPermeability() == Permeability.WIN) && getModel().getMyPlayer().getDiamonds() >= diamondsCounter) {
@@ -135,6 +137,20 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 	}
 
 
+	public void gravity() throws InterruptedException {
+		for (int x = 0; x < this.getModel().getMap().getWidth(); x++) {
+			for (int y = 0; y < this.getModel().getMap().getHeight(); y++) {
+				if(this.getModel().getMap().getOnTheMapXY(x, y).getPermeability() == Permeability.PUSHING &&
+						this.getModel().getMap().getOnTheMapXY(x, y+1).getPermeability() == Permeability.PENETRABLE){
+					Thread.sleep(200);
+					this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.getFromFileSymbol('.'), x, y);
+					this.getModel().getMap().setOnTheMapXY(MobileElementsFactory.getFromFileSymbol('O'), x, y+1);
+					System.out.println("tombe");
+				}
+			}
+		}
+	}
+	
 	// Monster
 	public void killPlayer() {
 		if ((getModel().getMap().getOnTheMapXY((getModel().getMyPlayer().getX()), ((getModel().getMyPlayer().getY())))
