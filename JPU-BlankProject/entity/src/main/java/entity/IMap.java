@@ -36,6 +36,8 @@ public interface IMap {
     IElement getOnTheMapXY(int x, int y);
     
     void setOnTheMapXY(IElement element, final int x, final int y);
+    
+    void gravity();
 
     /**
      * Sets the mobile has changed.

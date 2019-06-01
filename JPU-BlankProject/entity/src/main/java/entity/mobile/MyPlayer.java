@@ -138,13 +138,20 @@ public class MyPlayer extends Mobile {
 	public final void doNothing() {
 		super.doNothing();
 		this.setSprite(sprite);
+		if(this.getMap().getOnTheMapXY(this.getX(), this.getY()).getPermeability() == Permeability.PUSHING) {
+			this.getMap().setOnTheMapXY(MobileElementsFactory.createRock(), this.getX(), this.getY()-1);
+			this.getMap().setOnTheMapXY(MotionlessElementsFactory.createBackground(), this.getX(), this.getY() );
+		}
 	}
+	
 
 	public void removeGround() {
 		if (this.getMap().getOnTheMapXY(this.getX(), this.getY()).getPermeability() == Permeability.DISAPPEAR) {
-			this.getMap().setOnTheMapXY(MotionlessElementsFactory.getFromFileSymbol('.'), this.getX(), this.getY());
+			this.getMap().setOnTheMapXY(MotionlessElementsFactory.createBackground(), this.getX(), this.getY());
 			this.setHasMoved();
+			
 		}
+		
 	}
 
 	int nb_diamonds;
@@ -155,7 +162,7 @@ public class MyPlayer extends Mobile {
 
 	public void getDiamond() {
 		if (this.getMap().getOnTheMapXY(this.getX(), this.getY()).getPermeability() == Permeability.DIAMOND) {
-			this.getMap().setOnTheMapXY(MotionlessElementsFactory.getFromFileSymbol('*'), this.getX(), this.getY());
+			this.getMap().setOnTheMapXY(MotionlessElementsFactory.createBackground(), this.getX(), this.getY());
 			nb_diamonds++;
 			System.out.println("You have " + nb_diamonds + " Diamonds !");
 			this.setHasMoved();
@@ -172,19 +179,23 @@ public class MyPlayer extends Mobile {
 public void pushRockRight() {
 		if (this.getMap().getOnTheMapXY(this.getX() + 1, this.getY()).getPermeability() == Permeability.PUSHING && this
 				.getMap().getOnTheMapXY(this.getX() + 2, this.getY()).getPermeability() == Permeability.PENETRABLE) {
-			this.getMap().setOnTheMapXY(MotionlessElementsFactory.getFromFileSymbol('.'), this.getX() +1, this.getY());
+			this.getMap().setOnTheMapXY(MotionlessElementsFactory.createBackground(), this.getX() +1, this.getY());
 			super.moveRight();
-			this.getMap().setOnTheMapXY(MobileElementsFactory.getFromFileSymbol('O'), this.getX() + 1, this.getY());
+			this.getMap().setOnTheMapXY(MobileElementsFactory.createRock(), this.getX() + 1, this.getY());
 			this.setHasMoved();
 		}
 	}
 	public void pushRockLeft() {
 		if (this.getMap().getOnTheMapXY(this.getX() - 1, this.getY()).getPermeability() == Permeability.PUSHING && this
 				.getMap().getOnTheMapXY(this.getX() - 2, this.getY()).getPermeability() == Permeability.PENETRABLE) {
-			this.getMap().setOnTheMapXY(MotionlessElementsFactory.getFromFileSymbol('.'), this.getX() - 1, this.getY());
+			this.getMap().setOnTheMapXY(MotionlessElementsFactory.createBackground(), this.getX() - 1, this.getY());
 			super.moveLeft();
-			this.getMap().setOnTheMapXY(MobileElementsFactory.getFromFileSymbol('O'), this.getX() - 1, this.getY());
+			this.getMap().setOnTheMapXY(MobileElementsFactory.createRock(), this.getX() - 1, this.getY());
 			this.setHasMoved();
 		}
 	}
+
+	
+	
+
 }
