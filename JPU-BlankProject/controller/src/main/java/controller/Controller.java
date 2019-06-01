@@ -86,7 +86,7 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 			this.getView().followMyPlayer();
 			
 			getView().updateView();
-			// getModel().getMyPlayer().coordCailloux();
+			getModel().getMyPlayer().coordCailloux();
 			
 			if ((getModel().getMap().getOnTheMapXY((getModel().getMyPlayer().getX()), ((getModel().getMyPlayer().getY())))
 					.getPermeability() == Permeability.WIN) && getModel().getMyPlayer().getDiamonds() >= diamondsCounter) {
