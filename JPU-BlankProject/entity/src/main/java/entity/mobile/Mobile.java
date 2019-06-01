@@ -2,7 +2,6 @@ package entity.mobile;
 
 import java.awt.Point;
 
-
 import fr.exia.showboard.IBoard;
 import entity.Element;
 import entity.IMap;
@@ -43,7 +42,7 @@ abstract class Mobile extends Element implements IMobile {
 		this.setMap(map);
 		this.position = new Point();
 	}
-	
+
 	Mobile(final Sprite sprite, final Permeability permeability) {
 		super(sprite, permeability);
 		this.position = new Point();
@@ -142,7 +141,7 @@ abstract class Mobile extends Element implements IMobile {
 	 */
 	public final void setX(final int x) {
 		this.getPosition().x = x;
-		
+
 	}
 
 	/*
@@ -163,7 +162,7 @@ abstract class Mobile extends Element implements IMobile {
 	 */
 	public final void setY(final int y) {
 		this.getPosition().y = y;
-		
+
 	}
 
 	/**
@@ -245,5 +244,4 @@ abstract class Mobile extends Element implements IMobile {
 	protected IBoard getBoard() {
 		return this.board;
 	}
-
-}
+	}
