@@ -24,4 +24,17 @@ public class Rock extends Mobile {
     public void moveLeft() {
     	super.moveLeft();
     }
+    
+    @Override 
+    public void moveDown() {
+    	super.moveDown();
+    }
+
+	@Override
+	public int getDiamonds() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	
 }

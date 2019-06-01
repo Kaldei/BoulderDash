@@ -14,5 +14,11 @@ public class Monster extends Mobile{
 	    Monster() {
 	        super(SPRITE, Permeability.KILLING);
 	    }
+
+		@Override
+		public int getDiamonds() {
+			// TODO Auto-generated method stub
+			return 0;
+		}
 	}
 

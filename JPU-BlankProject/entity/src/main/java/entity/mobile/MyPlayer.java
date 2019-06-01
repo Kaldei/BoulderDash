@@ -7,7 +7,6 @@ import entity.Permeability;
 import entity.Sprite;
 import entity.motionless.MotionlessElementsFactory;
 
-
 /**
  * <h1>The MyVehicle Class.</h1>
  *
@@ -24,11 +23,10 @@ public class MyPlayer extends Mobile {
 
 	/** The Constant spriteTurnRight. */
 	private static final Sprite spriteTurnRight = new Sprite('H', "Right.png");
-	
+
 	private static final Sprite spriteTurnUp = new Sprite('H', "Up.png");
 
 	private static final Sprite spriteTurnDown = new Sprite('H', "Down.png");
-
 
 	/** The Constant spriteExplode. */
 	private static final Sprite spriteExplode = new Sprite('H', "Dead.png");
@@ -36,8 +34,8 @@ public class MyPlayer extends Mobile {
 	/**
 	 * Instantiates a new my vehicle.
 	 *
-	 * @param x    the x
-	 * @param y    the y
+	 * @param x   the x
+	 * @param y   the y
 	 * @param map the map
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
@@ -57,11 +55,16 @@ public class MyPlayer extends Mobile {
 	 */
 	@Override
 	public final void moveLeft() {
-		super.moveLeft();
-		this.setSprite(spriteTurnLeft);
-		removeGround();
-		getDiamond();
-		this.setHasMoved();
+		if ((getMap().getOnTheMapXY((getX() - 1), ((getY()))).getPermeability() != Permeability.BLOCKING)
+				&& (getMap().getOnTheMapXY((getX() - 1), ((getY()))).getPermeability() != Permeability.PUSHING)) {
+			super.moveLeft();
+			this.setSprite(spriteTurnLeft);
+			removeGround();
+			getDiamond();
+			this.setHasMoved();
+		} else {
+			doNothing();
+		}
 	}
 
 	/*
@@ -71,27 +74,42 @@ public class MyPlayer extends Mobile {
 	 */
 	@Override
 	public final void moveRight() {
-		super.moveRight();
-		this.setSprite(spriteTurnRight);
-		removeGround();
-		getDiamond();
-		this.setHasMoved();
+		if ((getMap().getOnTheMapXY((getX() + 1), ((getY()))).getPermeability() != Permeability.BLOCKING)
+				&& (getMap().getOnTheMapXY((getX() + 1), ((getY()))).getPermeability() != Permeability.PUSHING)) {
+			super.moveRight();
+			this.setSprite(spriteTurnRight);
+			removeGround();
+			getDiamond();
+			this.setHasMoved();
+		} else {
+			doNothing();
+		}
 	}
-	
+
 	public final void moveDown() {
-		super.moveDown();
-		this.setSprite(spriteTurnDown);
-		removeGround();
-		getDiamond();
-		this.setHasMoved();
+		if ((getMap().getOnTheMapXY((getX()), (getY() + 1)).getPermeability() != Permeability.BLOCKING)
+				&& (getMap().getOnTheMapXY((getX()), (getY() + 1))).getPermeability() != Permeability.PUSHING) {
+			super.moveDown();
+			this.setSprite(spriteTurnDown);
+			removeGround();
+			getDiamond();
+			this.setHasMoved();
+		} else {
+			doNothing();
+		}
 	}
-	
+
 	public final void moveUp() {
-		super.moveUp();
-		this.setSprite(spriteTurnUp);
-		removeGround();
-		getDiamond();
-		this.setHasMoved();
+		if ((getMap().getOnTheMapXY((getX()), (getY() - 1)).getPermeability() != Permeability.BLOCKING)
+				&& (getMap().getOnTheMapXY((getX()), (getY() - 1))).getPermeability() != Permeability.PUSHING) {
+			super.moveUp();
+			this.setSprite(spriteTurnUp);
+			removeGround();
+			getDiamond();
+			this.setHasMoved();
+		} else {
+			doNothing();
+		}
 	}
 
 	/*
@@ -115,24 +133,42 @@ public class MyPlayer extends Mobile {
 		super.doNothing();
 		this.setSprite(sprite);
 	}
-	
+
 	public void removeGround() {
 		if (this.getMap().getOnTheMapXY(this.getX(), this.getY()).getPermeability() == Permeability.DISAPPEAR) {
 			this.getMap().setOnTheMapXY(MotionlessElementsFactory.getFromFileSymbol('.'), this.getX(), this.getY());
 			this.setHasMoved();
 		}
 	}
-	
+
 	int nb_diamonds;
-	
+
+	public int getDiamonds() {
+		return nb_diamonds;
+	}
+
 	public void getDiamond() {
 		if (this.getMap().getOnTheMapXY(this.getX(), this.getY()).getPermeability() == Permeability.DIAMOND) {
 			this.getMap().setOnTheMapXY(MotionlessElementsFactory.getFromFileSymbol('*'), this.getX(), this.getY());
-			nb_diamonds ++;
+			nb_diamonds++;
 			System.out.println("You have " + nb_diamonds + " Diamonds !");
 			this.setHasMoved();
+			if (nb_diamonds == 10) {
+				System.out.println("go win !");
+			}
 		}
 	}
 	
-	
+	/* int nbc = 0;
+	public void coordCailloux() {
+		for(int x=0; x < this.getMap().getWidth(); x++)  {
+			for(int y=0; y < this.getMap().getHeight(); y++) {
+				if(getMap().getOnTheMapXY(x, y).getPermeability() == Permeability.PUSHING) {
+					if(nbc <= 4) {
+						nbc++;
+					System.out.println("CAILLOUX n°" + nbc + " Coord = " + "x : " + x + " y : " + y);
+				}}
+			}
+		}
+	} **/
 }

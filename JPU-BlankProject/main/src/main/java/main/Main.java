@@ -1,6 +1,6 @@
 /**
- * @author Jean-Aymeric DIET jadiet@cesi.fr
- * @version 1.0
+ * @author Laetitia, Arthur, Anthony
+ * @version 1.0.8
  */
 package main;
 
@@ -8,8 +8,6 @@ import java.io.IOException;
 
 import contract.IBoulderDashController;
 import contract.IModel;
-import contract.IView;
-import contract.UserOrder;
 import controller.Controller;
 import model.BoulderDashModel;
 import view.View;
@@ -17,7 +15,7 @@ import view.View;
 /**
  * The Class Main.
  *
- * @author Jean-Aymeric Diet
+ * @author Laetitia, Arthur, Anthony
  */
 public abstract class Main {
 
@@ -38,6 +36,5 @@ public abstract class Main {
 		view.setOrderPerformer(controller.getOrderPerformer());
 
 		controller.play();
-		//controller.orderPerform(UserOrder.NOP);
 	}
 }

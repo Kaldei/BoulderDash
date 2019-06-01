@@ -15,4 +15,11 @@ public class Diamond extends Mobile{
 	    Diamond() {
 	        super(SPRITE, Permeability.DIAMOND);
 	    }
+
+
+		@Override
+		public int getDiamonds() {
+			// TODO Auto-generated method stub
+			return 0;
+		}
 	}

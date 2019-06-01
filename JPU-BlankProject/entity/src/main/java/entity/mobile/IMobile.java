@@ -41,7 +41,6 @@ public interface IMobile extends IPawn, IElement {
      * Do nothing.
      */
     void doNothing();
-
     /**
      * Gets the x.
      *
@@ -80,5 +79,8 @@ public interface IMobile extends IPawn, IElement {
     Point getPosition();
 
 	public void die();
+	
+	public int getDiamonds();
 
+	// public void coordCailloux();
 }
