@@ -15,6 +15,6 @@ public interface IView {
 	void displayMessage(final String message);
 	void followMyPlayer();
 	
-	// IVIEW OK
-	void test1();
+	
+	void updateView();
 }

@@ -12,6 +12,7 @@ import contract.IView;
 import contract.UserOrder;
 import entity.mobile.IMobile;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import fr.exia.showboard.BoardFrame;
@@ -91,7 +92,6 @@ public final class View extends Observable implements IView, Runnable, KeyListen
 	public final void run() {
 		
 		boardFrame.setDimension(new Dimension(this.getmap().getWidth(), this.getmap().getHeight()));
-
 		boardFrame.setDisplayFrame(this.gameView);
 
 		boardFrame.setSize(this.gameView.width * squareSize, this.gameView.height * squareSize);
@@ -119,6 +119,7 @@ public final class View extends Observable implements IView, Runnable, KeyListen
 	}
 	
 	final BoardFrame boardFrame = new BoardFrame("Game View");
+	
 	/**************************************************
 	 * Sprite Getting
 	 ********************************************/
@@ -321,8 +322,7 @@ public final class View extends Observable implements IView, Runnable, KeyListen
 		this.orderPerformer = orderPerformer;
 	}
 	
-	// VERY IMPORTANT ANTHO OUBLIE PAS TA RACE IVIEW
-	public void test1() {
+	public void updateView() {
 		for (int x = 0; x < this.getmap().getWidth(); x++) {
 			for (int y = 0; y < this.getmap().getHeight(); y++) {
 				boardFrame.addSquare(this.map.getOnTheMapXY(x, y), x, y);
@@ -332,6 +332,4 @@ public final class View extends Observable implements IView, Runnable, KeyListen
 
 		this.getmap().getObservable().addObserver(boardFrame.getObserver()); 
 	}
-	
-	
 }

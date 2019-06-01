@@ -7,10 +7,8 @@ import contract.IBoulderDashController;
 import contract.IModel;
 import contract.IView;
 import contract.UserOrder;
-import entity.Element;
 import entity.Permeability;
-import entity.mobile.MobileElementsFactory;
-import entity.motionless.MotionlessElementsFactory;
+
 
 /**
  * The Class Controller.
@@ -18,7 +16,7 @@ import entity.motionless.MotionlessElementsFactory;
 public final class Controller implements IBoulderDashController, IOrderPerformer {
 
 	/** The Constant speed */
-	private static final int speed = 200;
+	private static final int speed = 100;
 
 	/** The view. */
 	private IView view;
@@ -28,6 +26,8 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 
 	/** The stack order */
 	private UserOrder stackOrder;
+	
+	private int diamondsCounter = 10;
 
 	/**
 	 * Instantiates a new controller.
@@ -58,22 +58,22 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 			Thread.sleep(speed);
 			switch (this.getStackOrder()) {
 			case UP:
-				blockableUp();
+				getModel().getMyPlayer().moveUp();
 				killPlayer();
 			
 				break;
 			case DOWN:
-				blockableDown();
+				getModel().getMyPlayer().moveDown();
 				killPlayer();
 				
 				break;
 			case RIGHT:
-				blockableRight();
+				getModel().getMyPlayer().moveRight();
 				killPlayer();
 				
 				break;
 			case LEFT:
-				blockableLeft();
+				getModel().getMyPlayer().moveLeft();
 				killPlayer();
 				
 				break;
@@ -85,11 +85,11 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 			this.clearStackOrder();
 			this.getView().followMyPlayer();
 			
-			// ALED SA MARCHE BG
-			getView().test1();
+			getView().updateView();
+			// getModel().getMyPlayer().coordCailloux();
 			
 			if ((getModel().getMap().getOnTheMapXY((getModel().getMyPlayer().getX()), ((getModel().getMyPlayer().getY())))
-					.getPermeability() == Permeability.WIN)) {
+					.getPermeability() == Permeability.WIN) && getModel().getMyPlayer().getDiamonds() >= diamondsCounter) {
 				getView().displayMessage("You win, Congratulations !");
 				break;
 			}
@@ -134,63 +134,6 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 		return this;
 	}
 
-	// Mouvement methods
-
-	// Wall and Rock up
-	public void blockableUp() {
-		if ((getModel().getMap()
-				.getOnTheMapXY((getModel().getMyPlayer().getX()), ((getModel().getMyPlayer().getY() - 1)))
-				.getPermeability() != Permeability.BLOCKING)
-				&& (getModel().getMap()
-						.getOnTheMapXY((getModel().getMyPlayer().getX()), ((getModel().getMyPlayer().getY() - 1)))
-						.getPermeability() != Permeability.PUSHING)) {
-			this.getModel().getMyPlayer().moveUp();
-		} else {
-			getModel().getMyPlayer().doNothing();
-		}
-	}
-
-	// Wall and Rock down
-	public void blockableDown() {
-		if ((getModel().getMap()
-				.getOnTheMapXY((getModel().getMyPlayer().getX()), ((getModel().getMyPlayer().getY() + 1)))
-				.getPermeability() != Permeability.BLOCKING)
-				&& (getModel().getMap()
-						.getOnTheMapXY((getModel().getMyPlayer().getX()), ((getModel().getMyPlayer().getY() + 1)))
-						.getPermeability() != Permeability.PUSHING)) {
-			this.getModel().getMyPlayer().moveDown();
-		} else {
-			getModel().getMyPlayer().doNothing();
-		}
-	}
-
-	// Wall and Rock Right
-	public void blockableRight() {
-		if ((getModel().getMap()
-				.getOnTheMapXY((getModel().getMyPlayer().getX() + 1), ((getModel().getMyPlayer().getY())))
-				.getPermeability() != Permeability.BLOCKING)
-				&& (getModel().getMap()
-						.getOnTheMapXY((getModel().getMyPlayer().getX() + 1), ((getModel().getMyPlayer().getY())))
-						.getPermeability() != Permeability.PUSHING)) {
-			this.getModel().getMyPlayer().moveRight();
-		} else {
-			getModel().getMyPlayer().doNothing();
-		}
-	}
-
-	// Wall and Rock left
-	public void blockableLeft() {
-		if ((getModel().getMap()
-				.getOnTheMapXY((getModel().getMyPlayer().getX() - 1), ((getModel().getMyPlayer().getY())))
-				.getPermeability() != Permeability.BLOCKING)
-				&& (getModel().getMap()
-						.getOnTheMapXY((getModel().getMyPlayer().getX() - 1), ((getModel().getMyPlayer().getY())))
-						.getPermeability() != Permeability.PUSHING)) {
-			this.getModel().getMyPlayer().moveLeft();
-		} else {
-			getModel().getMyPlayer().doNothing();
-		}
-	}
 
 	// Monster
 	public void killPlayer() {
