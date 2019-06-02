@@ -3,15 +3,15 @@ package entity.mobile;
 import entity.Permeability;
 import entity.Sprite;
 
-public class Monster extends Mobile{
+public class MonsterR extends Mobile{
 
 	    /** The Constant SPRITE. */
 	    private static final Sprite SPRITE = new Sprite('X', "MDown.png");
 
 	    /**
-	     * Instantiates a new obstacle.
+	     * Instantiates a new monster.
 	     */
-	    Monster() {
+	    MonsterR() {
 	        super(SPRITE, Permeability.KILLING);
 	    }
 

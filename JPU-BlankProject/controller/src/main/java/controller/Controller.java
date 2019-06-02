@@ -17,14 +17,6 @@ import entity.motionless.MotionlessElementsFactory;
  *
  */
 
-/**
- * @author Antho
- *
- */
-/**
- * @author Antho
- *
- */
 public final class Controller implements IBoulderDashController, IOrderPerformer {
 
 	/** The speed  */
@@ -46,8 +38,11 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 	/** The random */
 	Random rand = new Random();
 	
-	/** The diretion */
-	private int direction;
+	/** The diretion for Red Monsters*/
+	private int rdirection;
+	
+	/** The diretion for Green Monsters*/
+	private int gDirection;
 
 	/**
 	 * @param view
@@ -105,30 +100,31 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 				break;
 			}
 
-			this.MonsterMove();
+			this.MonsterRMove();
+			this.MonsterGMove();
 
-			direction = rand.nextInt(4);
+			gDirection = gDirection + 1;
+			rdirection = rand.nextInt(4);
 		}
 	}
 
 	/**
 	 * @throws InterruptedException
 	 */
-	public void MonsterMove() throws InterruptedException {
+	public void MonsterRMove() throws InterruptedException {
 		Thread.sleep(speed);
-		switch (direction) {
+		switch (rdirection) {
 		case 1:
-
-			MMoveRight();
+			MRMoveRight();
 			break;
 		case 0:
-			MMoveLeft();
+			MRMoveLeft();
 			break;
 		case 2:
-			MMoveUp();
+			MRMoveUp();
 			break;
 		case 3:
-			MMoveDown();
+			MRMoveDown();
 			break;
 
 		default:
@@ -136,52 +132,89 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 		}
 
 	}
+	
+	public void MonsterGMove() {
+		if (gDirection <= 10) { 
+		MGMoveRight();
+		} else if (gDirection <= 20) {
+			MGMoveLeft();
+		} else {
+			gDirection = 0;
+		}
+			
+	}
 
 	/**	Monster MoveRight method */
-	public void MMoveRight() {
+	public void MGMoveRight() {
 		for (int y = this.getModel().getMap().getHeight() - 1; y > 0; y--) {
 			for (int x = this.getModel().getMap().getWidth() - 1; x > 0; x--) {
-				if (this.getModel().getMap().getOnTheMapXY(x, y).getPermeability() == Permeability.KILLING && this
+				if (this.getModel().getMap().getOnTheMapXY(x, y).getSprite().getConsoleImage() == 'G' && this
 						.getModel().getMap().getOnTheMapXY(x + 1, y).getPermeability() == Permeability.PENETRABLE) {
 					this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.createBackground(), x, y);
-					this.getModel().getMap().setOnTheMapXY(MobileElementsFactory.createMonster(), x + 1, y);
+					this.getModel().getMap().setOnTheMapXY(MobileElementsFactory.createMonsterG(), x + 1, y);
 				}
 			}
 		}
 	}
 
 	
-	public void MMoveLeft() {
+	public void MGMoveLeft() {
 		for (int x = 0; x < this.getModel().getMap().getWidth(); x++) {
 			for (int y = 0; y < this.getModel().getMap().getHeight(); y++) {
-				if (this.getModel().getMap().getOnTheMapXY(x, y).getPermeability() == Permeability.KILLING && this
+				if (this.getModel().getMap().getOnTheMapXY(x, y).getSprite().getConsoleImage() == 'G' && this
 						.getModel().getMap().getOnTheMapXY(x - 1, y).getPermeability() == Permeability.PENETRABLE) {
 					this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.createBackground(), x, y);
-					this.getModel().getMap().setOnTheMapXY(MobileElementsFactory.createMonster(), x - 1, y);
+					this.getModel().getMap().setOnTheMapXY(MobileElementsFactory.createMonsterG(), x - 1, y);
 				}
 			}
 		}
 	}
-
-	public void MMoveUp() {
-		for (int x = 0; x < this.getModel().getMap().getWidth(); x++) {
-			for (int y = 0; y < this.getModel().getMap().getHeight(); y++) {
-				if (this.getModel().getMap().getOnTheMapXY(x, y).getPermeability() == Permeability.KILLING && this
-						.getModel().getMap().getOnTheMapXY(x, y - 1).getPermeability() == Permeability.PENETRABLE) {
-					this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.createBackground(), x, y);
-					this.getModel().getMap().setOnTheMapXY(MobileElementsFactory.createMonster(), x, y - 1);
-				}
-			}
-		}
-	}
-
-	public void MMoveDown() {
+	
+	/**	Monster MoveRight method */
+	public void MRMoveRight() {
 		for (int y = this.getModel().getMap().getHeight() - 1; y > 0; y--) {
 			for (int x = this.getModel().getMap().getWidth() - 1; x > 0; x--) {
-				if (this.getModel().getMap().getOnTheMapXY(x, y).getPermeability() == Permeability.KILLING && this
+				if (this.getModel().getMap().getOnTheMapXY(x, y).getSprite().getConsoleImage() == 'X' && this
+						.getModel().getMap().getOnTheMapXY(x + 1, y).getPermeability() == Permeability.PENETRABLE) {
+					this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.createBackground(), x, y);
+					this.getModel().getMap().setOnTheMapXY(MobileElementsFactory.createMonsterR(), x + 1, y);
+				}
+			}
+		}
+	}
+
+	
+	public void MRMoveLeft() {
+		for (int x = 0; x < this.getModel().getMap().getWidth(); x++) {
+			for (int y = 0; y < this.getModel().getMap().getHeight(); y++) {
+				if (this.getModel().getMap().getOnTheMapXY(x, y).getSprite().getConsoleImage() == 'X' && this
+						.getModel().getMap().getOnTheMapXY(x - 1, y).getPermeability() == Permeability.PENETRABLE) {
+					this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.createBackground(), x, y);
+					this.getModel().getMap().setOnTheMapXY(MobileElementsFactory.createMonsterR(), x - 1, y);
+				}
+			}
+		}
+	}
+
+	public void MRMoveUp() {
+		for (int x = 0; x < this.getModel().getMap().getWidth(); x++) {
+			for (int y = 0; y < this.getModel().getMap().getHeight(); y++) {
+				if (this.getModel().getMap().getOnTheMapXY(x, y).getSprite().getConsoleImage() == 'X' && this
+						.getModel().getMap().getOnTheMapXY(x, y - 1).getPermeability() == Permeability.PENETRABLE) {
+					this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.createBackground(), x, y);
+					this.getModel().getMap().setOnTheMapXY(MobileElementsFactory.createMonsterR(), x, y - 1);
+				}
+			}
+		}
+	}
+
+	public void MRMoveDown() {
+		for (int y = this.getModel().getMap().getHeight() - 1; y > 0; y--) {
+			for (int x = this.getModel().getMap().getWidth() - 1; x > 0; x--) {
+				if (this.getModel().getMap().getOnTheMapXY(x, y).getSprite().getConsoleImage() == 'X' && this
 						.getModel().getMap().getOnTheMapXY(x, y + 1).getPermeability() == Permeability.PENETRABLE) {
 					this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.createBackground(), x, y);
-					this.getModel().getMap().setOnTheMapXY(MobileElementsFactory.createMonster(), x, y + 1);
+					this.getModel().getMap().setOnTheMapXY(MobileElementsFactory.createMonsterR(), x, y + 1);
 				}
 			}
 		}
