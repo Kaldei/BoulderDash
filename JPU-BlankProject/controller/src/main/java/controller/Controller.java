@@ -13,50 +13,54 @@ import entity.mobile.MobileElementsFactory;
 import entity.motionless.MotionlessElementsFactory;
 
 /**
- * The Class Controller.
+ * @author Anthony
+ *
+ */
+
+/**
+ * @author Antho
+ *
+ */
+/**
+ * @author Antho
+ *
  */
 public final class Controller implements IBoulderDashController, IOrderPerformer {
 
-	/** The Constant speed */
+	/** The speed  */
 	private static final int speed = 100;
 
-	/** The view. */
+	/** The view */
 	private IView view;
 
-	/** The model. */
+	/** The model */
 	private IModel model;
 
-	/** The stack order */
+	/** stakckOrder */
 	private UserOrder stackOrder;
-
+	
+	
+	/** The diamonds counter */
 	private int diamondsCounter = 10;
 
+	/** The random */
 	Random rand = new Random();
+	
+	/** The diretion */
 	private int direction;
 
 	/**
-	 * Instantiates a new controller.
-	 *
-	 * @param view  the view
-	 * @param model the model
+	 * @param view
+	 * @param model
 	 */
-
 	public Controller(final IView view, final IModel model) {
 		this.setView(view);
 		this.setModel(model);
 		this.clearStackOrder();
 	}
 
-	/**
-	 * Order perform.
-	 *
-	 * @param controllerOrder the controller order
-	 */
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see contract.IController#orderPerform(contract.ControllerOrder)
-	 */
+
+	/** Play method */
 	@Override
 	public final void play() throws InterruptedException {
 		while (this.getModel().getMyPlayer().isAlive() == true) {
@@ -92,7 +96,6 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 			this.getModel().getMap().gravityDiagD();
 			killMonster();
 			killPlayer();
-			
 
 			if ((getModel().getMap()
 					.getOnTheMapXY((getModel().getMyPlayer().getX()), ((getModel().getMyPlayer().getY())))
@@ -108,11 +111,14 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 		}
 	}
 
+	/**
+	 * @throws InterruptedException
+	 */
 	public void MonsterMove() throws InterruptedException {
 		Thread.sleep(speed);
 		switch (direction) {
 		case 1:
-			
+
 			MMoveRight();
 			break;
 		case 0:
@@ -131,6 +137,7 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 
 	}
 
+	/**	Monster MoveRight method */
 	public void MMoveRight() {
 		for (int y = this.getModel().getMap().getHeight() - 1; y > 0; y--) {
 			for (int x = this.getModel().getMap().getWidth() - 1; x > 0; x--) {
@@ -143,6 +150,7 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 		}
 	}
 
+	
 	public void MMoveLeft() {
 		for (int x = 0; x < this.getModel().getMap().getWidth(); x++) {
 			for (int y = 0; y < this.getModel().getMap().getHeight(); y++) {
@@ -217,9 +225,6 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 		return this;
 	}
 
-	
-
-	// Monster
 	public void killPlayer() {
 		if ((getModel().getMap().getOnTheMapXY((getModel().getMyPlayer().getX()), ((getModel().getMyPlayer().getY())))
 				.getPermeability() == Permeability.KILLING)) {
@@ -227,15 +232,15 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 			getView().displayMessage("Game Over");
 		}
 	}
-	
-	// Kill monster
+
 	public void killMonster() {
 		for (int x = 0; x < this.getModel().getMap().getWidth(); x++) {
 			for (int y = 0; y < this.getModel().getMap().getHeight(); y++) {
 				if (this.getModel().getMap().getOnTheMapXY(x, y).getPermeability() == Permeability.KILLING
-						&& this.getModel().getMap().getOnTheMapXY(x, y - 1).getPermeability() == Permeability.PUSHING 
+						&& this.getModel().getMap().getOnTheMapXY(x, y - 1).getPermeability() == Permeability.PUSHING
 						|| this.getModel().getMap().getOnTheMapXY(x, y).getPermeability() == Permeability.KILLING
-						&& this.getModel().getMap().getOnTheMapXY(x, y - 1).getPermeability() == Permeability.DIAMOND) {
+								&& this.getModel().getMap().getOnTheMapXY(x, y - 1)
+										.getPermeability() == Permeability.DIAMOND) {
 					this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.createBackground(), x, y);
 
 					// Test if Wall x-1
@@ -284,5 +289,5 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 				}
 			}
 		}
-		}
+	}
 }
