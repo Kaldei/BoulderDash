@@ -25,7 +25,7 @@ public class MobileElementsFactory {
 		return diamond;
 	}
 
-	public static Mobile createObstacle() {
+	public static Mobile createRock() {
 		return rock;
 	}
 

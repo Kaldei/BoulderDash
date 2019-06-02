@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import model.DAO.DAOMap;
 import entity.IElement;
 import entity.IMap;
+import entity.Permeability;
 import entity.mobile.MobileElementsFactory;
 import entity.motionless.MotionlessElementsFactory;
 
@@ -161,7 +162,17 @@ class Map extends Observable implements IMap {
 	}
 
 
-
+	public void gravity() {
+		for (int y = this.getHeight() - 1; y > 0; y--) {
+			for (int x = this.getWidth() - 1; x > 0; x--) {
+				if (this.getOnTheMapXY(x, y).getPermeability() == Permeability.PUSHING && 
+					this.getOnTheMapXY(x, y + 1).getPermeability() == Permeability.PENETRABLE ) {
+					this.setOnTheMapXY(MotionlessElementsFactory.createBackground(), x, y);
+					this.setOnTheMapXY(MobileElementsFactory.createRock(), x, y + 1);
+				}
+			}
+		}
+	}
 
 	public DAOMap getMyMap() {
 		return MyMap;
