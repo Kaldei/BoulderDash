@@ -42,7 +42,7 @@ class Map extends Observable implements IMap {
 	 */
 	Map(final String fileName) throws IOException {
 		super();
-		this.MyMap.loadlevel(1);
+		this.MyMap.loadlevel(4);
 		this.loadFile(fileName);
 	}
 
@@ -64,7 +64,7 @@ class Map extends Observable implements IMap {
 		line = buffer.readLine();
 		while (line != null) {
 			for (int x = 0; x < line.toCharArray().length; x++) {
-				if (((line.toCharArray()[x]) == 'X') || ((line.toCharArray()[x]) == 'O')
+				if (((line.toCharArray()[x]) == 'X') || ((line.toCharArray()[x]) == 'O' || (line.toCharArray()[x]) == 'G')
 						|| ((line.toCharArray()[x]) == '*')) {
 					this.setOnTheMapXY(MobileElementsFactory.getFromFileSymbol(line.toCharArray()[x]), x, y);
 				} else {
