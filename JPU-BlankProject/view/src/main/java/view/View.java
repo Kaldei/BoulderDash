@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
@@ -76,8 +77,13 @@ public final class View extends Observable implements IView, Runnable, KeyListen
 
 		scoreFrame.setSize(300, 120);
 		scoreFrame.setLocation(boardFrame.getX() + boardFrame.getWidth(), boardFrame.getY());
-		scoreFrame.setContentPane(new ScorePane(myPlayer.getDiamonds()));
-		// scoreFrame.setVisible(true);
+		
+		ScorePane pan=new ScorePane(myPlayer.getDiamonds());
+		pan.setBackground(Color.blue); 
+		scoreFrame.setContentPane(pan);
+		pan.revalidate();
+		scoreFrame.setVisible(true);
+		
 
 		boardFrame.setVisible(true);
 		this.updateView();
