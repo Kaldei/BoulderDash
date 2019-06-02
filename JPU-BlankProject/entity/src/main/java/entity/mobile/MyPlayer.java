@@ -16,20 +16,19 @@ import entity.motionless.MotionlessElementsFactory;
 public class MyPlayer extends Mobile {
 
 	/** The Constant SPRITE. */
-	private static final Sprite sprite = new Sprite('H', "Down.png");
+	private static final Sprite sprite = new Sprite('H', "PNope.png");
 
 	/** The Constant spriteTurnLeft. */
-	private static final Sprite spriteTurnLeft = new Sprite('H', "Left.png");
+	private static final Sprite spriteTurnLeft = new Sprite('H', "PLeft.png");
 
 	/** The Constant spriteTurnRight. */
-	private static final Sprite spriteTurnRight = new Sprite('H', "Right.png");
+	private static final Sprite spriteTurnRight = new Sprite('H', "PRight.png");
 
-	private static final Sprite spriteTurnUp = new Sprite('H', "Up.png");
+	private static final Sprite spriteTurnUp = new Sprite('H', "PUp.png");
 
-	private static final Sprite spriteTurnDown = new Sprite('H', "Down.png");
+	private static final Sprite spriteTurnDown = new Sprite('H', "PDown.png");
 
-	/** The Constant spriteExplode. */
-	private static final Sprite spriteExplode = new Sprite('H', "Dead.png");
+	private static final Sprite spriteDead = new Sprite('H', "PDead.png");
 
 	/**
 	 * Instantiates a new my vehicle.
@@ -45,7 +44,7 @@ public class MyPlayer extends Mobile {
 		spriteTurnRight.loadImage();
 		spriteTurnUp.loadImage();
 		spriteTurnDown.loadImage();
-		spriteExplode.loadImage();
+		spriteDead.loadImage();
 	}
 
 	/*
@@ -126,7 +125,7 @@ public class MyPlayer extends Mobile {
 	@Override
 	public final void die() {
 		super.die();
-		this.setSprite(spriteExplode);
+		this.setSprite(spriteDead);
 	}
 
 	/*
