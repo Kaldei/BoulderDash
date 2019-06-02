@@ -1,4 +1,5 @@
 package model;
+
 import java.io.BufferedReader;
 
 import model.DAO.DAOMap;
@@ -13,9 +14,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Observable;
 
-
-
-
 /**
  * <h1>The Road Class.</h1>
  *
@@ -23,11 +21,10 @@ import java.util.Observable;
  * @version 0.1
  */
 
-
 class Map extends Observable implements IMap {
-	
-	private DAOMap MyMap = new DAOMap() ;
-	
+
+	private DAOMap MyMap = new DAOMap();
+
 	/** The width. */
 	private int width;
 
@@ -43,14 +40,12 @@ class Map extends Observable implements IMap {
 	 * @param fileName the file name where the map is
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
-	Map(final String fileName) throws IOException  {
+	Map(final String fileName) throws IOException {
 		super();
-		this.MyMap.loadlevel(5);
+		this.MyMap.loadlevel(1);
 		this.loadFile(fileName);
 	}
 
-	 
-	
 	/**
 	 * Loads file.
 	 *
@@ -69,10 +64,11 @@ class Map extends Observable implements IMap {
 		line = buffer.readLine();
 		while (line != null) {
 			for (int x = 0; x < line.toCharArray().length; x++) {
-				if (((line.toCharArray()[x]) == 'X') || ((line.toCharArray()[x]) == 'O') || ((line.toCharArray()[x])=='*')) {
+				if (((line.toCharArray()[x]) == 'X') || ((line.toCharArray()[x]) == 'O')
+						|| ((line.toCharArray()[x]) == '*')) {
 					this.setOnTheMapXY(MobileElementsFactory.getFromFileSymbol(line.toCharArray()[x]), x, y);
 				} else {
-				this.setOnTheMapXY(MotionlessElementsFactory.getFromFileSymbol(line.toCharArray()[x]), x, y);
+					this.setOnTheMapXY(MotionlessElementsFactory.getFromFileSymbol(line.toCharArray()[x]), x, y);
 				}
 			}
 			line = buffer.readLine();
@@ -161,14 +157,71 @@ class Map extends Observable implements IMap {
 		return this;
 	}
 
-
 	public void gravity() {
 		for (int y = this.getHeight() - 1; y > 0; y--) {
 			for (int x = this.getWidth() - 1; x > 0; x--) {
-				if (this.getOnTheMapXY(x, y).getPermeability() == Permeability.PUSHING && 
-					this.getOnTheMapXY(x, y + 1).getPermeability() == Permeability.PENETRABLE ) {
+				if (this.getOnTheMapXY(x, y).getPermeability() == Permeability.PUSHING
+						&& this.getOnTheMapXY(x, y + 1).getPermeability() == Permeability.PENETRABLE) {
 					this.setOnTheMapXY(MotionlessElementsFactory.createBackground(), x, y);
 					this.setOnTheMapXY(MobileElementsFactory.createRock(), x, y + 1);
+				}
+			}
+		}
+	}
+
+	public void gravityDiag() {
+		for (int y = this.getHeight() - 1; y > 0; y--) {
+			for (int x = this.getWidth() - 1; x > 0; x--) {
+				if (this.getOnTheMapXY(x, y).getPermeability() == Permeability.PUSHING
+						&& this.getOnTheMapXY(x, y + 1).getPermeability() == Permeability.PUSHING) {
+					if (this.getOnTheMapXY(x + 1, y + 1).getPermeability() == Permeability.PENETRABLE
+							&& this.getOnTheMapXY(x + 1, y).getPermeability() == Permeability.PENETRABLE) {
+						this.setOnTheMapXY(MotionlessElementsFactory.createBackground(), x, y);
+						this.setOnTheMapXY(MobileElementsFactory.createRock(), x + 1, y);
+					}
+				}
+				if (this.getOnTheMapXY(x, y).getPermeability() == Permeability.PUSHING
+						&& this.getOnTheMapXY(x, y + 1).getPermeability() == Permeability.PUSHING) {
+					if (this.getOnTheMapXY(x - 1, y + 1).getPermeability() == Permeability.PENETRABLE
+							&& this.getOnTheMapXY(x - 1, y).getPermeability() == Permeability.PENETRABLE) {
+						this.setOnTheMapXY(MotionlessElementsFactory.createBackground(), x, y);
+						this.setOnTheMapXY(MobileElementsFactory.createRock(), x - 1, y + 1);
+					}
+				}
+			}
+		}
+	}
+
+	public void gravityD() {
+		for (int y = this.getHeight() - 1; y > 0; y--) {
+			for (int x = this.getWidth() - 1; x > 0; x--) {
+				if (this.getOnTheMapXY(x, y).getPermeability() == Permeability.DIAMOND
+						&& this.getOnTheMapXY(x, y + 1).getPermeability() == Permeability.PENETRABLE) {
+					this.setOnTheMapXY(MotionlessElementsFactory.createBackground(), x, y);
+					this.setOnTheMapXY(MobileElementsFactory.createDiamond(), x, y + 1);
+				}
+			}
+		}
+	}
+
+	public void gravityDiagD() {
+		for (int y = this.getHeight() - 1; y > 0; y--) {
+			for (int x = this.getWidth() - 1; x > 0; x--) {
+				if (this.getOnTheMapXY(x, y).getPermeability() == Permeability.DIAMOND
+						&& this.getOnTheMapXY(x, y + 1).getPermeability() == Permeability.DIAMOND) {
+					if (this.getOnTheMapXY(x + 1, y + 1).getPermeability() == Permeability.PENETRABLE
+							&& this.getOnTheMapXY(x + 1, y).getPermeability() == Permeability.PENETRABLE) {
+						this.setOnTheMapXY(MotionlessElementsFactory.createBackground(), x, y);
+						this.setOnTheMapXY(MobileElementsFactory.createDiamond(), x + 1, y);
+					}
+				}
+				if (this.getOnTheMapXY(x, y).getPermeability() == Permeability.DIAMOND
+						&& this.getOnTheMapXY(x, y + 1).getPermeability() == Permeability.DIAMOND) {
+					if (this.getOnTheMapXY(x - 1, y + 1).getPermeability() == Permeability.PENETRABLE
+							&& this.getOnTheMapXY(x - 1, y).getPermeability() == Permeability.PENETRABLE) {
+						this.setOnTheMapXY(MotionlessElementsFactory.createBackground(), x, y);
+						this.setOnTheMapXY(MobileElementsFactory.createDiamond(), x - 1, y + 1);
+					}
 				}
 			}
 		}
@@ -177,6 +230,5 @@ class Map extends Observable implements IMap {
 	public DAOMap getMyMap() {
 		return MyMap;
 	}
-
 
 }

@@ -64,22 +64,18 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 			switch (this.getStackOrder()) {
 			case UP:
 				getModel().getMyPlayer().moveUp();
-				killPlayer();
 
 				break;
 			case DOWN:
 				getModel().getMyPlayer().moveDown();
-				killPlayer();
 
 				break;
 			case RIGHT:
 				getModel().getMyPlayer().moveRight();
-				killPlayer();
 
 				break;
 			case LEFT:
 				getModel().getMyPlayer().moveLeft();
-				killPlayer();
 
 				break;
 			case NOP:
@@ -91,6 +87,11 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 			this.getView().followMyPlayer();
 			getView().updateView();
 			this.getModel().getMap().gravity();
+			this.getModel().getMap().gravityDiag();
+			this.getModel().getMap().gravityD();
+			this.getModel().getMap().gravityDiagD();
+			killMonster();
+			killPlayer();
 
 			if ((getModel().getMap()
 					.getOnTheMapXY((getModel().getMyPlayer().getX()), ((getModel().getMyPlayer().getY())))
@@ -136,7 +137,6 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 						.getModel().getMap().getOnTheMapXY(x + 1, y).getPermeability() == Permeability.PENETRABLE) {
 					this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.createBackground(), x, y);
 					this.getModel().getMap().setOnTheMapXY(MobileElementsFactory.createMonster(), x + 1, y);
-					System.out.println("bouge");
 				}
 			}
 		}
@@ -149,7 +149,6 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 						.getModel().getMap().getOnTheMapXY(x - 1, y).getPermeability() == Permeability.PENETRABLE) {
 					this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.createBackground(), x, y);
 					this.getModel().getMap().setOnTheMapXY(MobileElementsFactory.createMonster(), x - 1, y);
-					System.out.println("bouge");
 				}
 			}
 		}
@@ -162,7 +161,6 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 						.getModel().getMap().getOnTheMapXY(x, y - 1).getPermeability() == Permeability.PENETRABLE) {
 					this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.createBackground(), x, y);
 					this.getModel().getMap().setOnTheMapXY(MobileElementsFactory.createMonster(), x, y - 1);
-					System.out.println("bouge");
 				}
 			}
 		}
@@ -175,7 +173,6 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 						.getModel().getMap().getOnTheMapXY(x, y + 1).getPermeability() == Permeability.PENETRABLE) {
 					this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.createBackground(), x, y);
 					this.getModel().getMap().setOnTheMapXY(MobileElementsFactory.createMonster(), x, y + 1);
-					System.out.println("bouge");
 				}
 			}
 		}
@@ -229,4 +226,62 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 			getView().displayMessage("Game Over");
 		}
 	}
+	
+	// Kill monster
+	public void killMonster() {
+		for (int x = 0; x < this.getModel().getMap().getWidth(); x++) {
+			for (int y = 0; y < this.getModel().getMap().getHeight(); y++) {
+				if (this.getModel().getMap().getOnTheMapXY(x, y).getPermeability() == Permeability.KILLING
+						&& this.getModel().getMap().getOnTheMapXY(x, y - 1).getPermeability() == Permeability.PUSHING 
+						|| this.getModel().getMap().getOnTheMapXY(x, y).getPermeability() == Permeability.KILLING
+						&& this.getModel().getMap().getOnTheMapXY(x, y - 1).getPermeability() == Permeability.DIAMOND) {
+					this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.createBackground(), x, y);
+
+					// Test if Wall x-1
+					if ((getModel().getMap().getOnTheMapXY(x - 1, y).getPermeability()) != Permeability.BLOCKING) {
+						this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.createBackground(), x - 1, y);
+					}
+
+					// Test if Wall x-1 / y+1
+					if ((getModel().getMap().getOnTheMapXY(x - 1, y + 1).getPermeability()) != Permeability.BLOCKING) {
+						this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.createBackground(), x - 1,
+								y + 1);
+					}
+
+					// Test if Wall x / y+1
+					if ((getModel().getMap().getOnTheMapXY(x, y + 1).getPermeability()) != Permeability.BLOCKING) {
+						this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.createBackground(), x, y + 1);
+					}
+
+					// Test if Wall x+1 / y+1
+					if ((getModel().getMap().getOnTheMapXY(x + 1, y + 1).getPermeability()) != Permeability.BLOCKING) {
+						this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.createBackground(), x + 1,
+								y + 1);
+					}
+
+					// Test if Wall x+1 / y
+					if ((getModel().getMap().getOnTheMapXY(x + 1, y).getPermeability()) != Permeability.BLOCKING) {
+						this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.createBackground(), x + 1, y);
+					}
+
+					// Test if Wall x+1 / y-1
+					if ((getModel().getMap().getOnTheMapXY(x + 1, y - 1).getPermeability()) != Permeability.BLOCKING) {
+						this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.createBackground(), x + 1,
+								y - 1);
+					}
+
+					// Test if Wall x / y-1
+					if ((getModel().getMap().getOnTheMapXY(x, y - 1).getPermeability()) != Permeability.BLOCKING) {
+						this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.createBackground(), x, y - 1);
+					}
+
+					// Test if Wall x-1 / y-1
+					if ((getModel().getMap().getOnTheMapXY(x - 1, y - 1).getPermeability()) != Permeability.BLOCKING) {
+						this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.createBackground(), x - 1,
+								y - 1);
+					}
+				}
+			}
+		}
+		}
 }
