@@ -3,6 +3,10 @@ package entity.mobile;
 import entity.Permeability;
 import entity.Sprite;
 
+/**
+ * @author Laetitia
+ *
+ */
 public class Rock extends Mobile {
 
 	 /** The Constant SPRITE. */
@@ -11,7 +15,7 @@ public class Rock extends Mobile {
     /**
      * Instantiates a new obstacle.
      */
-    Rock() {
+    public Rock() {
         super(SPRITE, Permeability.PUSHING);
     }
     

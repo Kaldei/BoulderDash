@@ -10,7 +10,7 @@ import entity.IElement;
 /**
  * <h1>The Interface IMobile.</h1>
  *
- * @author Jade
+ * @author Laetitia
  * @version 0.1
  * @see IPawn
  * @see IElement
@@ -64,22 +64,23 @@ public interface IMobile extends IPawn, IElement {
      */
     Boolean isAlive();
 
-    /**
-     * Checks if the car crashed.
-     *
-     * @return the boolean
-     */
-   // Boolean isCrashed();
 
-    /*
-     * (non-Javadoc)
-     * @see fr.exia.showboard.IPawn#getPosition()
+    /**
+     *Gets the position
      */
     @Override
     Point getPosition();
 
+	/**
+	 * Die
+	 */
 	public void die();
 	
+	/**
+	 * Gets diamonds
+	 * @return int
+	 * 
+	 */
 	public int getDiamonds();
 
 }

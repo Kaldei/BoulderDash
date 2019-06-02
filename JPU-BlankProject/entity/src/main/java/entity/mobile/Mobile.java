@@ -11,13 +11,13 @@ import entity.Sprite;
 /**
  * <h1>The Mobile Class.</h1>
  *
- * @author Jade
+ * @author Laetitia
  * @version 0.3
  */
 abstract class Mobile extends Element implements IMobile {
 
 	/**
-	 * The x.
+	 * The XY
 	 */
 	private Point position;
 
@@ -43,6 +43,12 @@ abstract class Mobile extends Element implements IMobile {
 		this.position = new Point();
 	}
 
+	/**
+	 * Instantiates a new mobile.
+	 * 
+	 * @param sprite
+	 * @param permeability
+	 */
 	Mobile(final Sprite sprite, final Permeability permeability) {
 		super(sprite, permeability);
 		this.position = new Point();
@@ -64,9 +70,8 @@ abstract class Mobile extends Element implements IMobile {
 	}
 
 	/*
-	 * (non-Javadoc)
+	 * Move up
 	 * 
-	 * @see fr.exia.insanevehicles.model.element.mobile.IMobile#moveUp()
 	 */
 	@Override
 	public void moveUp() {
@@ -75,9 +80,8 @@ abstract class Mobile extends Element implements IMobile {
 	}
 
 	/*
-	 * (non-Javadoc)
+	 * Move left
 	 * 
-	 * @see fr.exia.insanevehicles.model.element.mobile.IMobile#moveLeft()
 	 */
 	@Override
 	public void moveLeft() {
@@ -86,9 +90,8 @@ abstract class Mobile extends Element implements IMobile {
 	}
 
 	/*
-	 * (non-Javadoc)
+	 * Move down
 	 * 
-	 * @see fr.exia.insanevehicles.model.element.mobile.IMobile#moveDown()
 	 */
 	@Override
 	public void moveDown() {
@@ -97,9 +100,8 @@ abstract class Mobile extends Element implements IMobile {
 	}
 
 	/*
-	 * (non-Javadoc)
+	 * Move right
 	 * 
-	 * @see fr.exia.insanevehicles.model.element.mobile.IMobile#moveRight()
 	 */
 	@Override
 	public void moveRight() {
@@ -108,9 +110,8 @@ abstract class Mobile extends Element implements IMobile {
 	}
 
 	/*
-	 * (non-Javadoc)
+	 * do nothing
 	 * 
-	 * @see fr.exia.insanevehicles.model.element.mobile.IMobile#doNothing()
 	 */
 	@Override
 	public void doNothing() {
@@ -125,9 +126,8 @@ abstract class Mobile extends Element implements IMobile {
 	}
 
 	/*
-	 * (non-Javadoc)
+	 * Gets the X
 	 * 
-	 * @see fr.exia.insanevehicles.model.element.mobile.IMobile#getX()
 	 */
 	@Override
 	public final int getX() {
@@ -145,9 +145,8 @@ abstract class Mobile extends Element implements IMobile {
 	}
 
 	/*
-	 * (non-Javadoc)
+	 * Gets the Y
 	 * 
-	 * @see fr.exia.insanevehicles.model.element.mobile.IMobile#getY()
 	 */
 	@Override
 	public final int getY() {
@@ -157,8 +156,7 @@ abstract class Mobile extends Element implements IMobile {
 	/**
 	 * Sets the y.
 	 *
-	 * @param y the new y, as the road is an infinite loop, there's a modulo based
-	 *          on the road height.
+	 * @param y
 	 */
 	public final void setY(final int y) {
 		this.getPosition().y = y;
@@ -166,27 +164,26 @@ abstract class Mobile extends Element implements IMobile {
 	}
 
 	/**
-	 * Gets the road.
+	 * Gets the map.
 	 *
-	 * @return the road
+	 * @return the map
 	 */
 	public IMap getMap() {
 		return this.map;
 	}
 
 	/**
-	 * Sets the road.
+	 * Sets the map.
 	 *
-	 * @param road the new road
+	 * @param map the new map
 	 */
 	private void setMap(final IMap map) {
 		this.map = map;
 	}
 
 	/*
-	 * (non-Javadoc)
 	 * 
-	 * @see fr.exia.insanevehicles.model.element.mobile.IMobile#isAlive()
+	 * 
 	 */
 	@Override
 	public Boolean isAlive() {
@@ -201,17 +198,9 @@ abstract class Mobile extends Element implements IMobile {
 		this.setHasMoved();
 	}
 
-	
-
 	/*
-	 * (non-Javadoc)
+	 * Gets the position
 	 * 
-	 * @see fr.exia.showboard.IPawn#getPosition()
-	 */
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see fr.exia.insanevehicles.model.element.mobile.IMobile#getPosition()
 	 */
 	@Override
 	public Point getPosition() {
@@ -235,8 +224,5 @@ abstract class Mobile extends Element implements IMobile {
 	protected IBoard getBoard() {
 		return this.board;
 	}
-	
-	
 
-	
-	}
+}

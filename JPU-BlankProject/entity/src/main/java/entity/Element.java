@@ -17,21 +17,19 @@ public abstract class Element implements IElement {
 	/** The permeability. */
 	private Permeability permeability;
 
+	
 	/**
-	 * Instantiates a new element.
-	 *
-	 * @param sprite       the sprite
-	 * @param permeability the permeability
+	 * @param sprite
+	 * @param permeability
 	 */
 	public Element(final Sprite sprite, final Permeability permeability) {
 		this.setSprite(sprite);
 		this.setPermeability(permeability);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see fr.exia.insanevehicles.model.element.IElement#getSprite()
+
+	/**
+	 *Gets the sprite
 	 */
 	public final Sprite getSprite() {
 		return this.sprite;
@@ -42,6 +40,7 @@ public abstract class Element implements IElement {
 	 *
 	 * @param sprite the new sprite
 	 */
+
 	protected final void setSprite(final Sprite sprite) {
 		this.sprite = sprite;
 	}
@@ -65,9 +64,8 @@ public abstract class Element implements IElement {
 	}
 
 	/*
-	 * (non-Javadoc)
+	 * Gets the Image
 	 * 
-	 * @see fr.exia.showboard.ISquare#getImage()
 	 */
 	public final Image getImage() {
 		return this.getSprite().getImage();

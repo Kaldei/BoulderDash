@@ -4,6 +4,10 @@ import entity.Element;
 import entity.Permeability;
 import entity.Sprite;
 
+/**
+ * @author Laetitia
+ *
+ */
 public class MotionlessElement extends Element {
 	
 	/**

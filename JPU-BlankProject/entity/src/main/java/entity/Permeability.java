@@ -12,15 +12,15 @@ public enum Permeability {
 	BLOCKING,
 	/** The penetrable. */
 	PENETRABLE,
-
+	/** The killing. */
 	KILLING, 
-	
+	/** The pushing. */
 	PUSHING, 
-	
+	/** The win. */
 	WIN, 
-	
+	/** The disappear. */
 	DISAPPEAR,
-	
+	/** The diamond. */
 	DIAMOND;
 
 }
