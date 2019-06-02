@@ -7,14 +7,9 @@ package contract;
  */
 public interface IView {
 
-	/**
-	 * Prints the message.
-	 *
-	 * @param message the message
-	 */
 	void displayMessage(final String message);
-	void followMyPlayer();
 	
+	void followMyPlayer();
 	
 	void updateView();
 }

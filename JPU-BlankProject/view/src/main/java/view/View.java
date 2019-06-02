@@ -25,12 +25,6 @@ import entity.IMap;
  */
 public final class View extends Observable implements IView, Runnable, KeyListener {
 
-	/** The Constant mapView. */
-	private static final int mapView = 10;
-
-	/** The Constant squareSize. */
-	private static final int squareSize = 50;
-
 	/** The Constant gameView. */
 	private Rectangle gameView;
 
@@ -40,11 +34,13 @@ public final class View extends Observable implements IView, Runnable, KeyListen
 	/** My vehicle. */
 	private IMobile myPlayer;
 
-	/** The view. */
-	private int view;
+	
 
 	/** The order performer. */
 	private IOrderPerformer orderPerformer;
+
+	final BoardFrame boardFrame = new BoardFrame("BoulderDash 12000");
+	final BoardFrame scoreFrame = new BoardFrame("Score");
 
 	/**
 	 * Instantiates a new insane vehicles View.
@@ -54,12 +50,39 @@ public final class View extends Observable implements IView, Runnable, KeyListen
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
 	public View(final IMap map, final IMobile myPlayer) throws IOException {
-		this.setView(mapView);
+		// this.setView(mapView);
 		this.setmap(map);
 		this.setmyPlayer(myPlayer);
 		this.getmyPlayer().getSprite().loadImage();
 		this.setgameView(new Rectangle(0, 0, 11, 11));
-		SwingUtilities.invokeLater(this);// Display the view
+		SwingUtilities.invokeLater(this);
+	}
+
+	/**************************************************
+	 * Board Settings
+	 ********************************************/
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Runnable#run()
+	 */
+
+	@Override
+	public final void run() {
+
+		boardFrame.setDimension(new Dimension(this.getmap().getWidth(), this.getmap().getHeight()));
+		boardFrame.setDisplayFrame(this.gameView);
+		boardFrame.addKeyListener(this);
+
+		scoreFrame.setSize(300, 120);
+		scoreFrame.setLocation(boardFrame.getX() + boardFrame.getWidth(), boardFrame.getY());
+		scoreFrame.setContentPane(new ScorePane(myPlayer.getDiamonds()));
+		// scoreFrame.setVisible(true);
+
+		boardFrame.setVisible(true);
+		this.updateView();
+		this.followMyPlayer();
+
 	}
 
 	/**************************************************
@@ -76,42 +99,6 @@ public final class View extends Observable implements IView, Runnable, KeyListen
 	public final void displayMessage(final String message) {
 		JOptionPane.showMessageDialog(null, message);
 	}
-
-	/**************************************************
-	 * Board Settings
-	 ********************************************/
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Runnable#run()
-	 */
-	
-	
-	@Override
-	public final void run() {
-		
-		boardFrame.setDimension(new Dimension(this.getmap().getWidth(), this.getmap().getHeight()));
-		boardFrame.setDisplayFrame(this.gameView);
-
-		boardFrame.setSize(this.gameView.width * squareSize, this.gameView.height * squareSize);
-		boardFrame.setHeightLooped(false);
-
-		// KeyListener
-		boardFrame.addKeyListener(this);
-		// Focusable allows you to focus the keyboard inputs
-		boardFrame.setFocusable(true);
-		// boardFrame.setFocusTraversalKeysEnabled(true); /???\
-
-		// Get elements on the map
-	this.updateView();
-		// FOLLOW PLAYER
-		this.followMyPlayer();
-		boardFrame.setVisible(true);
-	}
-	
-	final BoardFrame boardFrame = new BoardFrame("Game View");
-	
-		
 
 	/**************************************************
 	 * KeyListener
@@ -188,12 +175,25 @@ public final class View extends Observable implements IView, Runnable, KeyListen
 	 */
 	@Override
 	public final void followMyPlayer() {
-		if (this.getmyPlayer().getX() >= this.gameView.width / 2 && this.getmyPlayer().getX() <= this.getmap().getWidth() - this.gameView.width / 2 - 1) {
+		if (this.getmyPlayer().getX() >= this.gameView.width / 2
+				&& this.getmyPlayer().getX() <= this.getmap().getWidth() - this.gameView.width / 2 - 1) {
 			this.getgameView().x = this.getmyPlayer().getX() - this.gameView.width / 2;
 		}
-		if (this.getmyPlayer().getY() >=  this.gameView.height / 2 && this.getmyPlayer().getY() <= this.getmap().getHeight() - this.gameView.height / 2 - 1) {
+		if (this.getmyPlayer().getY() >= this.gameView.height / 2
+				&& this.getmyPlayer().getY() <= this.getmap().getHeight() - this.gameView.height / 2 - 1) {
 			this.getgameView().y = this.getmyPlayer().getY() - this.gameView.height / 2;
 		}
+	}
+
+	public void updateView() {
+		for (int x = 0; x < this.getmap().getWidth(); x++) {
+			for (int y = 0; y < this.getmap().getHeight(); y++) {
+				boardFrame.addSquare(this.map.getOnTheMapXY(x, y), x, y);
+			}
+		}
+		boardFrame.addPawn(this.getmyPlayer());
+		
+		this.getmap().getObservable().addObserver(boardFrame.getObserver());
 	}
 
 	/**
@@ -206,7 +206,7 @@ public final class View extends Observable implements IView, Runnable, KeyListen
 	}
 
 	/**
-	 * Sets the map.
+	 * DISPLAY THE MAP
 	 *
 	 * @param map the new map
 	 * @throws IOException Signals that an I/O exception has occurred.
@@ -238,24 +238,6 @@ public final class View extends Observable implements IView, Runnable, KeyListen
 		this.myPlayer = myPlayer;
 	}
 
-	/**
-	 * Gets the view.
-	 *
-	 * @return the view
-	 */
-	@SuppressWarnings("unused")
-	private int getView() {
-		return this.view;
-	}
-
-	/**
-	 * Sets the view.
-	 *
-	 * @param view the new view
-	 */
-	private void setView(final int view) {
-		this.view = view;
-	}
 
 	/**
 	 * Gets the close view.
@@ -291,16 +273,5 @@ public final class View extends Observable implements IView, Runnable, KeyListen
 	 */
 	public final void setOrderPerformer(final IOrderPerformer orderPerformer) {
 		this.orderPerformer = orderPerformer;
-	}
-	
-	public void updateView() {
-		for (int x = 0; x < this.getmap().getWidth(); x++) {
-			for (int y = 0; y < this.getmap().getHeight(); y++) {
-				boardFrame.addSquare(this.map.getOnTheMapXY(x, y), x, y);
-			}
-		}
-		boardFrame.addPawn(this.getmyPlayer());
-
-		this.getmap().getObservable().addObserver(boardFrame.getObserver()); 
 	}
 }
