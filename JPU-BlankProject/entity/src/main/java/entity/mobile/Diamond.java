@@ -6,7 +6,7 @@ import entity.Sprite;
 public class Diamond extends Mobile{
 
 	    /** The Constant SPRITE. */
-	    private static final Sprite SPRITE = new Sprite('*', "diamond.png");
+	    private static final Sprite SPRITE = new Sprite('*', "Diamond.png");
 	    
 
 	    /**

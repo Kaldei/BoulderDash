@@ -100,18 +100,17 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 				break;
 			}
 
-			this.Monstermove();
+			this.MonsterMove();
 
 			direction = rand.nextInt(4);
-			System.out.println(direction);
-
 		}
 	}
 
-	public void Monstermove() throws InterruptedException {
+	public void MonsterMove() throws InterruptedException {
 		Thread.sleep(speed);
 		switch (direction) {
 		case 1:
+			
 			MMoveRight();
 			break;
 		case 0:
@@ -137,7 +136,6 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 						.getModel().getMap().getOnTheMapXY(x + 1, y).getPermeability() == Permeability.PENETRABLE) {
 					this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.getFromFileSymbol('.'), x, y);
 					this.getModel().getMap().setOnTheMapXY(MobileElementsFactory.getFromFileSymbol('X'), x + 1, y);
-					System.out.println("bouge");
 				}
 			}
 		}
@@ -150,7 +148,6 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 						.getModel().getMap().getOnTheMapXY(x - 1, y).getPermeability() == Permeability.PENETRABLE) {
 					this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.getFromFileSymbol('.'), x, y);
 					this.getModel().getMap().setOnTheMapXY(MobileElementsFactory.getFromFileSymbol('X'), x - 1, y);
-					System.out.println("bouge");
 				}
 			}
 		}
@@ -163,7 +160,6 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 						.getModel().getMap().getOnTheMapXY(x, y - 1).getPermeability() == Permeability.PENETRABLE) {
 					this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.getFromFileSymbol('.'), x, y);
 					this.getModel().getMap().setOnTheMapXY(MobileElementsFactory.getFromFileSymbol('X'), x, y - 1);
-					System.out.println("bouge");
 				}
 			}
 		}
@@ -176,7 +172,6 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 						.getModel().getMap().getOnTheMapXY(x, y + 1).getPermeability() == Permeability.PENETRABLE) {
 					this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.getFromFileSymbol('.'), x, y);
 					this.getModel().getMap().setOnTheMapXY(MobileElementsFactory.getFromFileSymbol('X'), x, y + 1);
-					System.out.println("bouge");
 				}
 			}
 		}
@@ -228,7 +223,6 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 					Thread.sleep(speed);
 					this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.getFromFileSymbol('.'), x, y);
 					this.getModel().getMap().setOnTheMapXY(MobileElementsFactory.getFromFileSymbol('O'), x, y + 1);
-					System.out.println("tombe");
 				}
 			}
 		}

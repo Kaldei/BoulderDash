@@ -6,7 +6,7 @@ import entity.Sprite;
 public class Rock extends Mobile {
 
 	 /** The Constant SPRITE. */
-    private static final Sprite SPRITE = new Sprite('O', "rock.png");
+    private static final Sprite SPRITE = new Sprite('O', "Rock.png");
 
     /**
      * Instantiates a new obstacle.
