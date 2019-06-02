@@ -38,6 +38,10 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/User/Documents/GitHub/Project-5/showboard.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Antho/git/Project-5/showboard.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/Antho/git/Project-5/showboard.doc.jar!/doc"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
