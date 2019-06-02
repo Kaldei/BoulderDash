@@ -18,18 +18,35 @@ public abstract class MotionlessElementsFactory {
 	 */
 	private static MotionlessElement[] motionlessElements = { WALL, BACKGROUND, DOOR, GROUND};
 
+	/**
+	 * creates the wall
+	 * @return
+	 */
 	public static MotionlessElement createWall() {
 		return WALL;
 	}
 
+	/**
+	 * creates the door
+	 * @return
+	 */
 	public static MotionlessElement createDoor() {
 		return DOOR;
 	}
 
+	/**
+	 * creates the background
+	 * @return
+	 */
 	public static MotionlessElement createBackground() {
 		return BACKGROUND;
 	}
 	
+	/**
+	 * 
+	 * creates the ground
+	 * @return
+	 */
 	public static MotionlessElement createGround() {
 		return GROUND;
 	}

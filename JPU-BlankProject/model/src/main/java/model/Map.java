@@ -15,7 +15,7 @@ import java.io.InputStreamReader;
 import java.util.Observable;
 
 /**
- * <h1>The Road Class.</h1>
+ * <h1>The Map Class.</h1>
  *
  * @author Laetitia
  * @version 0.1
@@ -35,14 +35,14 @@ class Map extends Observable implements IMap {
 	private IElement[][] onTheMap;
 
 	/**
-	 * Instantiates a new road with the content of the file fileName.
+	 * Instantiates a new map with the content of the file fileName.
 	 *
 	 * @param fileName the file name where the map is
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
 	Map(final String fileName) throws IOException {
 		super();
-		this.MyMap.loadlevel(1);
+		this.MyMap.loadlevel(3);
 		this.loadFile(fileName);
 	}
 
@@ -78,9 +78,8 @@ class Map extends Observable implements IMap {
 	}
 
 	/*
-	 * (non-Javadoc)
+	 * Gets the width
 	 * 
-	 * @see fr.exia.insanevehicles.model.IRoad#getWidth()
 	 */
 	@Override
 	public final int getWidth() {
@@ -97,9 +96,8 @@ class Map extends Observable implements IMap {
 	}
 
 	/*
-	 * (non-Javadoc)
+	 * Gets the height
 	 * 
-	 * @see fr.exia.insanevehicles.model.IRoad#getHeight()
 	 */
 	@Override
 	public final int getHeight() {
@@ -116,9 +114,8 @@ class Map extends Observable implements IMap {
 	}
 
 	/*
-	 * (non-Javadoc)
+	 * Gets element on the map
 	 * 
-	 * @see fr.exia.insanevehicles.model.IRoad#getOnTheRoadXY(int, int)
 	 */
 	@Override
 	public final IElement getOnTheMapXY(final int x, final int y) {
@@ -126,7 +123,7 @@ class Map extends Observable implements IMap {
 	}
 
 	/**
-	 * Sets the on the road XY.
+	 * Sets the on the map XY.
 	 *
 	 * @param element the element
 	 * @param x       the x
@@ -137,9 +134,8 @@ class Map extends Observable implements IMap {
 	}
 
 	/*
-	 * (non-Javadoc)
+	 * Sets the mobile has changed
 	 * 
-	 * @see fr.exia.insanevehicles.model.IRoad#setMobileHasChanged()
 	 */
 	@Override
 	public final void setMobileHasChanged() {
@@ -148,15 +144,17 @@ class Map extends Observable implements IMap {
 	}
 
 	/*
-	 * (non-Javadoc)
+	 * Gets the observable
 	 * 
-	 * @see fr.exia.insanevehicles.model.IRoad#getObservable()
 	 */
 	@Override
 	public Observable getObservable() {
 		return this;
 	}
 
+	/**
+	 *Apply gravity
+	 */
 	public void gravity() {
 		for (int y = this.getHeight() - 1; y > 0; y--) {
 			for (int x = this.getWidth() - 1; x > 0; x--) {
@@ -169,6 +167,9 @@ class Map extends Observable implements IMap {
 		}
 	}
 
+	/**
+	 *Apply gravity
+	 */
 	public void gravityDiag() {
 		for (int y = this.getHeight() - 1; y > 0; y--) {
 			for (int x = this.getWidth() - 1; x > 0; x--) {
@@ -192,6 +193,9 @@ class Map extends Observable implements IMap {
 		}
 	}
 
+	/**
+	 *Apply gravity
+	 */
 	public void gravityD() {
 		for (int y = this.getHeight() - 1; y > 0; y--) {
 			for (int x = this.getWidth() - 1; x > 0; x--) {
@@ -204,6 +208,9 @@ class Map extends Observable implements IMap {
 		}
 	}
 
+	/**
+	 *Apply gravity
+	 */
 	public void gravityDiagD() {
 		for (int y = this.getHeight() - 1; y > 0; y--) {
 			for (int x = this.getWidth() - 1; x > 0; x--) {
@@ -227,6 +234,10 @@ class Map extends Observable implements IMap {
 		}
 	}
 
+	/**
+	 * Gets the map 
+	 * @return
+	 */
 	public DAOMap getMyMap() {
 		return MyMap;
 	}

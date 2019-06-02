@@ -3,6 +3,10 @@ package entity.mobile;
 import entity.Permeability;
 import entity.Sprite;
 
+/**
+ * @author Laetitia
+ *
+ */
 public class Monster extends Mobile{
 
 	    /** The Constant SPRITE. */
@@ -15,6 +19,9 @@ public class Monster extends Mobile{
 	        super(SPRITE, Permeability.KILLING);
 	    }
 
+		/**
+		 *Gets the diamond
+		 */
 		@Override
 		public int getDiamonds() {
 			// TODO Auto-generated method stub

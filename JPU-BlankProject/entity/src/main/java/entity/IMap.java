@@ -3,9 +3,9 @@ package entity ;
 import java.util.Observable;
 
 /**
- * <h1>The Interface IRoad.</h1>
+ * <h1>The Interface IMap.</h1>
  *
- * @author Jade
+ * @author Laetitia
  * @version 0.1
  */
 public interface IMap {
@@ -25,7 +25,7 @@ public interface IMap {
     int getHeight();
 
     /**
-     * Gets the on the road XY.
+     * Gets on the map XY.
      *
      * @param x
      *            the x
@@ -35,14 +35,32 @@ public interface IMap {
      */
     IElement getOnTheMapXY(int x, int y);
     
+    /**
+     * Sets on the Map XY 
+     * @param element
+     * @param x
+     * @param y
+     */
     void setOnTheMapXY(IElement element, final int x, final int y);
     
+    /**
+     * Apply Rock gravity
+     */
     void gravity();
     
+    /**
+     * Apply gravity
+     */
     void gravityDiag();
     
+    /**
+     * Apply diamond gravity
+     */
     void gravityD();
     
+    /**
+     * Apply gravity
+     */
     void gravityDiagD();
 
     /**
