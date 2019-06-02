@@ -17,15 +17,18 @@ public class ScorePane extends JPanel {
 	private int diamond;
 	
 	public ScorePane (int diamond) { 
-		setDiamond(diamond);
+		//setDiamond(diamond);
+		  // this.setBackground(Color.ORANGE); 
 	}
 
 	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
 		Font font = new Font("Courier", Font.BOLD, 20);
 		g.setFont(font);
-		g.setColor(Color.black);
-		g.drawString("Diamonds needed : 10", 10, 20);
-		g.drawString("Your Diamonds : " + getDiamond(), 10, 60);
+		g.setColor(Color.white);
+		g.drawString("Diamonds needed : 10", 10, 30);
+		g.drawString("Your Diamonds : " + getDiamond(), 10, 65);
+		
 	}
 
 	public int getDiamond() {
