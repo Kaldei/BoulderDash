@@ -92,6 +92,7 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 			this.getModel().getMap().gravityDiagD();
 			killMonster();
 			killPlayer();
+			
 
 			if ((getModel().getMap()
 					.getOnTheMapXY((getModel().getMyPlayer().getX()), ((getModel().getMyPlayer().getY())))

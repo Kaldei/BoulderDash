@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 30 mai 2019 à 11:45
--- Version du serveur :  5.7.24
--- Version de PHP :  7.2.14
+-- Généré le :  Dim 02 juin 2019 à 16:41
+-- Version du serveur :  5.7.26
+-- Version de PHP :  7.2.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -33,20 +33,6 @@ SELECT map FROM level WHERE id = levelID ;
 
 END$$
 
-DROP PROCEDURE IF EXISTS `maplevel1`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `maplevel1` ()  BEGIN
-
-SELECT map FROM level WHERE `level`="level1";
-
-END$$
-
-DROP PROCEDURE IF EXISTS `maplevel2`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `maplevel2` ()  BEGIN
-
-SELECT map FROM level WHERE `level`="level2" ;
-
-END$$
-
 DELIMITER ;
 
 -- --------------------------------------------------------
@@ -61,15 +47,18 @@ CREATE TABLE IF NOT EXISTS `level` (
   `level` varchar(54) NOT NULL,
   `map` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `level`
 --
 
 INSERT INTO `level` (`id`, `level`, `map`) VALUES
-(1, 'level1', '15\r\n10\r\n#         H   #\r\n#     ..      #\r\n#     X.      #\r\n#             #\r\n#             #\r\n#        O    #\r\n#   *         #\r\n#         D   #\r\n#             #\r\n#             #'),
-(2, 'level2', '15\r\n10\r\n#             #\r\n#             #\r\n# X    X      #\r\n#          X  #\r\n#             #\r\n#       X     #\r\n#             #\r\n#             #\r\n#             #\r\n#             #');
+(1, 'level1', '35\r\n25\r\n###################################\r\n#.                ..           OO #\r\n#      OO      ..                 #\r\n#    *          #     OO  **      #\r\n#      ..       #                 #\r\n#    ..X..      #      ..   ..    #\r\n#               #   ..X...     .  #\r\n#           O   #     ...         #\r\n#############################   . #\r\n#                 #               #\r\n#      *          #       **   .  #\r\n#     *   O   OO  #               #\r\n#     *           #               #\r\n#        ..   ..  #        ..X..  #\r\n#                           ...   #\r\n#            OO ..                #\r\n####    ###########################\r\n#                          # .....#\r\n#    *      OOO    O       # X.D..#\r\n#..X..                     # .....#\r\n#          #                      #\r\n#    *     #    **       OO       #\r\n#    *     #              O       #\r\n#          #                      #\r\n###################################'),
+(2, 'level2', '35\r\n15\r\n###################################\r\n#  OO   #   **                  #D#\r\n#       #  ..X. **      ..X..     #\r\n#          .X..                   #\r\n#                       O         #\r\n#       #    **     O             #\r\n#    ** #    OOO     OO           #\r\n#   OO  #    O*O          *       #\r\n#            OOO     .X....       #\r\n#       #         ......          #\r\n#  **   #    OO     ..D..X        #\r\n#                 .X.....         #\r\n#  O    #                         #\r\n#    *  #         *               #\r\n###################################'),
+(3, 'level3', '24\r\n15\r\n########################\r\n# ...    O    ** ..X.. #\r\n#   ...    OO    ..    #\r\n#               OO     #\r\n#          **       ..X#\r\n###################    #\r\n#                      #\r\n#  ..X.  * O   . O..   #\r\n#         **       OO  #\r\n# ..X...         *     #\r\n##########    ##########\r\n#        ..OO...  *    #\r\n#                 ...  #\r\n#      **  .X.     X.D #\r\n########################'),
+(4, 'level4', '21\r\n11\r\n#####################\r\n#  O     O  * *     #\r\n# *                 #\r\n#*  ####     ####   #\r\n#       ...   OO    #\r\n# .X.   .X.   *O    #\r\n# ...  ####         #\r\n#     OOO     ..X...#\r\n#   ..X O     ..**###\r\n#  **.. O ...X..#**D#\r\n#####################'),
+(5, 'level5', '13\r\n11\r\n#############\r\n#.          #\r\n#           #\r\n# *   *   * #\r\n# ** * * ** #\r\n# * *   * * #\r\n# *   D   * #\r\n# ********* #\r\n#           #\r\n#           #\r\n#############\r\n');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
