@@ -1,9 +1,13 @@
 package entity;
 
-import java.awt.Image;
 
 import fr.exia.showboard.ISquare;
 
+/**
+ *   <h1>The Interface IElement.</h1>
+ * @author Laetitia
+ *
+ */
 public interface IElement extends ISquare {
 	/**
 	 * Gets the sprite.
@@ -19,12 +23,6 @@ public interface IElement extends ISquare {
 	 */
 	Permeability getPermeability();
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see fr.exia.showboard.ISquare#getImage()
-	 */
-	@Override
-	Image getImage();
+	
 
 }

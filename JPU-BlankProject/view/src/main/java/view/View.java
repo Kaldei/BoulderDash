@@ -100,6 +100,7 @@ public final class View extends Observable implements IView, Runnable, KeyListen
 	@Override
 	public final void displayMessage(final String message) {
 		JOptionPane.showMessageDialog(null, message);
+		
 	}
 
 
