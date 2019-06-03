@@ -20,6 +20,7 @@ public class MobileTest {
 	MyPlayer myplayer;
 	Boolean BExpected;
 	IMap map;
+	IMobile player ;
 
 	
 	/**
@@ -28,8 +29,7 @@ public class MobileTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		
-		this.myplayer = new MyPlayer(1, 2, map);
+;		this.myplayer = new MyPlayer(1, 2, map);
 		
 	}
 
@@ -60,8 +60,8 @@ public class MobileTest {
 		final Point PExpected = new Point(1, 2);
 		assertEquals(PExpected, this.myplayer.getPosition());
 	}
-	
-	/*@Test
+	/*
+	@Test
 	public void testmoveRight() {
 		fail();
 		this.myplayer.moveRight();
@@ -75,7 +75,7 @@ public class MobileTest {
 		BExpected = false ;
 		this.myplayer.die();
 		assertEquals(this.BExpected,this.myplayer.isAlive());
-	}*/
-	
+	}
+	*/
 
 }
