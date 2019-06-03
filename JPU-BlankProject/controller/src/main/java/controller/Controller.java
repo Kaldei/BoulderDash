@@ -19,29 +19,45 @@ import entity.motionless.MotionlessElementsFactory;
 
 public final class Controller implements IBoulderDashController, IOrderPerformer {
 
-	/** The speed  */
+	/** 
+	 * The speed  
+	 * */
 	private static final int speed = 100;
 
-	/** The view */
+	/** 
+	 * The view 
+	 * */
 	private IView view;
 
-	/** The model */
+	/** 
+	 * The model 
+	 * */
 	private IModel model;
 
-	/** stakckOrder */
+	/** 
+	 * stakckOrder 
+	 * */
 	private UserOrder stackOrder;
 	
 	
-	/** The diamonds counter */
+	/** 
+	 * The diamonds counter 
+	 * */
 	private int diamondsCounter = 10;
 
-	/** The random */
+	/** 
+	 * The random 
+	 * */
 	Random rand = new Random();
 	
-	/** The diretion for Red Monsters*/
+	/** 
+	 * The diretion for Red Monsters
+	 * */
 	private int rdirection;
 	
-	/** The diretion for Green Monsters*/
+	/** 
+	 * The diretion for Green Monsters
+	 * */
 	private int gDirection;
 
 	/**
@@ -54,8 +70,9 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 		this.clearStackOrder();
 	}
 
-
-	/** Play method */
+	/** 
+	 * Play method 
+	 * */
 	@Override
 	public final void play() throws InterruptedException {
 		while (this.getModel().getMyPlayer().isAlive() == true) {
@@ -133,6 +150,9 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 
 	}
 	
+	/**
+	 * MonsterG Move method
+	 */
 	public void MonsterGMove() {
 		if (gDirection <= 10) { 
 		MGMoveRight();
@@ -144,7 +164,9 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 			
 	}
 
-	/**	Monster MoveRight method */
+	/**	
+	 * Monster MoveRight method 
+	 * */
 	public void MGMoveRight() {
 		for (int y = this.getModel().getMap().getHeight() - 1; y > 0; y--) {
 			for (int x = this.getModel().getMap().getWidth() - 1; x > 0; x--) {
@@ -158,6 +180,9 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 	}
 
 	
+	/**
+	 * MonsterG Move Left Method
+	 */
 	public void MGMoveLeft() {
 		for (int x = 0; x < this.getModel().getMap().getWidth(); x++) {
 			for (int y = 0; y < this.getModel().getMap().getHeight(); y++) {
@@ -170,7 +195,9 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 		}
 	}
 	
-	/**	Monster MoveRight method */
+	/**	
+	 * Monster Move Right method 
+	 * */
 	public void MRMoveRight() {
 		for (int y = this.getModel().getMap().getHeight() - 1; y > 0; y--) {
 			for (int x = this.getModel().getMap().getWidth() - 1; x > 0; x--) {
@@ -184,6 +211,9 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 	}
 
 	
+	/**
+	 * MonsterR Move Left method
+	 */
 	public void MRMoveLeft() {
 		for (int x = 0; x < this.getModel().getMap().getWidth(); x++) {
 			for (int y = 0; y < this.getModel().getMap().getHeight(); y++) {
@@ -196,6 +226,9 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 		}
 	}
 
+	/**
+	 * MonsterR Move Up method
+	 */
 	public void MRMoveUp() {
 		for (int x = 0; x < this.getModel().getMap().getWidth(); x++) {
 			for (int y = 0; y < this.getModel().getMap().getHeight(); y++) {
@@ -208,6 +241,9 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 		}
 	}
 
+	/**
+	 * MonsterR Move Down method
+	 */
 	public void MRMoveDown() {
 		for (int y = this.getModel().getMap().getHeight() - 1; y > 0; y--) {
 			for (int x = this.getModel().getMap().getWidth() - 1; x > 0; x--) {
@@ -220,44 +256,74 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 		}
 	}
 
+	/**
+	 * orderPerform method
+	 */
 	@Override
 	public final void orderPerform(final UserOrder userOrder) throws IOException {
 		this.setStackOrder(userOrder);
 	}
 
+	/**
+	 * @return
+	 */
 	private IView getView() {
 		return this.view;
 	}
 
+	/**
+	 * @param view
+	 */
 	private void setView(final IView view) {
 		this.view = view;
 	}
 
+	/**
+	 * @return
+	 */
 	private IModel getModel() {
 		return this.model;
 	}
 
+	/**
+	 * @param model
+	 */
 	private void setModel(final IModel model) {
 		this.model = model;
 	}
 
+	/**
+	 * @return
+	 */
 	private UserOrder getStackOrder() {
 		return this.stackOrder;
 	}
 
+	/**
+	 * @param stackOrder
+	 */
 	private void setStackOrder(final UserOrder stackOrder) {
 		this.stackOrder = stackOrder;
 	}
 
+	/**
+	 * clearStackOrder method
+	 */
 	private void clearStackOrder() {
 		this.stackOrder = UserOrder.NOP;
 	}
 
+	/**
+	 * getOrderPerformer method
+	 */
 	@Override
 	public IOrderPerformer getOrderPerformer() {
 		return this;
 	}
 
+	/**
+	 * killPlayer method
+	 */
 	public void killPlayer() {
 		if ((getModel().getMap().getOnTheMapXY((getModel().getMyPlayer().getX()), ((getModel().getMyPlayer().getY())))
 				.getPermeability() == Permeability.KILLING)) {
@@ -266,6 +332,9 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 		}
 	}
 
+	/**
+	 * killMonster method
+	 */
 	public void killMonster() {
 		for (int x = 0; x < this.getModel().getMap().getWidth(); x++) {
 			for (int y = 0; y < this.getModel().getMap().getHeight(); y++) {
