@@ -14,6 +14,10 @@ import contract.IModel;
 import contract.IView;
 import contract.UserOrder;
 
+/**
+ * @author Anthony
+ *
+ */
 public class ControllerTest {
 
 	/**
@@ -37,7 +41,7 @@ public class ControllerTest {
 	private UserOrder stackOrder = UserOrder.UP;
 	
 	/**
-	 * @return
+	 * @return stackOrder
 	 */
 	public UserOrder getStackOrder() {
 		return stackOrder;
@@ -50,10 +54,16 @@ public class ControllerTest {
 		this.stackOrder = stackOrder;
 	}
 
+	/**
+	 * @throws Exception
+	 */
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
 
+	/**
+	 * @throws Exception
+	 */
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
 	}
@@ -67,6 +77,9 @@ public class ControllerTest {
 		this.controller = new Controller(view, model);
 	}
 
+	/**
+	 * @throws Exception
+	 */
 	@After
 	public void tearDown() throws Exception {
 	}
