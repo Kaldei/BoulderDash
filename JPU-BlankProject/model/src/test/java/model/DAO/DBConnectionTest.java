@@ -2,50 +2,77 @@ package model.DAO;
 
 import static org.junit.Assert.*;
 
-import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.mysql.jdbc.Connection;
 
+/**
+ * @author Laetitia
+ *
+ */
 public class DBConnectionTest {
 
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
+	DBConnection DBC;
+	final String USER = "root";
+	final String PASSWD = "";
+	final String URL = "jdbc:mysql://localhost/javabdd?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&autoReconnect=true&useSSL=false";
+	
 
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
-
-	java.sql.Connection connection;
-	DAOMap dao = null;
-
+	/**
+	 * @throws Exception
+	 * @throws SQLException
+	 */
 	@Before
 	public void setUp() throws Exception, SQLException {
-		final String URL = "jdbc:mysql://localhost/javabdd?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&autoReconnect=true&useSSL=false";
-		final String USER = "root";
-		final String PASSWD = "";
-		connection = DriverManager.getConnection(URL, USER, PASSWD);
-
-		this.dao = new DAOMap();
-
+		this.DBC= new DBConnection();
 	}
 
-	@After
-	public void tearDown() throws Exception {
-	}
-
+	/**
+	 * Test the connection
+	 * @throws SQLException
+	 */
 	@Test
 	public void testconnect() throws SQLException {
-		final String SExpected = "com.mysql.jdbc.JDBC4Connection@2077d4de";
-		dao = null;
-		assertEquals(SExpected, this.connection);
+		assertNotNull(this.DBC);
 	}
 
+	/**
+	 * test the get url
+	 * @throws SQLException
+	 */
+	@Test
+	public void testgetUrl() throws SQLException {
+		assertEquals(this.URL, this.DBC.getURL());
+	}
+	
+	/**
+	 * test the get user
+	 * @throws SQLException
+	 */
+	@Test
+	public void testgetUser() throws SQLException {
+		assertEquals(this.USER, this.DBC.getUSER());
+	}
+	
+	/**
+	 * test the get passeword
+	 * @throws SQLException
+	 */
+	@Test
+	public void testgetPassword() throws SQLException {
+		assertEquals(this.PASSWD, this.DBC.getPASSWD());
+	}
+	
+	/**
+	 * test the get instance
+	 * @throws SQLException
+	 */
+	@Test
+	public void testGetInstance() {
+		final String expected = "com.mysql.jdbc.JDBC4Connection@2077d4de";
+		assertNotNull(expected, DBC.toString());
+	}
+	
 }

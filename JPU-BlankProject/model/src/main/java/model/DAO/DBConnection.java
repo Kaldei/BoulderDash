@@ -18,6 +18,8 @@ public class DBConnection {
 	 * the user
 	 */
 	private static String USER = "root";
+	
+
 	/**
 	 * the password 
 	 */
@@ -58,5 +60,29 @@ public class DBConnection {
 	 */
 	public Connection getConnection() {
 		return connection;
+	}
+	
+	/**
+	 * Gets the URL
+	 * @return
+	 */
+	public String getURL() {
+		return URL;
+	}
+
+	/**
+	 * Gets the user
+	 * @return
+	 */
+	public  String getUSER() {
+		return USER;
+	}
+
+	/**
+	 * Gets the password
+	 * @return
+	 */
+	public  String getPASSWD() {
+		return PASSWD;
 	}
 }

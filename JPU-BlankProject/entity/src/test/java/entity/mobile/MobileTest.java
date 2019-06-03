@@ -4,47 +4,57 @@ import static org.junit.Assert.*;
 
 import java.awt.Point;
 
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
+import entity.IMap;
+
+
+/**
+ * @author Laetitia
+ *
+ */
 public class MobileTest {
 
 	int IExpected;
 	MyPlayer myplayer;
 	Boolean BExpected;
+	IMap map;
 
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
-
+	
+	/**
+	 * Instanciates the new player
+	 * @throws Exception
+	 */
 	@Before
 	public void setUp() throws Exception {
-		this.myplayer = new MyPlayer(1, 2, null);
+		
+		this.myplayer = new MyPlayer(1, 2, map);
+		
 	}
 
-	@After
-	public void tearDown() throws Exception {
-	}
 
+	/**
+	 * test the get X
+	 */
 	@Test
 	public void testgetX() {
 		IExpected = 1;
 		assertEquals(this.IExpected, this.myplayer.getX());
 	}
 
+	/**
+	 * test the get Y
+	 */
 	@Test
 	public void testgetY() {
 		IExpected = 2;
 		assertEquals(this.IExpected, this.myplayer.getY());
 	}
 
+	/**
+	 * test the position
+	 */
 	@Test
 	public void testposition() {
 		final Point PExpected = new Point(1, 2);
@@ -53,16 +63,19 @@ public class MobileTest {
 	
 	@Test
 	public void testmoveRight() {
-		IExpected = 2;
+		fail();
 		this.myplayer.moveRight();
+		IExpected = 2;
 		assertEquals(this.IExpected, this.myplayer.getX());
 	}
 	
 	@Test
 	public void testdie() {
+		fail();
 		BExpected = false ;
 		this.myplayer.die();
 		assertEquals(this.BExpected,this.myplayer.isAlive());
 	}
+	
 
 }
