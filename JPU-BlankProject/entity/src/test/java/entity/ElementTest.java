@@ -2,7 +2,7 @@ package entity;
 
 import static org.junit.Assert.*;
 
-import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import entity.mobile.Rock;
@@ -10,21 +10,22 @@ import entity.mobile.Rock;
 public class ElementTest {
 
 	
-	Rock rock;
+	static Rock rock;
 	
-	@Before
-	public void setUp() throws Exception {
-		this.rock = new Rock();
+	
+	@BeforeClass
+	public static void setUpBeforeClass() throws Exception {
+		rock = new Rock();
 	}
 
 	@Test
 	public void testgetPermeability() {
 		final Permeability PExpected = Permeability.PUSHING;
-		assertEquals(PExpected,this.rock.getPermeability());
+		assertEquals(PExpected,rock.getPermeability());
 	}
 
 	@Test
 	public void testgetSprite() {
-		assertNotNull(this.rock.getSprite());
+		assertNotNull(rock.getSprite());
 	}
 }
