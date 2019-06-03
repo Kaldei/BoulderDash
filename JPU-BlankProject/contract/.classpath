@@ -11,7 +11,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" path="/entity"/>
 	<classpathentry kind="var" path="M2_REPO/junit/junit/4.12/junit-4.12.jar" sourcepath="M2_REPO/junit/junit/4.12/junit-4.12-sources.jar">
 		<attributes>
 			<attribute name="javadoc_location" value="jar:file:/C:/Users/jadiet/.m2/repository/junit/junit/4.12/junit-4.12-javadoc.jar!/"/>
@@ -39,5 +38,6 @@
 			<attribute name="javadoc_location" value="jar:file:/C:/Users/calde/git/Project-5/JPU-BlankProject/main/showboard.doc.jar!/"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry combineaccessrules="false" kind="src" path="/entity"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
