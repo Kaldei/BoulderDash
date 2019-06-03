@@ -2,7 +2,7 @@ package entity;
 
 import static org.junit.Assert.*;
 
-import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import entity.mobile.Rock;
@@ -13,16 +13,17 @@ import entity.mobile.Rock;
  */
 public class SpriteTest {
 
-	Rock rock;
+	static Rock rock;
 
 	/**
 	 * Instanciates a new rock
 	 * @throws Exception
 	 */
-	@Before
-	public void setUp() throws Exception {
-		this.rock = new Rock();
+	@BeforeClass
+	public static void setUpBeforeClass() throws Exception {
+		rock = new Rock();
 	}
+	
 
 	/**
 	 *  test get the image
@@ -30,7 +31,7 @@ public class SpriteTest {
 	@Test
 	public void testgetImageName() {
 		final String SExpected = "Rock.png";
-		assertEquals(SExpected, this.rock.getSprite().getImageName());
+		assertEquals(SExpected, rock.getSprite().getImageName());
 
 	}
 
@@ -40,7 +41,7 @@ public class SpriteTest {
 	@Test
 	public void testgetConsoleImage() {
 		final char CExpected = 'O';
-		assertEquals(CExpected, this.rock.getSprite().getConsoleImage());
+		assertEquals(CExpected, rock.getSprite().getConsoleImage());
 	}
 
 }

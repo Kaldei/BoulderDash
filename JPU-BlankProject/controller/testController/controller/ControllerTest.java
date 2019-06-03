@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 
 import java.io.IOException;
 
-import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -77,21 +76,6 @@ public class ControllerTest {
 		this.controller = new Controller(view, model);
 	}
 
-	/**
-	 * @throws Exception
-	 */
-	@After
-	public void tearDown() throws Exception {
-	}
-	
-	/**
-	 * test the method Play
-	 */
-	@Test
-	public void testPlay() {
-		// No test available
-		// fail("Not yet implemented");
-	}
 
 	/**
 	 * @throws IOException
@@ -100,7 +84,7 @@ public class ControllerTest {
 	public void testOrderPerform() throws IOException {
 
 		UserOrder expectedUserOrder = UserOrder.UP;
-		controller.orderPerform(expectedUserOrder);
+		controller.orderPerform(stackOrder);
 		assertEquals(expectedUserOrder, this.stackOrder);
 	}
 
@@ -112,29 +96,4 @@ public class ControllerTest {
 		assertNotNull(controller.getOrderPerformer());
 	}
 
-	/**
-	 * Test the method KillPlayer
-	 */
-	@Test
-	public void testKillPlayer() {
-		// No test available
-		// fail("Not yet implemented");
-	}
-
-	/**
-	 * Test the method KillMonster
-	 */
-	@Test
-	public void testKillMonster() {
-		// No test available
-		// fail("Not yet implemented");
-	}
-
-	/**
-	 * Test the method clearOrder
-	 */
-	@Test
-	public void testClearOrder() {
-		//assertEquals(UserOrder.NOP, controller.getOrderPerformer());
-	}
 }
