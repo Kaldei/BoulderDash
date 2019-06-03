@@ -10,8 +10,6 @@ The goal of the game is to collect diamonds to activate the exit and win. To do 
 
 ## 2. Installation
 To install our project, it will be necessary to restore some access paths : 
-* The "Showboard" library in the packages "view", "entity" and "contract"
-* The "MySQL Connector" library in the package "main".
 * The Sprite Folder in entity.sprite.class line 68.
 * The Map.txt in model.DAOmap.class line 13.
 * The Map.txt inmain.main.class line 33.
@@ -46,9 +44,16 @@ We are happy to see that we respected our provisional schedule quite well.
 ## 5. UML diagrams
 Here is the architecture of our project.
 
-#### Component Diagram :
 #### Package Diagram : 
+<a href="https://ibb.co/LkfmBYy"><img src="https://i.ibb.co/GxjyGnD/Package-Diagram.jpg" alt="Package-Diagram" border="0"></a>
+
+#### Component Diagram :
+<a href="https://ibb.co/Pg94mjj"><img src="https://i.ibb.co/GRtkxpp/Component-Diagram.jpg" alt="Component-Diagram" border="0"></a>
+
 #### Sequence Diagrams :
+<a href="https://ibb.co/Y76VKfF"><img src="https://i.ibb.co/vxbMrL6/User-Action.jpg" alt="User-Action" border="0"></a>
+
+<a href="https://ibb.co/LPGDTGH"><img src="https://i.ibb.co/dchsNhx/Running-Program.jpg" alt="Running-Program" border="0"></a>
 
 
 
