@@ -7,16 +7,31 @@ import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * @author Laetitia
+ *
+ */
 public class DAOMap {
 
+	/**
+	 * The connection
+	 */
 	private DBConnection MyConnection;
 	private String txt = "C:\\Users\\calde\\git\\Project-5\\JPU-BlankProject\\model\\src\\main\\resources\\map.txt";
 
+	/**
+	 * Instanciates DAO map
+	 */
 	public DAOMap() {
 		this.MyConnection = new DBConnection();
 		this.MyConnection.connect();
 	}
 
+	/**
+	 * load the level
+	 * @param id
+	 * @throws IOException
+	 */
 	public void loadlevel(int id) throws IOException {
 
 		try {
