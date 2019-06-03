@@ -29,9 +29,9 @@ public class BoulderDashModel implements IModel {
 	 * Instantiates a new boulder dash model.
 	 *
 	 * @param fileName        the file name
-	 * @param myVehicleStartX the my player start X
-	 * @param myVehicleStartY the my player start Y
-	 * @throws IOException Signals that an I/O exception has occurred.
+	 * @param myPlayerStartX the my player start X
+	 * @param myPlayerStartY the my player start Y
+	 * @throws IOException ignals that an I/O exception has occurred.
 	 */
 	public BoulderDashModel(final String fileName, final int myPlayerStartX, final int myPlayerStartY)
 			throws IOException {
