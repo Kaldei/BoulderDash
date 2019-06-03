@@ -60,22 +60,22 @@ public class MobileTest {
 		final Point PExpected = new Point(1, 2);
 		assertEquals(PExpected, this.myplayer.getPosition());
 	}
-	/*
-	@Test
+	
+	/*@Test
 	public void testmoveRight() {
 		fail();
 		this.myplayer.moveRight();
 		IExpected = 2;
 		assertEquals(this.IExpected, this.myplayer.getX());
-	}
+	}*/
 	
-	@Test
+	/*@Test
 	public void testdie() {
 		fail();
 		BExpected = false ;
 		this.myplayer.die();
 		assertEquals(this.BExpected,this.myplayer.isAlive());
-	}
-	*/
+	}*/
+	
 
 }
