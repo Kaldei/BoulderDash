@@ -13,7 +13,7 @@ public interface IBoulderDashController {
 	void play() throws InterruptedException;
 	
 	/**
-	 * @return
+	 * @return this
 	 */
 	IOrderPerformer getOrderPerformer();
 }

@@ -265,7 +265,7 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 	}
 
 	/**
-	 * @return
+	 * @return this.view
 	 */
 	private IView getView() {
 		return this.view;
@@ -279,7 +279,7 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 	}
 
 	/**
-	 * @return
+	 * @return this.model
 	 */
 	private IModel getModel() {
 		return this.model;
@@ -293,7 +293,7 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 	}
 
 	/**
-	 * @return
+	 * @return this.stackOrder
 	 */
 	private UserOrder getStackOrder() {
 		return this.stackOrder;
@@ -343,49 +343,49 @@ public final class Controller implements IBoulderDashController, IOrderPerformer
 						|| this.getModel().getMap().getOnTheMapXY(x, y).getPermeability() == Permeability.KILLING
 								&& this.getModel().getMap().getOnTheMapXY(x, y - 1)
 										.getPermeability() == Permeability.DIAMOND) {
-					this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.createBackground(), x, y);
+					this.getModel().getMap().setOnTheMapXY(MobileElementsFactory.createDiamond(), x, y);
 
 					// Test if Wall x-1
 					if ((getModel().getMap().getOnTheMapXY(x - 1, y).getPermeability()) != Permeability.BLOCKING) {
-						this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.createBackground(), x - 1, y);
+						this.getModel().getMap().setOnTheMapXY(MobileElementsFactory.createDiamond(), x - 1, y);
 					}
 
 					// Test if Wall x-1 / y+1
 					if ((getModel().getMap().getOnTheMapXY(x - 1, y + 1).getPermeability()) != Permeability.BLOCKING) {
-						this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.createBackground(), x - 1,
+						this.getModel().getMap().setOnTheMapXY(MobileElementsFactory.createDiamond(), x - 1,
 								y + 1);
 					}
 
 					// Test if Wall x / y+1
 					if ((getModel().getMap().getOnTheMapXY(x, y + 1).getPermeability()) != Permeability.BLOCKING) {
-						this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.createBackground(), x, y + 1);
+						this.getModel().getMap().setOnTheMapXY(MobileElementsFactory.createDiamond(), x, y + 1);
 					}
 
 					// Test if Wall x+1 / y+1
 					if ((getModel().getMap().getOnTheMapXY(x + 1, y + 1).getPermeability()) != Permeability.BLOCKING) {
-						this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.createBackground(), x + 1,
+						this.getModel().getMap().setOnTheMapXY(MobileElementsFactory.createDiamond(), x + 1,
 								y + 1);
 					}
 
 					// Test if Wall x+1 / y
 					if ((getModel().getMap().getOnTheMapXY(x + 1, y).getPermeability()) != Permeability.BLOCKING) {
-						this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.createBackground(), x + 1, y);
+						this.getModel().getMap().setOnTheMapXY(MobileElementsFactory.createDiamond(), x + 1, y);
 					}
 
 					// Test if Wall x+1 / y-1
 					if ((getModel().getMap().getOnTheMapXY(x + 1, y - 1).getPermeability()) != Permeability.BLOCKING) {
-						this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.createBackground(), x + 1,
+						this.getModel().getMap().setOnTheMapXY(MobileElementsFactory.createDiamond(), x + 1,
 								y - 1);
 					}
 
 					// Test if Wall x / y-1
 					if ((getModel().getMap().getOnTheMapXY(x, y - 1).getPermeability()) != Permeability.BLOCKING) {
-						this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.createBackground(), x, y - 1);
+						this.getModel().getMap().setOnTheMapXY(MobileElementsFactory.createDiamond(), x, y - 1);
 					}
 
 					// Test if Wall x-1 / y-1
 					if ((getModel().getMap().getOnTheMapXY(x - 1, y - 1).getPermeability()) != Permeability.BLOCKING) {
-						this.getModel().getMap().setOnTheMapXY(MotionlessElementsFactory.createBackground(), x - 1,
+						this.getModel().getMap().setOnTheMapXY(MobileElementsFactory.createDiamond(), x - 1,
 								y - 1);
 					}
 				}
