@@ -1,6 +1,5 @@
 package view;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
@@ -35,13 +34,10 @@ public final class View extends Observable implements IView, Runnable, KeyListen
 	/** The player */
 	private IMobile myPlayer;
 
-	
-
 	/** The order performer. */
 	private IOrderPerformer orderPerformer;
 
 	final BoardFrame boardFrame = new BoardFrame("BoulderDash 12000");
-	final BoardFrame scoreFrame = new BoardFrame("Score");
 
 	
 	/**
@@ -71,22 +67,11 @@ public final class View extends Observable implements IView, Runnable, KeyListen
 
 		boardFrame.setDimension(new Dimension(this.getmap().getWidth(), this.getmap().getHeight()));
 		boardFrame.setDisplayFrame(this.gameView);
-		boardFrame.addKeyListener(this);
-
-		scoreFrame.setSize(300, 120);
-		scoreFrame.setLocation(boardFrame.getX() + boardFrame.getWidth(), boardFrame.getY());
-		
-		ScorePane pan=new ScorePane(myPlayer.getDiamonds());
-		pan.setBackground(Color.blue); 
-		scoreFrame.setContentPane(pan);
-		pan.revalidate();
-		scoreFrame.setVisible(true);
-		
+		boardFrame.addKeyListener(this);	
 
 		boardFrame.setVisible(true);
 		this.updateView();
 		this.followMyPlayer();
-
 	}
 
 
@@ -100,7 +85,6 @@ public final class View extends Observable implements IView, Runnable, KeyListen
 	@Override
 	public final void displayMessage(final String message) {
 		JOptionPane.showMessageDialog(null, message);
-		
 	}
 
 
