@@ -42,7 +42,7 @@ class Map extends Observable implements IMap {
 	 */
 	Map(final String fileName) throws IOException {
 		super();
-		this.MyMap.loadlevel(3);
+		this.MyMap.loadlevel(2);
 		this.loadFile(fileName);
 	}
 
