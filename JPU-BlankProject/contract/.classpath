@@ -35,7 +35,7 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="/main/showboard.jar">
 		<attributes>
-			<attribute name="javadoc_location" value="jar:file:/C:/Users/calde/git/Project-5/JPU-BlankProject/main/showboard.doc.jar!/"/>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/calde/git/Project-5/JPU-BlankProject/main/showboard.doc.jar!/doc"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry combineaccessrules="false" kind="src" path="/entity"/>
