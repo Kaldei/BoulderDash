@@ -19,16 +19,15 @@ import view.View;
  */
 public abstract class Main {
 
-	/**
-	 * The main method.
-	 *
-	 * @param args the arguments
-	 * @throws IOException 
-	 *
-	 */
 	
 	private static String txt = "C:\\Users\\calde\\git\\Project-5\\JPU-BlankProject\\model\\src\\main\\resources\\map.txt";
 	
+	/**
+	 * The main method.
+	 * @param args
+	 * @throws IOException
+	 * @throws InterruptedException
+	 */
 	public static void main(final String[] args) throws IOException, InterruptedException {
 		final IModel model = new BoulderDashModel(txt,1,1);
 		final View view = new View(model.getMap(), model.getMyPlayer());

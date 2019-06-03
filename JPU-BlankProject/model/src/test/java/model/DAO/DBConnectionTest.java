@@ -65,9 +65,9 @@ public class DBConnectionTest {
 		assertEquals(this.PASSWD, this.DBC.getPASSWD());
 	}
 	
+	
 	/**
 	 * test the get instance
-	 * @throws SQLException
 	 */
 	@Test
 	public void testGetInstance() {

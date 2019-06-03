@@ -33,9 +33,9 @@ abstract class Mobile extends Element implements IMobile {
 	/**
 	 * Instantiates a new mobile.
 	 *
-	 * @param sprite       the sprite
-	 * @param road         the road
-	 * @param permeability the permeability
+	 * @param sprite
+	 * @param map
+	 * @param permeability
 	 */
 	Mobile(final Sprite sprite, final IMap map, final Permeability permeability) {
 		super(sprite, permeability);
@@ -57,11 +57,11 @@ abstract class Mobile extends Element implements IMobile {
 	/**
 	 * Instantiates a new mobile.
 	 *
-	 * @param x            the x
-	 * @param y            the y
-	 * @param sprite       the sprite
-	 * @param road         the road
-	 * @param permeability the permeability
+	 * @param x
+	 * @param y
+	 * @param sprite
+	 * @param map
+	 * @param permeability
 	 */
 	Mobile(final int x, final int y, final Sprite sprite, final IMap map, final Permeability permeability) {
 		this(sprite, map, permeability);
