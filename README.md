@@ -14,6 +14,8 @@ To install our project, it will be necessary to restore some access paths :
 * The Map.txt in model.DAOmap.class line 13.
 * The Map.txt inmain.main.class line 33.
 
+Futhermore, don't forget to install the database ! (BDD Map.sql
+
 
 ## 3. The Team
 The team is composed of Anthony Lorendeaux, Laetitia Kessas and Arthur Caldeireiro.
