@@ -32,7 +32,7 @@ public final class View extends Observable implements IView, Runnable, KeyListen
 	/** The map. */
 	private IMap map;
 
-	/** My vehicle. */
+	/** The player */
 	private IMobile myPlayer;
 
 	
@@ -43,15 +43,16 @@ public final class View extends Observable implements IView, Runnable, KeyListen
 	final BoardFrame boardFrame = new BoardFrame("BoulderDash 12000");
 	final BoardFrame scoreFrame = new BoardFrame("Score");
 
+	
 	/**
-	 * Instantiates a new insane vehicles View.
-	 *
-	 * @param map      the map
-	 * @param myPlayer the my vehicle
-	 * @throws IOException Signals that an I/O exception has occurred.
+	 * 
+	 * Instantiates a new View.
+	 * 
+	 * @param map
+	 * @param myPlayer
+	 * @throws IOException
 	 */
 	public View(final IMap map, final IMobile myPlayer) throws IOException {
-		// this.setView(mapView);
 		this.setmap(map);
 		this.setmyPlayer(myPlayer);
 		this.getmyPlayer().getSprite().loadImage();
@@ -59,15 +60,12 @@ public final class View extends Observable implements IView, Runnable, KeyListen
 		SwingUtilities.invokeLater(this);
 	}
 
-	/**************************************************
-	 * Board Settings
-	 ********************************************/
+
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see java.lang.Runnable#run()
 	 */
-
 	@Override
 	public final void run() {
 
@@ -91,9 +89,7 @@ public final class View extends Observable implements IView, Runnable, KeyListen
 
 	}
 
-	/**************************************************
-	 * Message Pane
-	 ********************************************/
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -106,9 +102,7 @@ public final class View extends Observable implements IView, Runnable, KeyListen
 		JOptionPane.showMessageDialog(null, message);
 	}
 
-	/**************************************************
-	 * KeyListener
-	 ********************************************/
+
 	/**
 	 * Key code to user order.
 	 *
@@ -171,9 +165,7 @@ public final class View extends Observable implements IView, Runnable, KeyListen
 		// Nop
 	}
 
-	/********************************************
-	 * FOLLOW PLAYER
-	 **************************************************/
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -191,6 +183,9 @@ public final class View extends Observable implements IView, Runnable, KeyListen
 		}
 	}
 
+	/**
+	 *  Update the view with the new position of the frames
+	 */
 	public void updateView() {
 		for (int x = 0; x < this.getmap().getWidth(); x++) {
 			for (int y = 0; y < this.getmap().getHeight(); y++) {
@@ -198,7 +193,6 @@ public final class View extends Observable implements IView, Runnable, KeyListen
 			}
 		}
 		boardFrame.addPawn(this.getmyPlayer());
-		
 		this.getmap().getObservable().addObserver(boardFrame.getObserver());
 	}
 
@@ -212,7 +206,7 @@ public final class View extends Observable implements IView, Runnable, KeyListen
 	}
 
 	/**
-	 * DISPLAY THE MAP
+	 * Display the map
 	 *
 	 * @param map the new map
 	 * @throws IOException Signals that an I/O exception has occurred.
@@ -227,18 +221,18 @@ public final class View extends Observable implements IView, Runnable, KeyListen
 	}
 
 	/**
-	 * Gets my vehicle.
+	 * Gets the player.
 	 *
-	 * @return my vehicle
+	 * @return the player
 	 */
 	private IMobile getmyPlayer() {
 		return this.myPlayer;
 	}
 
 	/**
-	 * Sets my vehicle.
-	 *
-	 * @param myPlayer my new vehicle
+	 * Sets  the player.
+	 * 
+	 * @param myPlayer
 	 */
 	private void setmyPlayer(final IMobile myPlayer) {
 		this.myPlayer = myPlayer;
@@ -246,18 +240,18 @@ public final class View extends Observable implements IView, Runnable, KeyListen
 
 
 	/**
-	 * Gets the close view.
+	 * Gets the gameView.
 	 *
-	 * @return the close view
+	 * @return the gameView
 	 */
 	private Rectangle getgameView() {
 		return this.gameView;
 	}
 
 	/**
-	 * Sets the close view.
+	 * Sets the close gameView.
 	 *
-	 * @param gameView the new close view
+	 * @param gameView
 	 */
 	private void setgameView(final Rectangle gameView) {
 		this.gameView = gameView;
