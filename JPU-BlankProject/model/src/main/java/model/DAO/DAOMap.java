@@ -17,7 +17,7 @@ public class DAOMap {
 	 * The connection
 	 */
 	private DBConnection MyConnection;
-	private String txt = "C:\\\\Users\\\\User\\\\Documents\\\\GitHub\\\\Project-5\\\\JPU-BlankProject\\\\model\\\\src\\\\main\\\\resources\\\\map.txt";
+	private String txt = "C:\\Users\\calde\\git\\Project-5\\JPU-BlankProject\\model\\src\\main\\resources\\map.txt";
 
 	/**
 	 * Instanciates DAO map
