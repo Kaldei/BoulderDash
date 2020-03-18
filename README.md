@@ -12,9 +12,9 @@ The goal of the game is to collect diamonds to activate the exit and win. To do 
 To install our project, it will be necessary to restore some access paths : 
 * The Sprite Folder in entity.sprite.class line 68.
 * The Map.txt in model.DAOmap.class line 13.
-* The Map.txt inmain.main.class line 33.
+* The Map.txt in main.main.class line 33.
 
-Futhermore, don't forget to install the database ! (BDD Map.sql
+Futhermore, don't forget to install the database ! (BDD Map.sql)
 
 
 ## 3. The Team
