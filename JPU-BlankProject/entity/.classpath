@@ -38,7 +38,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/calde/git/Project-5/JARs/showboard.jar">
+	<classpathentry kind="lib" path="C:/Users/calde/git/Project-Java-BoulderDash/JARs/showboard.jar">
 		<attributes>
 			<attribute name="javadoc_location" value="jar:file:/C:/Users/calde/git/Project-5/JARs/showboard.doc.jar!/doc"/>
 		</attributes>

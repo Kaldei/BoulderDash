@@ -20,7 +20,7 @@ import view.View;
 public abstract class Main {
 
 	
-	private static String txt = "C:\\Users\\calde\\git\\Project-5\\JPU-BlankProject\\model\\src\\main\\resources\\map.txt";
+	private static String txt = "C:\\Users\\calde\\git\\Project-Java-BoulderDash\\JPU-BlankProject\\model\\src\\main\\resources\\map.txt";
 	
 	/**
 	 * The main method.

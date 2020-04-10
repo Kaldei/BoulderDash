@@ -13,7 +13,7 @@ public class DBConnection {
 	/**
 	 * the database url
 	 */
-	private static String URL = "jdbc:mysql://localhost/javabdd?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&autoReconnect=true&useSSL=false";
+	private static String URL = "jdbc:mysql://localhost/a1_projetjava?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&autoReconnect=true&useSSL=false";
 	/**
 	 * the user
 	 */
