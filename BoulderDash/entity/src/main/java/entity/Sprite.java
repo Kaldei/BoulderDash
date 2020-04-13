@@ -65,7 +65,7 @@ public class Sprite {
      *             Signals that an I/O exception has occurred.
      */
     public final void loadImage() throws IOException {
-        this.setImage(ImageIO.read(new File("C:\\Users\\calde\\git\\Project-Java-BoulderDash\\JPU-BlankProject\\entity\\src\\main\\resources\\sprites\\" + this.getImageName())));
+        this.setImage(ImageIO.read(new File("C:\\Users\\calde\\git\\Project-Java-BoulderDash\\BoulderDash\\entity\\src\\main\\resources\\sprites\\" + this.getImageName())));
     }
 
     /**

@@ -17,7 +17,7 @@ public class DAOMap {
 	 * The connection
 	 */
 	private DBConnection MyConnection;
-	private String txt = "C:\\Users\\calde\\git\\Project-Java-BoulderDash\\JPU-BlankProject\\model\\src\\main\\resources\\map.txt";
+	private String txt = "C:\\Users\\calde\\git\\Project-Java-BoulderDash\\BoulderDash\\model\\src\\main\\resources\\map.txt";
 
 	/**
 	 * Instantiates DAO map

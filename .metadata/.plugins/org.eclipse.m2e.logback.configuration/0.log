@@ -1,1 +1,225 @@
 2020-03-18 11:58:14,544 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2020-04-13 10:18:11,336 [Worker-6: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2020-04-13 10:19:28,541 [Worker-3: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2020-04-13 10:20:07,898 [Worker-6: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using NULL lifecycle mapping for MavenProject: jpublankproject:masterpom:0.0.1-SNAPSHOT @ C:\Users\calde\git\Project-Java-BoulderDash\JPU-BlankProject\pom.xml.
+2020-04-13 10:20:08,160 [Worker-3: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using NULL lifecycle mapping for MavenProject: jpublankproject:masterpom:0.0.1-SNAPSHOT @ C:\Users\calde\git\Project-Java-BoulderDash\JPU-BlankProject\pom.xml.
+2020-04-13 10:21:52,186 [main] INFO  o.e.m2e.actions.ExecutePomAction - Creating new launch configuration
+2020-04-13 10:22:34,677 [Worker-5: Launching JPU-BlankProject] INFO  o.e.m.i.launch.MavenLaunchDelegate - C:\Users\calde\git\Project-Java-BoulderDash\JPU-BlankProject
+2020-04-13 10:22:34,679 [Worker-5: Launching JPU-BlankProject] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B 
+2020-04-13 10:23:22,610 [Worker-4: Launching JPU-BlankProject] INFO  o.e.m.i.launch.MavenLaunchDelegate - C:\Users\calde\git\Project-Java-BoulderDash\JPU-BlankProject
+2020-04-13 10:23:22,611 [Worker-4: Launching JPU-BlankProject] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B 
+2020-04-13 10:24:22,557 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2020-04-13 10:28:52,592 [Worker-1: Updating Maven Dependencies] ERROR o.e.m.c.i.URLConnectionCaches - Unexpected URLConnection defaultUseCaches enabled
+2020-04-13 10:29:08,769 [Worker-12: Updating Maven Dependencies] ERROR o.e.m.c.i.URLConnectionCaches - Unexpected URLConnection defaultUseCaches enabled
+2020-04-13 10:29:12,886 [Worker-6: Building workspace] ERROR o.e.m.c.i.URLConnectionCaches - Unexpected URLConnection defaultUseCaches enabled
+2020-04-13 10:29:29,581 [Worker-12: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: jpublankproject:main:0.0.1-SNAPSHOT @ C:\Users\calde\git\Project-Java-BoulderDash\JPU-BlankProject\main\pom.xml.
+2020-04-13 10:29:29,581 [Worker-6: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: jpublankproject:entity:0.0.1-SNAPSHOT @ C:\Users\calde\git\Project-Java-BoulderDash\JPU-BlankProject\entity\pom.xml.
+2020-04-13 10:29:30,158 [Worker-6: Building workspace] ERROR o.e.m.c.i.URLConnectionCaches - Unexpected URLConnection defaultUseCaches enabled
+2020-04-13 10:29:33,405 [Worker-6: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-13 10:29:33,426 [Worker-6: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 19 resources
+2020-04-13 10:29:33,602 [Worker-6: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-13 10:29:33,603 [Worker-6: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\calde\git\Project-Java-BoulderDash\JPU-BlankProject\entity\src\test\resources
+2020-04-13 10:29:33,879 [Worker-7: Building workspace] ERROR o.e.m.c.i.URLConnectionCaches - Unexpected URLConnection defaultUseCaches enabled
+2020-04-13 10:29:34,167 [Worker-7: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: jpublankproject:contract:0.0.1-SNAPSHOT @ C:\Users\calde\git\Project-Java-BoulderDash\JPU-BlankProject\contract\pom.xml.
+2020-04-13 10:29:34,183 [Worker-7: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/entity: jpublankproject:entity:0.0.1-SNAPSHOT with classifier  to /entity/target/classes
+2020-04-13 10:29:34,468 [Worker-7: Building workspace] ERROR o.e.m.c.i.URLConnectionCaches - Unexpected URLConnection defaultUseCaches enabled
+2020-04-13 10:29:34,473 [Worker-7: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-13 10:29:34,474 [Worker-7: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\calde\git\Project-Java-BoulderDash\JPU-BlankProject\contract\src\main\resources
+2020-04-13 10:29:34,476 [Worker-7: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-13 10:29:34,476 [Worker-7: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\calde\git\Project-Java-BoulderDash\JPU-BlankProject\contract\src\test\resources
+2020-04-13 10:29:34,596 [Worker-7: Building workspace] ERROR o.e.m.c.i.URLConnectionCaches - Unexpected URLConnection defaultUseCaches enabled
+2020-04-13 10:29:34,628 [Worker-3: Updating Maven Dependencies] ERROR o.e.m.c.i.URLConnectionCaches - Unexpected URLConnection defaultUseCaches enabled
+2020-04-13 10:29:34,842 [Worker-7: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: jpublankproject:controller:0.0.1-SNAPSHOT @ C:\Users\calde\git\Project-Java-BoulderDash\JPU-BlankProject\controller\pom.xml.
+2020-04-13 10:29:34,856 [Worker-7: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/contract: jpublankproject:contract:0.0.1-SNAPSHOT with classifier  to /contract/target/classes
+2020-04-13 10:29:34,857 [Worker-7: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/entity: jpublankproject:entity:0.0.1-SNAPSHOT with classifier  to /entity/target/classes
+2020-04-13 10:29:34,984 [Worker-7: Building workspace] ERROR o.e.m.c.i.URLConnectionCaches - Unexpected URLConnection defaultUseCaches enabled
+2020-04-13 10:29:34,989 [Worker-7: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-13 10:29:34,990 [Worker-7: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\calde\git\Project-Java-BoulderDash\JPU-BlankProject\controller\src\main\resources
+2020-04-13 10:29:34,993 [Worker-7: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-13 10:29:34,994 [Worker-7: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\calde\git\Project-Java-BoulderDash\JPU-BlankProject\controller\src\test\resources
+2020-04-13 10:29:35,176 [Worker-7: Building workspace] ERROR o.e.m.c.i.URLConnectionCaches - Unexpected URLConnection defaultUseCaches enabled
+2020-04-13 10:29:35,458 [Worker-7: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: jpublankproject:model:0.0.1-SNAPSHOT @ C:\Users\calde\git\Project-Java-BoulderDash\JPU-BlankProject\model\pom.xml.
+2020-04-13 10:29:35,477 [Worker-7: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/contract: jpublankproject:contract:0.0.1-SNAPSHOT with classifier  to /contract/target/classes
+2020-04-13 10:29:35,477 [Worker-7: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/entity: jpublankproject:entity:0.0.1-SNAPSHOT with classifier  to /entity/target/classes
+2020-04-13 10:29:35,645 [Worker-10: Updating Maven Dependencies] ERROR o.e.m.c.i.URLConnectionCaches - Unexpected URLConnection defaultUseCaches enabled
+2020-04-13 10:29:35,736 [Worker-7: Building workspace] ERROR o.e.m.c.i.URLConnectionCaches - Unexpected URLConnection defaultUseCaches enabled
+2020-04-13 10:29:35,743 [Worker-7: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-13 10:29:35,745 [Worker-7: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 20 resources
+2020-04-13 10:29:36,003 [Worker-7: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-13 10:29:36,003 [Worker-7: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\calde\git\Project-Java-BoulderDash\JPU-BlankProject\model\src\test\resources
+2020-04-13 10:29:36,121 [Worker-7: Building workspace] ERROR o.e.m.c.i.URLConnectionCaches - Unexpected URLConnection defaultUseCaches enabled
+2020-04-13 10:29:36,495 [Worker-7: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: jpublankproject:view:0.0.1-SNAPSHOT @ C:\Users\calde\git\Project-Java-BoulderDash\JPU-BlankProject\view\pom.xml.
+2020-04-13 10:29:36,525 [Worker-7: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/contract: jpublankproject:contract:0.0.1-SNAPSHOT with classifier  to /contract/target/classes
+2020-04-13 10:29:36,526 [Worker-7: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/entity: jpublankproject:entity:0.0.1-SNAPSHOT with classifier  to /entity/target/classes
+2020-04-13 10:29:36,656 [Worker-6: Updating Maven Dependencies] ERROR o.e.m.c.i.URLConnectionCaches - Unexpected URLConnection defaultUseCaches enabled
+2020-04-13 10:29:36,845 [Worker-7: Building workspace] ERROR o.e.m.c.i.URLConnectionCaches - Unexpected URLConnection defaultUseCaches enabled
+2020-04-13 10:29:36,850 [Worker-7: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-13 10:29:36,851 [Worker-7: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\calde\git\Project-Java-BoulderDash\JPU-BlankProject\view\src\main\resources
+2020-04-13 10:29:36,852 [Worker-7: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-13 10:29:36,853 [Worker-7: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\calde\git\Project-Java-BoulderDash\JPU-BlankProject\view\src\test\resources
+2020-04-13 10:29:36,892 [Worker-7: Building workspace] ERROR o.e.m.c.i.URLConnectionCaches - Unexpected URLConnection defaultUseCaches enabled
+2020-04-13 10:29:37,042 [Worker-7: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: jpublankproject:main:0.0.1-SNAPSHOT @ C:\Users\calde\git\Project-Java-BoulderDash\JPU-BlankProject\main\pom.xml.
+2020-04-13 10:29:37,064 [Worker-7: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/view: jpublankproject:view:0.0.1-SNAPSHOT with classifier  to /view/target/classes
+2020-04-13 10:29:37,065 [Worker-7: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/contract: jpublankproject:contract:0.0.1-SNAPSHOT with classifier  to /contract/target/classes
+2020-04-13 10:29:37,065 [Worker-7: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/entity: jpublankproject:entity:0.0.1-SNAPSHOT with classifier  to /entity/target/classes
+2020-04-13 10:29:37,065 [Worker-7: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: jpublankproject:model:0.0.1-SNAPSHOT with classifier  to /model/target/classes
+2020-04-13 10:29:37,066 [Worker-7: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/controller: jpublankproject:controller:0.0.1-SNAPSHOT with classifier  to /controller/target/classes
+2020-04-13 10:29:37,206 [Worker-7: Building workspace] ERROR o.e.m.c.i.URLConnectionCaches - Unexpected URLConnection defaultUseCaches enabled
+2020-04-13 10:29:37,209 [Worker-7: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-13 10:29:37,210 [Worker-7: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\calde\git\Project-Java-BoulderDash\JPU-BlankProject\main\src\main\resources
+2020-04-13 10:29:37,211 [Worker-7: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-13 10:29:37,211 [Worker-7: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\calde\git\Project-Java-BoulderDash\JPU-BlankProject\main\src\test\resources
+2020-04-13 10:29:37,380 [Worker-16: Launching Main] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/entity: jpublankproject:entity:0.0.1-SNAPSHOT with classifier  to /entity/target/classes
+2020-04-13 10:29:37,384 [Worker-16: Launching Main] ERROR o.e.m.c.i.URLConnectionCaches - Unexpected URLConnection defaultUseCaches enabled
+2020-04-13 10:29:37,393 [Worker-16: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-13 10:29:37,394 [Worker-16: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\calde\git\Project-Java-BoulderDash\JPU-BlankProject\contract\src\main\resources
+2020-04-13 10:29:37,395 [Worker-16: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-13 10:29:37,396 [Worker-16: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\calde\git\Project-Java-BoulderDash\JPU-BlankProject\contract\src\test\resources
+2020-04-13 10:29:37,671 [Worker-16: Launching Main] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/view: jpublankproject:view:0.0.1-SNAPSHOT with classifier  to /view/target/classes
+2020-04-13 10:29:37,672 [Worker-16: Launching Main] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/contract: jpublankproject:contract:0.0.1-SNAPSHOT with classifier  to /contract/target/classes
+2020-04-13 10:29:37,673 [Worker-16: Launching Main] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/entity: jpublankproject:entity:0.0.1-SNAPSHOT with classifier  to /entity/target/classes
+2020-04-13 10:29:37,674 [Worker-16: Launching Main] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: jpublankproject:model:0.0.1-SNAPSHOT with classifier  to /model/target/classes
+2020-04-13 10:29:37,675 [Worker-16: Launching Main] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/controller: jpublankproject:controller:0.0.1-SNAPSHOT with classifier  to /controller/target/classes
+2020-04-13 10:29:37,703 [Worker-16: Launching Main] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/view: jpublankproject:view:0.0.1-SNAPSHOT with classifier null to /view/target/classes
+2020-04-13 10:29:37,708 [Worker-16: Launching Main] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/contract: jpublankproject:contract:0.0.1-SNAPSHOT with classifier null to /contract/target/classes
+2020-04-13 10:29:37,709 [Worker-16: Launching Main] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/entity: jpublankproject:entity:0.0.1-SNAPSHOT with classifier null to /entity/target/classes
+2020-04-13 10:29:37,710 [Worker-16: Launching Main] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: jpublankproject:model:0.0.1-SNAPSHOT with classifier null to /model/target/classes
+2020-04-13 10:29:37,714 [Worker-16: Launching Main] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/controller: jpublankproject:controller:0.0.1-SNAPSHOT with classifier null to /controller/target/classes
+2020-04-13 10:29:37,728 [Worker-6: Updating Maven Dependencies] ERROR o.e.m.c.i.URLConnectionCaches - Unexpected URLConnection defaultUseCaches enabled
+2020-04-13 10:29:38,409 [Worker-6: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: jpublankproject:main:0.0.1-SNAPSHOT @ C:\Users\calde\git\Project-Java-BoulderDash\JPU-BlankProject\main\pom.xml.
+2020-04-13 10:29:38,457 [Worker-6: Updating Maven Dependencies] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/view: jpublankproject:view:0.0.1-SNAPSHOT with classifier  to /view/target/classes
+2020-04-13 10:29:38,458 [Worker-6: Updating Maven Dependencies] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/contract: jpublankproject:contract:0.0.1-SNAPSHOT with classifier  to /contract/target/classes
+2020-04-13 10:29:38,458 [Worker-6: Updating Maven Dependencies] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/entity: jpublankproject:entity:0.0.1-SNAPSHOT with classifier  to /entity/target/classes
+2020-04-13 10:29:38,459 [Worker-6: Updating Maven Dependencies] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: jpublankproject:model:0.0.1-SNAPSHOT with classifier  to /model/target/classes
+2020-04-13 10:29:38,460 [Worker-6: Updating Maven Dependencies] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/controller: jpublankproject:controller:0.0.1-SNAPSHOT with classifier  to /controller/target/classes
+2020-04-13 10:29:39,323 [Worker-14: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/view: jpublankproject:view:0.0.1-SNAPSHOT with classifier  to /view/target/classes
+2020-04-13 10:29:39,324 [Worker-14: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/contract: jpublankproject:contract:0.0.1-SNAPSHOT with classifier  to /contract/target/classes
+2020-04-13 10:29:39,324 [Worker-14: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/entity: jpublankproject:entity:0.0.1-SNAPSHOT with classifier  to /entity/target/classes
+2020-04-13 10:29:39,325 [Worker-14: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: jpublankproject:model:0.0.1-SNAPSHOT with classifier  to /model/target/classes
+2020-04-13 10:29:39,327 [Worker-14: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/controller: jpublankproject:controller:0.0.1-SNAPSHOT with classifier  to /controller/target/classes
+2020-04-13 10:29:39,333 [Worker-14: Building workspace] ERROR o.e.m.c.i.URLConnectionCaches - Unexpected URLConnection defaultUseCaches enabled
+2020-04-13 10:29:39,337 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-13 10:29:39,337 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\calde\git\Project-Java-BoulderDash\JPU-BlankProject\main\src\main\resources
+2020-04-13 10:29:39,343 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-13 10:29:39,344 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\calde\git\Project-Java-BoulderDash\JPU-BlankProject\main\src\test\resources
+2020-04-13 10:43:27,430 [Worker-7: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2020-04-13 10:44:27,688 [Worker-10: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: jpublankproject:entity:0.0.1-SNAPSHOT @ C:\Users\calde\git\Project-Java-BoulderDash\BoulderDash\entity\pom.xml.
+2020-04-13 10:44:27,688 [Worker-12: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: jpublankproject:main:0.0.1-SNAPSHOT @ C:\Users\calde\git\Project-Java-BoulderDash\BoulderDash\main\pom.xml.
+2020-04-13 10:44:30,601 [Worker-10: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-13 10:44:30,642 [Worker-10: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 19 resources
+2020-04-13 10:44:31,085 [Worker-10: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-13 10:44:31,086 [Worker-10: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\calde\git\Project-Java-BoulderDash\BoulderDash\entity\src\test\resources
+2020-04-13 10:44:31,736 [Worker-3: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: jpublankproject:contract:0.0.1-SNAPSHOT @ C:\Users\calde\git\Project-Java-BoulderDash\BoulderDash\contract\pom.xml.
+2020-04-13 10:44:31,753 [Worker-3: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/entity: jpublankproject:entity:0.0.1-SNAPSHOT with classifier  to /entity/target/classes
+2020-04-13 10:44:31,819 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-13 10:44:31,820 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\calde\git\Project-Java-BoulderDash\BoulderDash\contract\src\main\resources
+2020-04-13 10:44:31,827 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-13 10:44:31,827 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\calde\git\Project-Java-BoulderDash\BoulderDash\contract\src\test\resources
+2020-04-13 10:44:32,507 [Worker-3: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: jpublankproject:controller:0.0.1-SNAPSHOT @ C:\Users\calde\git\Project-Java-BoulderDash\BoulderDash\controller\pom.xml.
+2020-04-13 10:44:32,521 [Worker-3: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/contract: jpublankproject:contract:0.0.1-SNAPSHOT with classifier  to /contract/target/classes
+2020-04-13 10:44:32,521 [Worker-3: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/entity: jpublankproject:entity:0.0.1-SNAPSHOT with classifier  to /entity/target/classes
+2020-04-13 10:44:32,561 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-13 10:44:32,561 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\calde\git\Project-Java-BoulderDash\BoulderDash\controller\src\main\resources
+2020-04-13 10:44:32,563 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-13 10:44:32,563 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\calde\git\Project-Java-BoulderDash\BoulderDash\controller\src\test\resources
+2020-04-13 10:44:32,988 [Worker-3: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: jpublankproject:model:0.0.1-SNAPSHOT @ C:\Users\calde\git\Project-Java-BoulderDash\BoulderDash\model\pom.xml.
+2020-04-13 10:44:33,005 [Worker-3: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/contract: jpublankproject:contract:0.0.1-SNAPSHOT with classifier  to /contract/target/classes
+2020-04-13 10:44:33,006 [Worker-3: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/entity: jpublankproject:entity:0.0.1-SNAPSHOT with classifier  to /entity/target/classes
+2020-04-13 10:44:33,053 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-13 10:44:33,055 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 20 resources
+2020-04-13 10:44:33,360 [Worker-12: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: jpublankproject:main:0.0.1-SNAPSHOT @ C:\Users\calde\git\Project-Java-BoulderDash\BoulderDash\main\pom.xml.
+2020-04-13 10:44:33,379 [Worker-12: Updating Maven Dependencies] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/contract: jpublankproject:contract:0.0.1-SNAPSHOT with classifier  to /contract/target/classes
+2020-04-13 10:44:33,380 [Worker-12: Updating Maven Dependencies] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/entity: jpublankproject:entity:0.0.1-SNAPSHOT with classifier  to /entity/target/classes
+2020-04-13 10:44:33,380 [Worker-12: Updating Maven Dependencies] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: jpublankproject:model:0.0.1-SNAPSHOT with classifier  to /model/target/classes
+2020-04-13 10:44:33,380 [Worker-12: Updating Maven Dependencies] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/controller: jpublankproject:controller:0.0.1-SNAPSHOT with classifier  to /controller/target/classes
+2020-04-13 10:44:33,876 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-13 10:44:33,876 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\calde\git\Project-Java-BoulderDash\BoulderDash\model\src\test\resources
+2020-04-13 10:44:34,560 [Worker-4: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: jpublankproject:view:0.0.1-SNAPSHOT @ C:\Users\calde\git\Project-Java-BoulderDash\BoulderDash\view\pom.xml.
+2020-04-13 10:44:34,573 [Worker-4: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/contract: jpublankproject:contract:0.0.1-SNAPSHOT with classifier  to /contract/target/classes
+2020-04-13 10:44:34,574 [Worker-4: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/entity: jpublankproject:entity:0.0.1-SNAPSHOT with classifier  to /entity/target/classes
+2020-04-13 10:44:34,989 [Worker-13: Download sources and javadoc] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/contract: jpublankproject:contract:0.0.1-SNAPSHOT with classifier  to /contract/target/classes
+2020-04-13 10:44:34,990 [Worker-13: Download sources and javadoc] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/entity: jpublankproject:entity:0.0.1-SNAPSHOT with classifier  to /entity/target/classes
+2020-04-13 10:44:34,990 [Worker-13: Download sources and javadoc] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: jpublankproject:model:0.0.1-SNAPSHOT with classifier  to /model/target/classes
+2020-04-13 10:44:34,991 [Worker-13: Download sources and javadoc] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/controller: jpublankproject:controller:0.0.1-SNAPSHOT with classifier  to /controller/target/classes
+2020-04-13 10:44:35,150 [Worker-4: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: jpublankproject:main:0.0.1-SNAPSHOT @ C:\Users\calde\git\Project-Java-BoulderDash\BoulderDash\main\pom.xml.
+2020-04-13 10:44:35,165 [Worker-4: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/view: jpublankproject:view:0.0.1-SNAPSHOT with classifier  to /view/target/classes
+2020-04-13 10:44:35,166 [Worker-4: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/contract: jpublankproject:contract:0.0.1-SNAPSHOT with classifier  to /contract/target/classes
+2020-04-13 10:44:35,166 [Worker-4: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/entity: jpublankproject:entity:0.0.1-SNAPSHOT with classifier  to /entity/target/classes
+2020-04-13 10:44:35,167 [Worker-4: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: jpublankproject:model:0.0.1-SNAPSHOT with classifier  to /model/target/classes
+2020-04-13 10:44:35,168 [Worker-4: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/controller: jpublankproject:controller:0.0.1-SNAPSHOT with classifier  to /controller/target/classes
+2020-04-13 10:44:35,245 [Worker-13: Download sources and javadoc] ERROR o.e.m.j.internal.DownloadSourcesJob - Could not download sources for jpublankproject:view:0.0.1-SNAPSHOT
+org.eclipse.core.runtime.CoreException: Could not resolve artifact jpublankproject:view:jar:sources:0.0.1-SNAPSHOT
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.lambda$4(MavenImpl.java:763) [org.eclipse.m2e.core_1.11.0.20190220-2119.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:177) [org.eclipse.m2e.core_1.11.0.20190220-2119.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112) [org.eclipse.m2e.core_1.11.0.20190220-2119.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99) [org.eclipse.m2e.core_1.11.0.20190220-2119.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:731) [org.eclipse.m2e.core_1.11.0.20190220-2119.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:708) [org.eclipse.m2e.core_1.11.0.20190220-2119.jar:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.download(DownloadSourcesJob.java:279) [org.eclipse.m2e.jdt_1.11.0.20190220-2119.jar:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadAttachments(DownloadSourcesJob.java:254) [org.eclipse.m2e.jdt_1.11.0.20190220-2119.jar:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadMaven(DownloadSourcesJob.java:221) [org.eclipse.m2e.jdt_1.11.0.20190220-2119.jar:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.run(DownloadSourcesJob.java:161) [org.eclipse.m2e.jdt_1.11.0.20190220-2119.jar:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob$1.call(DownloadSourcesJob.java:137) [org.eclipse.m2e.jdt_1.11.0.20190220-2119.jar:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob$1.call(DownloadSourcesJob.java:1) [org.eclipse.m2e.jdt_1.11.0.20190220-2119.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:177) [org.eclipse.m2e.core_1.11.0.20190220-2119.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:151) [org.eclipse.m2e.core_1.11.0.20190220-2119.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99) [org.eclipse.m2e.core_1.11.0.20190220-2119.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:1336) [org.eclipse.m2e.core_1.11.0.20190220-2119.jar:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.run(DownloadSourcesJob.java:135) [org.eclipse.m2e.jdt_1.11.0.20190220-2119.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63) [org.eclipse.core.jobs_3.10.300.v20190215-2048.jar:na]
+2020-04-13 10:44:35,301 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-13 10:44:35,301 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\calde\git\Project-Java-BoulderDash\BoulderDash\view\src\main\resources
+2020-04-13 10:44:35,310 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-13 10:44:35,310 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\calde\git\Project-Java-BoulderDash\BoulderDash\view\src\test\resources
+2020-04-13 10:44:35,416 [Worker-4: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/view: jpublankproject:view:0.0.1-SNAPSHOT with classifier  to /view/target/classes
+2020-04-13 10:44:35,416 [Worker-4: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/contract: jpublankproject:contract:0.0.1-SNAPSHOT with classifier  to /contract/target/classes
+2020-04-13 10:44:35,417 [Worker-4: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/entity: jpublankproject:entity:0.0.1-SNAPSHOT with classifier  to /entity/target/classes
+2020-04-13 10:44:35,417 [Worker-4: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: jpublankproject:model:0.0.1-SNAPSHOT with classifier  to /model/target/classes
+2020-04-13 10:44:35,418 [Worker-4: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/controller: jpublankproject:controller:0.0.1-SNAPSHOT with classifier  to /controller/target/classes
+2020-04-13 10:44:35,426 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-13 10:44:35,426 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\calde\git\Project-Java-BoulderDash\BoulderDash\main\src\main\resources
+2020-04-13 10:44:35,428 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-13 10:44:35,428 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\calde\git\Project-Java-BoulderDash\BoulderDash\main\src\test\resources
+2020-04-13 10:45:11,558 [Worker-10: Launching Main] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/view: jpublankproject:view:0.0.1-SNAPSHOT with classifier null to /view/target/classes
+2020-04-13 10:45:11,564 [Worker-10: Launching Main] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/contract: jpublankproject:contract:0.0.1-SNAPSHOT with classifier null to /contract/target/classes
+2020-04-13 10:45:11,565 [Worker-10: Launching Main] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/entity: jpublankproject:entity:0.0.1-SNAPSHOT with classifier null to /entity/target/classes
+2020-04-13 10:45:11,566 [Worker-10: Launching Main] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: jpublankproject:model:0.0.1-SNAPSHOT with classifier null to /model/target/classes
+2020-04-13 10:45:11,571 [Worker-10: Launching Main] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/controller: jpublankproject:controller:0.0.1-SNAPSHOT with classifier null to /controller/target/classes
+2020-04-13 10:45:34,890 [Worker-10: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-13 10:45:34,890 [Worker-10: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\calde\git\Project-Java-BoulderDash\BoulderDash\main\src\main\resources
+2020-04-13 10:45:34,892 [Worker-10: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-13 10:45:34,893 [Worker-10: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\calde\git\Project-Java-BoulderDash\BoulderDash\main\src\test\resources
+2020-04-13 10:45:34,930 [Worker-10: Launching Main] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/view: jpublankproject:view:0.0.1-SNAPSHOT with classifier null to /view/target/classes
+2020-04-13 10:45:34,932 [Worker-10: Launching Main] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/contract: jpublankproject:contract:0.0.1-SNAPSHOT with classifier null to /contract/target/classes
+2020-04-13 10:45:34,933 [Worker-10: Launching Main] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/entity: jpublankproject:entity:0.0.1-SNAPSHOT with classifier null to /entity/target/classes
+2020-04-13 10:45:34,933 [Worker-10: Launching Main] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: jpublankproject:model:0.0.1-SNAPSHOT with classifier null to /model/target/classes
+2020-04-13 10:45:34,937 [Worker-10: Launching Main] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/controller: jpublankproject:controller:0.0.1-SNAPSHOT with classifier null to /controller/target/classes
+2020-04-13 10:46:02,863 [Worker-0: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-13 10:46:02,864 [Worker-0: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\calde\git\Project-Java-BoulderDash\BoulderDash\main\src\main\resources
+2020-04-13 10:46:02,867 [Worker-0: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-13 10:46:02,867 [Worker-0: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\calde\git\Project-Java-BoulderDash\BoulderDash\main\src\test\resources
+2020-04-13 10:46:02,909 [Worker-0: Launching Main] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/view: jpublankproject:view:0.0.1-SNAPSHOT with classifier null to /view/target/classes
+2020-04-13 10:46:02,916 [Worker-0: Launching Main] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/contract: jpublankproject:contract:0.0.1-SNAPSHOT with classifier null to /contract/target/classes
+2020-04-13 10:46:02,918 [Worker-0: Launching Main] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/entity: jpublankproject:entity:0.0.1-SNAPSHOT with classifier null to /entity/target/classes
+2020-04-13 10:46:02,918 [Worker-0: Launching Main] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: jpublankproject:model:0.0.1-SNAPSHOT with classifier null to /model/target/classes
+2020-04-13 10:46:02,925 [Worker-0: Launching Main] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/controller: jpublankproject:controller:0.0.1-SNAPSHOT with classifier null to /controller/target/classes
+2020-04-13 10:47:03,221 [Worker-0: Launching Main] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/contract: jpublankproject:contract:0.0.1-SNAPSHOT with classifier  to /contract/target/classes
+2020-04-13 10:47:03,221 [Worker-0: Launching Main] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/entity: jpublankproject:entity:0.0.1-SNAPSHOT with classifier  to /entity/target/classes
+2020-04-13 10:47:03,227 [Worker-0: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-13 10:47:03,233 [Worker-0: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 20 resources
+2020-04-13 10:47:03,237 [Worker-0: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-13 10:47:03,238 [Worker-0: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\calde\git\Project-Java-BoulderDash\BoulderDash\model\src\test\resources
+2020-04-13 10:47:03,333 [Worker-0: Launching Main] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/view: jpublankproject:view:0.0.1-SNAPSHOT with classifier null to /view/target/classes
+2020-04-13 10:47:03,336 [Worker-0: Launching Main] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/contract: jpublankproject:contract:0.0.1-SNAPSHOT with classifier null to /contract/target/classes
+2020-04-13 10:47:03,338 [Worker-0: Launching Main] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/entity: jpublankproject:entity:0.0.1-SNAPSHOT with classifier null to /entity/target/classes
+2020-04-13 10:47:03,339 [Worker-0: Launching Main] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: jpublankproject:model:0.0.1-SNAPSHOT with classifier null to /model/target/classes
+2020-04-13 10:47:03,344 [Worker-0: Launching Main] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/controller: jpublankproject:controller:0.0.1-SNAPSHOT with classifier null to /controller/target/classes
+2020-04-13 10:48:21,670 [Worker-4: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-13 10:48:21,674 [Worker-4: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 19 resources
+2020-04-13 10:48:21,678 [Worker-4: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-13 10:48:21,678 [Worker-4: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\calde\git\Project-Java-BoulderDash\BoulderDash\entity\src\test\resources
+2020-04-13 10:48:21,753 [Worker-4: Launching Main] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/view: jpublankproject:view:0.0.1-SNAPSHOT with classifier null to /view/target/classes
+2020-04-13 10:48:21,759 [Worker-4: Launching Main] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/contract: jpublankproject:contract:0.0.1-SNAPSHOT with classifier null to /contract/target/classes
+2020-04-13 10:48:21,760 [Worker-4: Launching Main] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/entity: jpublankproject:entity:0.0.1-SNAPSHOT with classifier null to /entity/target/classes
+2020-04-13 10:48:21,760 [Worker-4: Launching Main] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: jpublankproject:model:0.0.1-SNAPSHOT with classifier null to /model/target/classes
+2020-04-13 10:48:21,763 [Worker-4: Launching Main] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/controller: jpublankproject:controller:0.0.1-SNAPSHOT with classifier null to /controller/target/classes
