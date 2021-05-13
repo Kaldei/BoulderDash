@@ -1,0 +1,12 @@
+# Maven Files
+target/
+dependency-reduced-pom.xml
+
+# Eclipse files
+.project
+.classpath
+.settings
+
+# IntelliJ files
+.idea/
+*.iml
